@@ -5,7 +5,7 @@ import { RegisterPage } from './pages/Auth/Register';
 
 const router = createBrowserRouter([
 	{
-		path: '/login',
+		path: '/',
 		element: <LoginPage />,
 	},
 	{

@@ -6,11 +6,10 @@ import { useRef, useState } from 'react';
 
 export const LoginPage = () => {
 	const [value, setValue] = useState('');
-	const toast = useRef(null);
+	const toast = useRef<Toast>(null);
 	const [password, setPassword] = useState('');
 
 	const show = () => {
-		if (!toast?.current) return;
 		toast.current?.show({
 			severity: 'success',
 			summary: 'Sucesso',

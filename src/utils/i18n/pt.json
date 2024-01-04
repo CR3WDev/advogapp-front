@@ -1,0 +1,10 @@
+{
+	"login": {
+		"title": "Bem-vindo ao Advogapp",
+		"login": "Login",
+		"password": "Senha",
+		"reset_password": "Redefinir Senha",
+		"no_account": "Não possui conta?",
+		"register": "cadastre-se"
+	}
+}

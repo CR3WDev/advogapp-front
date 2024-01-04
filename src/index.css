@@ -1,1 +1,6 @@
 @import 'primeflex/primeflex.scss';
+
+body {
+	padding: 0;
+	margin: 0;
+}

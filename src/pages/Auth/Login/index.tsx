@@ -1,48 +1,65 @@
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
-import { Toast } from 'primereact/toast';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import img from '../../../assets/icon.svg';
+import { getI18n } from '../../../utils/hooks/useGetI18n';
 
 export const LoginPage = () => {
+	const loginI18n = getI18n('login');
 	const [value, setValue] = useState('');
-	const toast = useRef<Toast>(null);
 	const [password, setPassword] = useState('');
 
-	const show = () => {
-		toast.current?.show({
-			severity: 'success',
-			summary: 'Sucesso',
-			detail: 'Usuário Logado com sucesso!',
-		});
-	};
-
+	//TODO: Trocar o import para um atalho no tsconfig.json
 	return (
-		<>
-			<Toast ref={toast} />
-			<div className="flex flex-column w-14rem">
-				<div className="mb-2">
-					<InputText
-						className="w-full"
-						value={value}
-						onChange={(e) => setValue(e.target.value)}
-					/>
-				</div>
-				<div className="mb-2">
-					<Password
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						toggleMask
-						inputStyle={{ width: '100%' }}
-						feedback={false}
-					/>
-				</div>
-				<div>
-					<Button className="w-full" onClick={show}>
-						Login
-					</Button>
+		<div>
+			<div className="absolute" style={{ top: 20, left: 20 }}>
+				<img src={img} alt="" style={{ borderRadius: 5, overflow: 'hidden' }} />
+			</div>
+			<div className="h-screen w-screen flex justify-content-center align-items-center">
+				<div className="flex flex-column w-16rem">
+					<div className="text-center">
+						<h1>{loginI18n.title}</h1>
+					</div>
+					<div className="mb-2">
+						<InputText
+							className="w-full"
+							value={value}
+							placeholder={loginI18n.login}
+							onChange={(e) => setValue(e.target.value)}
+						/>
+					</div>
+					<div className="mb-2">
+						<Password
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							placeholder={loginI18n.password}
+							toggleMask
+							inputStyle={{ width: '100%' }}
+							feedback={false}
+						/>
+					</div>
+					<div>
+						<Button className="w-full" label={loginI18n.login} />
+					</div>
+					<div className="text-center mt-3">
+						<div>
+							<a
+								href="/register"
+								className="no-underline hover:underline text-primary cursor-pointer ml-2"
+							>
+								{loginI18n.reset_password}
+							</a>
+						</div>
+						<div className="mt-2">
+							<span>{loginI18n.no_account}</span>
+							<a className="no-underline hover:underline text-primary cursor-pointer ml-2">
+								{loginI18n.register}
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };

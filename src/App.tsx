@@ -1,8 +1,8 @@
-import { PrimeReactProvider } from 'primereact/api';
+import { PrimeReactProvider, addLocale } from 'primereact/api';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import pt from '../src/utils/i18n/pt.json';
 import { LoginPage } from './pages/Auth/Login';
 import { RegisterPage } from './pages/Auth/Register';
-
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -12,9 +12,16 @@ const router = createBrowserRouter([
 		path: '/register',
 		element: <RegisterPage />,
 	},
+	{
+		path: '/changepassword',
+		element: <RegisterPage />,
+	},
 ]);
 
 const App = () => {
+	//@ts-ignore
+	addLocale('pt', pt);
+
 	return (
 		<>
 			<PrimeReactProvider>

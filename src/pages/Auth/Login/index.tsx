@@ -21,7 +21,7 @@ export const LoginPage = () => {
 					<div className="text-center">
 						<h1>{loginI18n.title}</h1>
 					</div>
-					<div className="mb-2">
+					<div className="mb-3">
 						<InputText
 							className="w-full"
 							value={value}
@@ -29,7 +29,7 @@ export const LoginPage = () => {
 							onChange={(e) => setValue(e.target.value)}
 						/>
 					</div>
-					<div className="mb-2">
+					<div className="mb-3">
 						<Password
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
@@ -39,7 +39,7 @@ export const LoginPage = () => {
 							feedback={false}
 						/>
 					</div>
-					<div>
+					<div className="mb-5">
 						<Button className="w-full" label={loginI18n.login} />
 					</div>
 					<div className="text-center mt-3">
@@ -51,7 +51,7 @@ export const LoginPage = () => {
 								{loginI18n.reset_password}
 							</a>
 						</div>
-						<div className="mt-2">
+						<div className="mt-3">
 							<span>{loginI18n.no_account}</span>
 							<a className="no-underline hover:underline text-primary cursor-pointer ml-2">
 								{loginI18n.register}

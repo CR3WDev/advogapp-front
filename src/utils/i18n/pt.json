@@ -19,8 +19,11 @@
 
 	"changePassword": {
 		"title": "Redefinir senha",
+		"description": "Digite seu email para enviarmos sua nova senha!",
 		"email": "Email",
-		"changePassword": "Reddefinir senha",
-		"cancel": "Cancelar"
+		"changePassword": "Redefinir senha",
+		"cancel": "Cancelar",
+		"back": "Voltar",
+		"send": "Enviar"
 	}
 }

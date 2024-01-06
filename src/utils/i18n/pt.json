@@ -6,5 +6,21 @@
 		"reset_password": "Redefinir Senha",
 		"no_account": "Não possui conta?",
 		"register": "cadastre-se"
+	},
+
+	"register": {
+		"title": "Criar conta",
+		"login": "Login",
+		"password": "Senha",
+		"create_account": "Criar conta",
+		"already_have_an_account": "Já possui conta?",
+		"go_login": "Logue-se"
+	},
+
+	"changePassword": {
+		"title": "Redefinir senha",
+		"email": "Email",
+		"changePassword": "Reddefinir senha",
+		"cancel": "Cancelar"
 	}
 }

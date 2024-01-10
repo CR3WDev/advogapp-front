@@ -1,4 +1,5 @@
 {
+	"required_field": "Campo Obrigatório",
 	"login": {
 		"title": "Bem-Vindo ao Advogapp",
 		"login": "Login",

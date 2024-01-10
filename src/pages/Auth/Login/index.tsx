@@ -1,28 +1,37 @@
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
-import { useState } from 'react';
+import { classNames } from 'primereact/utils';
+import { useEffect } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import img from '../../../assets/icon.svg';
+
+import { LogoTopbar } from '../../../components/LogoTopbar';
+import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
 import { getI18n } from '../../../utils/hooks/useGetI18n';
 
 export const LoginPage = () => {
 	const loginI18n = getI18n('login');
-	const [value, setValue] = useState('');
-	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
+	const {
+		control,
+		formState: { errors },
+		handleSubmit,
+		watch,
+		register,
+	} = useForm();
+
+	useEffect(() => {
+		watch('value');
+	}, [watch('value')]);
+
+	const onSubmit = (data: any) => {
+		console.log(data);
+	};
 
 	return (
-		<div>
-			<div
-				className="absolute cursor-pointer"
-				style={{ top: 20, left: 20 }}
-				onClick={() => {
-					navigate('/');
-				}}
-			>
-				<img src={img} alt="" style={{ borderRadius: 5, overflow: 'hidden' }} />
-			</div>
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<LogoTopbar />
 			<div className="h-screen w-screen flex justify-content-center align-items-center">
 				<div className="flex flex-column w-16rem">
 					<div className="text-center">
@@ -30,20 +39,34 @@ export const LoginPage = () => {
 					</div>
 					<div className="mb-3">
 						<InputText
-							className="w-full"
-							value={value}
+							className={classNames({
+								'p-invalid': errors.login,
+							})}
+							style={{ width: '100%' }}
 							placeholder={loginI18n.login}
-							onChange={(e) => setValue(e.target.value)}
+							id="login"
+							{...register('login', {
+								required: true,
+							})}
 						/>
+						{getFormErrorMessage(errors.login)}
 					</div>
 					<div className="mb-3">
-						<Password
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							placeholder={loginI18n.password}
-							toggleMask
-							inputStyle={{ width: '100%' }}
-							feedback={false}
+						<Controller
+							name="password"
+							control={control}
+							rules={{ required: true }}
+							render={({ field, fieldState }) => (
+								<>
+									<Password
+										onChange={(e) => field.onChange(e)}
+										placeholder={loginI18n.password}
+										className={classNames({ 'p-invalid': fieldState.error })}
+										feedback={false}
+									/>
+									{getFormErrorMessage(errors.password)}
+								</>
+							)}
 						/>
 					</div>
 					<div className="mb-3">
@@ -74,6 +97,6 @@ export const LoginPage = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	);
 };

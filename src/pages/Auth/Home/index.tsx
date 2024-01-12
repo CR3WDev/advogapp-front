@@ -40,22 +40,29 @@ export const HomePage = () => {
           className="flex"
           style={{ backgroundColor: "#88A9C3", overflowY: "auto" }}
         >
-          <div className="flex w-screen align-items-center justify-content-between">
-            <div className="ml-8">
+          <div className="flex w-screen align-items-center justify-content-evenly">
+            <div>
               <div>
                 <h1>
                   Sua ferramenta para <br /> a busca de advogados
                 </h1>
               </div>
               <div>
-                <span>
+                <p>
                   Procurando um Advogado? <br /> O Advogapp te ajuda a encontrar
                   o advogado para o seu caso
-                </span>
+                </p>
               </div>
             </div>
-            <div className="mr-8">
-              <img src={img_men} style={{ borderRadius: 5 }} className="mx-4" />
+            <div>
+              <img
+                src={img_men}
+                style={{
+                  borderRadius: 5,
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                }}
+                className="mx-4"
+              />
             </div>
           </div>
         </div>

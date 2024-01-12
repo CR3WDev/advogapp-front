@@ -3,13 +3,14 @@ import img from "../../../assets/icon.svg";
 import img_men from "../../../assets/home_imj.jpg";
 import { getI18n } from "../../../utils/hooks/useGetI18n";
 import { Dropdown } from "primereact/dropdown";
+import { CardAdv } from "../../../components/adv/cardAdv";
 
 export const HomePage = () => {
   const loginI18n = getI18n("login");
 
   return (
-    <div className="">
-      <header className="flex h-6rem align-items-center justify-content-between">
+    <div>
+      <header className="flex h-5rem align-items-center justify-content-between">
         <div className="flex">
           <div className="flex align-items-center">
             <img src={img} style={{ borderRadius: 5 }} className="mx-4" />
@@ -32,16 +33,17 @@ export const HomePage = () => {
       <main
         className="flex flex-column"
         style={{
-          height: "calc(200vh - 6rem)",
+          height: "calc(200vh - 5rem)",
           overflowY: "auto",
         }}
       >
         <div
           className="flex"
           style={{
-            height: "calc(100vh - 6rem)",
+            height: "100vh",
             backgroundColor: "#88A9C3",
             overflowY: "auto",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           }}
         >
           <div className="flex w-screen align-items-center justify-content-evenly">
@@ -59,30 +61,26 @@ export const HomePage = () => {
               </div>
             </div>
             <div className="mx-8">
-              <img src={img_men} style={{ borderRadius: 5 }} className="mx-4" />
+              <img
+                src={img_men}
+                style={{
+                  borderRadius: 5,
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                }}
+                className="mx-4"
+              />
             </div>
           </div>
         </div>
         <div
-          className="flex m-8"
+          className="flex flex-column m-8"
           style={{
             height: "100vh",
             overflowY: "auto",
             backgroundColor: "#ffffff",
           }}
         >
-          <span>aaa</span>
-          {/* <Dropdown
-          value={selectedCountry}
-          onChange={(e) => setSelectedCountry(e.value)}
-          options={countries}
-          optionLabel="name"
-          placeholder="Select a Country"
-          filter
-          valueTemplate={selectedCountryTemplate}
-          itemTemplate={countryOptionTemplate}
-          className="w-full md:w-14rem"
-        /> */}
+          <CardAdv />
         </div>
       </main>
     </div>

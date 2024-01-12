@@ -1,20 +1,38 @@
-import { Button } from "primereact/button";
-import img from "../../../assets/icon.svg";
-import { getI18n } from "../../../utils/hooks/useGetI18n";
+import { Button } from 'primereact/button';
+import img from '../../../assets/icon.svg';
+import { getI18n } from '../../../utils/hooks/useGetI18n';
 
 export const HomePage = () => {
-  const loginI18n = getI18n("login");
+	const loginI18n = getI18n('login');
 
-  return (
-    <body className={"h-screen w-screen flex flex-column"}>
-      <header className={"flex w-screen h-6rem align-items-center"}>
-        <div className={"flex-column w-6rem"}>
-          <img src={img} style={{ borderRadius: 5 }} className={"mx-auto"} />
-        </div>
-        <div className={"flex-column w-16rem"}>Encontrar Advogados</div>
-        <div className={"flex-column w-16rem justify-content-end"}>Login</div>
-      </header>
-      <main className={"flex"}>aaa</main>
-    </body>
-  );
+	return (
+		<div className="h-screen w-screen flex flex-column">
+			<header className="flex w-screen h-6rem align-items-center justify-content-between">
+				<div className="flex">
+					<div className="flex align-items-center">
+						<img src={img} style={{ borderRadius: 5 }} className="mx-2" />
+					</div>
+					<div className="flex align-items-center">
+						<span>Encontrar Advogados</span>
+					</div>
+				</div>
+				<div>
+					<Button
+						outlined
+						className="mr-2"
+						label="login"
+						severity="secondary"
+						icon="pi pi-user"
+						iconPos="right"
+					></Button>
+				</div>
+			</header>
+			<main
+				className="flex bg-primary"
+				style={{ height: 'calc(100vh - 6rem)' }}
+			>
+				aaa
+			</main>
+		</div>
+	);
 };

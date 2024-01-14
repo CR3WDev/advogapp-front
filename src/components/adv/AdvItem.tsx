@@ -1,24 +1,30 @@
+import { Rating } from "primereact/rating";
+
 export const AdvItem = (props: {
   nome: string;
   especializacao: string;
-  nota: string;
+  nota: number;
+  numReviews: number;
 }) => {
   return (
     <div
-      className="my-3 flex align-items-center"
+      className="my-3 flex align-items-center justify-content-between"
       style={{
         //backgroundColor: "#88A9C3",
-        height: "20vh",
+        height: "24vh",
         borderRadius: 5,
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         border: "1px solid #ccc",
-        padding: "10px",
+        // padding: "10px",
       }}
     >
-      <div>
-        <span>{props.nome}, </span>
-        <span>{props.especializacao}, </span>
-        <span>{props.nota}</span>
+      <div className="ml-8">
+        <h2>{props.nome} </h2>
+        <span>{props.especializacao} </span>
+      </div>
+      <div className="mr-8">
+        <Rating value={props.nota} readOnly cancel={false} className="mb-3" />
+        <span className="ml-1">{props.numReviews} avaliações</span>
       </div>
     </div>
   );

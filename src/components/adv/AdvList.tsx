@@ -1,4 +1,4 @@
-import { AdvItem } from "./advItem";
+import { AdvItem } from "./AdvItem";
 
 export const AdvList = (props: { items: any[] }) => {
   if (props.items.length === 0) {
@@ -11,6 +11,7 @@ export const AdvList = (props: { items: any[] }) => {
           nome={adv.nome}
           especializacao={adv.especializacao}
           nota={adv.nota}
+          numReviews={adv.numReviews}
         />
       ))}
     </ul>

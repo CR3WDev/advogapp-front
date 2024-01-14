@@ -1,4 +1,4 @@
-import { AdvList } from "./advList";
+import { AdvList } from "./AdvList";
 import { mockAdv } from "../../utils/mock/index";
 
 export const CardAdv = () => {

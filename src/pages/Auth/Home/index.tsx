@@ -3,7 +3,7 @@ import img from "../../../assets/icon.svg";
 import img_men from "../../../assets/home_imj.jpg";
 import { getI18n } from "../../../utils/hooks/useGetI18n";
 import { Dropdown } from "primereact/dropdown";
-import { CardAdv } from "../../../components/adv/cardAdv";
+import { CardAdv } from "../../../components/adv/CardAdv";
 
 export const HomePage = () => {
   const loginI18n = getI18n("login");

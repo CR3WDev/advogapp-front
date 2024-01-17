@@ -28,15 +28,12 @@ export const RegisterPage = () => {
 
 	const onSubmit = (data: any) => {
 		axios
-			.post('http://localhost:8080/user', {
-				firstName: 'Santos',
-				lastName: 'Dumont',
+			.post('/auth/register', {
+				firstName: data.login,
+				lastName: data.password,
 			})
-			.then(function (response) {
-				console.log(response);
-			})
-			.catch(function (error) {
-				console.error(error);
+			.then(() => {
+				navigate('/');
 			});
 	};
 

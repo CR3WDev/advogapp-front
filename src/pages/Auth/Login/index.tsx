@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+import { showToastSuccess } from '../../../components/GlobalToast';
 import { LogoTopbar } from '../../../components/LogoTopbar';
 import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
 import { getI18n } from '../../../utils/hooks/useGetI18n';
@@ -26,7 +27,14 @@ export const LoginPage = () => {
 	}, [watch('value')]);
 
 	const onSubmit = (data: any) => {
-		console.log(data);
+		// api.post('/auth/login', {
+		// 	data: {
+		// 		login: data.login,
+		// 		password: data.password,
+		// 	},
+		// });
+		console.log(data.login);
+		showToastSuccess('success');
 	};
 
 	return (

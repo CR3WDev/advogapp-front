@@ -1,7 +1,8 @@
-import { AdvList } from "./AdvList";
+import { AdvList } from "./ListaAdvogados";
 import { mockAdv } from "../../utils/mock/index";
 import { Dropdown } from "primereact/dropdown";
 import { useState } from "react";
+import { InputText } from "primereact/inputtext";
 
 export const CardAdv = () => {
   const [selectedAdv, setSelectedAdv] = useState(null);
@@ -38,18 +39,25 @@ export const CardAdv = () => {
 
   return (
     <div>
-      <h1>Lista de Adv</h1>
-      <Dropdown
-        value={selectedAdv}
-        onChange={(e) => setSelectedAdv(e.value)}
-        options={advType}
-        optionLabel="type"
-        placeholder="Especialização"
-        filter
-        valueTemplate={selectedAdvTemplate}
-        itemTemplate={advOptionTemplate}
-        className="w-full md:w-14rem"
-      />
+      <div className="my-6">
+        <Dropdown
+          value={selectedAdv}
+          onChange={(e) => setSelectedAdv(e.value)}
+          options={advType}
+          optionLabel="type"
+          placeholder="Especialização"
+          filter
+          valueTemplate={selectedAdvTemplate}
+          itemTemplate={advOptionTemplate}
+          className="w-full md:w-14rem"
+        />
+
+        <span className="p-input-icon-right ml-2">
+          <i className="pi pi-search" />
+          <InputText placeholder="Pesquisa" />
+        </span>
+      </div>
+
       <AdvList items={mockAdv} />
     </div>
   );

@@ -11,6 +11,7 @@ export const AdvItem = (props: {
       className="my-3 flex align-items-center justify-content-between"
       style={{
         //backgroundColor: "#88A9C3",
+        cursor: "pointer",
         height: "20vh",
         borderRadius: 5,
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",

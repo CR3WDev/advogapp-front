@@ -33,7 +33,7 @@ export const RegisterPage = () => {
 				password: data.password,
 			})
 			.then(() => {
-				navigate('/');
+				navigate('/login');
 			});
 	};
 

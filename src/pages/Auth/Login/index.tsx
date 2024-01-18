@@ -33,6 +33,7 @@ export const LoginPage = () => {
 			login: data.login,
 			password: data.password,
 		});
+		navigate('/');
 		showToastSuccess('success');
 	};
 	return (

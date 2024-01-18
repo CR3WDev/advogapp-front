@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { showToastSuccess } from '../../../components/GlobalToast';
 import { LogoTopbar } from '../../../components/LogoTopbar';
+import { api } from '../../../services/axios';
 import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
 import { getI18n } from '../../../utils/hooks/useGetI18n';
 
@@ -27,16 +28,13 @@ export const LoginPage = () => {
 	}, [watch('value')]);
 
 	const onSubmit = (data: any) => {
-		// api.post('/auth/login', {
-		// 	data: {
-		// 		login: data.login,
-		// 		password: data.password,
-		// 	},
-		// });
 		console.log(data.login);
+		api.post('/auth/login', {
+			login: data.login,
+			password: data.password,
+		});
 		showToastSuccess('success');
 	};
-
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<LogoTopbar />

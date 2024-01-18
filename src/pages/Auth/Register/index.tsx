@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import axios from 'axios';
 import { LogoTopbar } from '../../../components/LogoTopbar';
+import { api } from '../../../services/axios';
 import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
 import { getI18n } from '../../../utils/hooks/useGetI18n';
 
@@ -27,10 +27,10 @@ export const RegisterPage = () => {
 	}, [watch('value')]);
 
 	const onSubmit = (data: any) => {
-		axios
+		api
 			.post('/auth/register', {
-				firstName: data.login,
-				lastName: data.password,
+				login: data.login,
+				password: data.password,
 			})
 			.then(() => {
 				navigate('/');

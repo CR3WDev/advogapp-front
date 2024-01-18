@@ -14,6 +14,7 @@ export const AdvList = (props: { items: any[] }) => {
             especializacao={adv.especializacao}
             nota={adv.nota}
             numReviews={adv.numReviews}
+            sobre={adv.sobre}
           />
         </li>
       ))}

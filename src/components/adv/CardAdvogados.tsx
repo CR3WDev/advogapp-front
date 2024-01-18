@@ -1,63 +1,63 @@
-import { AdvList } from "./ListaAdvogados";
-import { mockAdv } from "../../utils/mock/index";
-import { Dropdown } from "primereact/dropdown";
-import { useState } from "react";
-import { InputText } from "primereact/inputtext";
+import { Dropdown } from 'primereact/dropdown';
+import { InputText } from 'primereact/inputtext';
+import { useState } from 'react';
+import { mockAdv } from '../../utils/mock/index';
+import { AdvList } from './ListaAdvogados';
 
 export const CardAdv = () => {
-  const [selectedAdv, setSelectedAdv] = useState(null);
-  const advType = [
-    { type: "Cível" },
-    { type: "Trabalhista" },
-    { type: "Imobiliário" },
-    { type: "Ambientalista" },
-    { type: "Do consumidor" },
-    { type: "Criminalista" },
-    { type: "Previdenciário" },
-    { type: "Digital" },
-  ];
+	const [selectedAdv, setSelectedAdv] = useState(null);
+	const advType = [
+		{ type: 'Cível' },
+		{ type: 'Trabalhista' },
+		{ type: 'Imobiliário' },
+		{ type: 'Ambientalista' },
+		{ type: 'Do consumidor' },
+		{ type: 'Criminalista' },
+		{ type: 'Previdenciário' },
+		{ type: 'Digital' },
+	];
 
-  const selectedAdvTemplate = (option, props) => {
-    if (option) {
-      return (
-        <div className="flex align-items-center">
-          <div>{option.type}</div>
-        </div>
-      );
-    }
+	const selectedAdvTemplate = (option: any, props: any) => {
+		if (option) {
+			return (
+				<div className="flex align-items-center">
+					<div>{option.type}</div>
+				</div>
+			);
+		}
 
-    return <span>{props.placeholder}</span>;
-  };
+		return <span>{props.placeholder}</span>;
+	};
 
-  const advOptionTemplate = (option) => {
-    return (
-      <div className="flex align-items-center">
-        <div>{option.type}</div>
-      </div>
-    );
-  };
+	const advOptionTemplate = (option: any) => {
+		return (
+			<div className="flex align-items-center">
+				<div>{option.type}</div>
+			</div>
+		);
+	};
 
-  return (
-    <div>
-      <div className="my-6">
-        <Dropdown
-          value={selectedAdv}
-          onChange={(e) => setSelectedAdv(e.value)}
-          options={advType}
-          optionLabel="type"
-          placeholder="Especialização"
-          filter
-          valueTemplate={selectedAdvTemplate}
-          itemTemplate={advOptionTemplate}
-          className="w-full md:w-14rem"
-        />
-        <span className="p-input-icon-right ml-2">
-          <i className="pi pi-search" />
-          <InputText placeholder="Pesquisa" />
-        </span>
-      </div>
+	return (
+		<div>
+			<div className="my-6">
+				<Dropdown
+					value={selectedAdv}
+					onChange={(e) => setSelectedAdv(e.value)}
+					options={advType}
+					optionLabel="type"
+					placeholder="Especialização"
+					filter
+					valueTemplate={selectedAdvTemplate}
+					itemTemplate={advOptionTemplate}
+					className="w-full md:w-14rem"
+				/>
+				<span className="p-input-icon-right ml-2">
+					<i className="pi pi-search" />
+					<InputText placeholder="Pesquisa" />
+				</span>
+			</div>
 
-      <AdvList items={mockAdv} />
-    </div>
-  );
+			<AdvList items={mockAdv} />
+		</div>
+	);
 };

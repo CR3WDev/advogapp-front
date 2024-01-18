@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+import { showToastError } from '../../../components/GlobalToast';
 import { LogoTopbar } from '../../../components/LogoTopbar';
 import { api } from '../../../services/axios';
 import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
@@ -34,6 +35,11 @@ export const RegisterPage = () => {
 			})
 			.then(() => {
 				navigate('/login');
+			})
+			.catch((e) => {
+				const message = e?.response?.data?.message;
+				if (!message) return;
+				showToastError(message);
 			});
 	};
 

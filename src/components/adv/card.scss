@@ -8,12 +8,13 @@ $medium: 768px;
 $large: 992px;
 $x-large: 1200px;
 
-body {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  background: $color-bg;
-}
+// body {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   min-height: 100vh;
+  
+// }
 
 .grid {
   display: flex;
@@ -39,6 +40,17 @@ body {
     margin: 0 $grid-gutter;
   }
 }
+
+.card__advogado {
+    flex: 1 1 100%;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    height: 20vh;
+    border-radius: 5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+  }
 
 .card__thumb {
   overflow: hidden;
@@ -128,34 +140,3 @@ body {
   }
 }
 
-.card__three {
-  &::before,
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: scale3d(0, 0, 1);
-    transition: transform .3s ease-out 0s;
-    background: rgba(255, 255, 255, .1);
-    content: '';
-    pointer-events: none;
-  }
-
-  &::before {
-    transform-origin: left top;
-  }
-
-  &::after {
-    transform-origin: right bottom;
-  }
-
-  &:hover,
-  &:focus {
-    &::before,
-    &::after {
-      transform: scale3d(1, 1, 1);
-    }
-  }
-}

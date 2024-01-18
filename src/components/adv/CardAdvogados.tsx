@@ -51,7 +51,6 @@ export const CardAdv = () => {
           itemTemplate={advOptionTemplate}
           className="w-full md:w-14rem"
         />
-
         <span className="p-input-icon-right ml-2">
           <i className="pi pi-search" />
           <InputText placeholder="Pesquisa" />

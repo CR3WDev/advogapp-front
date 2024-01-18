@@ -1,4 +1,5 @@
 import { Rating } from "primereact/rating";
+import "./card.scss";
 
 export const AdvItem = (props: {
   nome: string;
@@ -7,18 +8,7 @@ export const AdvItem = (props: {
   numReviews: number;
 }) => {
   return (
-    <div
-      className="my-3 flex align-items-center justify-content-between"
-      style={{
-        //backgroundColor: "#88A9C3",
-        cursor: "pointer",
-        height: "20vh",
-        borderRadius: 5,
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        border: "1px solid #ccc",
-        // padding: "10px",
-      }}
-    >
+    <div className="my-3 flex card__advogado card card__one">
       <div className="ml-8">
         <h2>{props.nome} </h2>
         <span>{props.especializacao} </span>

@@ -34,9 +34,10 @@ export const LoginPage = () => {
 			login: data?.login,
 			password: data.password,
 		};
-		login(request).then((data) => {
+		login(request).then((data: any) => {
 			navigate('/');
 			showToastSuccess('success');
+			sessionStorage.setItem('token', data?.data?.token);
 		});
 	};
 

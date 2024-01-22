@@ -28,9 +28,9 @@
 		"send": "Enviar"
 	},
 
-	"home":{
+	"home": {
 		"login": "login",
-		"findLawyers":"Encontrar Advogados",
+		"findLawyers": "Encontrar Advogados",
 		"yourToolForSearchingForLawyers": "Sua ferramenta para a busca de advogados",
 		"lookingForALawyer": "Procurando um Advogado?",
 		"AdvogappHelpsYouFindTheLawyerForYourCase": "O Advogapp te ajuda a encontrar o advogado para o seu caso!"

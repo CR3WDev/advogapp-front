@@ -6,15 +6,17 @@ import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import { showToastSuccess } from '../../../components/GlobalToast';
-import { LogoTopbar } from '../../../components/LogoTopbar';
-import { api } from '../../../services/axios';
-import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
-import { getI18n } from '../../../utils/hooks/useGetI18n';
+import { showToastSuccess } from '@components/GlobalToast';
+import { LogoTopbar } from '@components/LogoTopbar';
+import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage';
+import { getI18n } from '@utils/hooks/useGetI18n';
+import { postLogin } from './Services';
+import { Login } from './interfaces';
 
 export const LoginPage = () => {
 	const loginI18n = getI18n('login');
 	const navigate = useNavigate();
+	const { mutateAsync: login } = postLogin();
 	const {
 		control,
 		formState: { errors },
@@ -28,16 +30,16 @@ export const LoginPage = () => {
 	}, [watch('value')]);
 
 	const onSubmit = (data: any) => {
-		api
-			.post('/auth/login', {
-				login: data.login,
-				password: data.password,
-			})
-			.then(() => {
-				navigate('/');
-				showToastSuccess('success');
-			});
+		const request: Login = {
+			login: data?.login,
+			password: data.password,
+		};
+		login(request).then((data) => {
+			navigate('/');
+			showToastSuccess('success');
+		});
 	};
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<LogoTopbar />

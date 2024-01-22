@@ -1,12 +1,15 @@
+import { GlobalToast } from '@components/GlobalToast';
+import pt from '@utils/i18n/pt.json';
 import { PrimeReactProvider, addLocale } from 'primereact/api';
+import { QueryClientProvider } from 'react-query';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import pt from '../src/utils/i18n/pt.json';
-import { GlobalToast } from './components/GlobalToast';
+import { GlobalLoalding } from './components/GlobalLoading';
 import { ChangePassowrdPage } from './pages/Auth/ChangePassword';
 import { HomePage } from './pages/Auth/Home';
 import { LoginPage } from './pages/Auth/Login';
 import { RegisterPage } from './pages/Auth/Register';
 import { Interceptor } from './services/interceptor';
+import { queryClient } from './services/queryClient';
 
 const router = createBrowserRouter([
 	{
@@ -34,9 +37,12 @@ const App = () => {
 	return (
 		<>
 			<PrimeReactProvider>
-				<Interceptor>
-					<RouterProvider router={router} />
-				</Interceptor>
+				<QueryClientProvider client={queryClient}>
+					<GlobalLoalding />
+					<Interceptor>
+						<RouterProvider router={router} />
+					</Interceptor>
+				</QueryClientProvider>
 			</PrimeReactProvider>
 			<GlobalToast />
 		</>

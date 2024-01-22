@@ -6,14 +6,17 @@ import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import { LogoTopbar } from '../../../components/LogoTopbar';
-import { api } from '../../../services/axios';
-import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
-import { getI18n } from '../../../utils/hooks/useGetI18n';
+import { LogoTopbar } from '@components/LogoTopbar';
+import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage';
+import { getI18n } from '@utils/hooks/useGetI18n';
+import { Register } from './interfaces';
+import { postRegister } from './services';
 
 export const RegisterPage = () => {
 	const registerI18n = getI18n('register');
 	const navigate = useNavigate();
+	const { mutateAsync: userRegister } = postRegister();
+
 	const {
 		control,
 		formState: { errors },
@@ -27,14 +30,13 @@ export const RegisterPage = () => {
 	}, [watch('value')]);
 
 	const onSubmit = (data: any) => {
-		api
-			.post('/auth/register', {
-				login: data.login,
-				password: data.password,
-			})
-			.then(() => {
-				navigate('/login');
-			});
+		const request: Register = {
+			login: data.login,
+			password: data.password,
+		};
+		userRegister(request).then(() => {
+			navigate('/login');
+		});
 	};
 
 	//TODO: Trocar o import para um atalho no tsconfig.json

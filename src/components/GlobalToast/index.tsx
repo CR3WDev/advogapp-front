@@ -1,6 +1,6 @@
+import { getI18n } from '@utils/hooks/useGetI18n';
 import { Toast, ToastProps } from 'primereact/toast';
 import { useEffect, useRef } from 'react';
-import { getI18n } from '../../utils/hooks/useGetI18n';
 
 let getToastRef: ToastProps | any;
 const GlobalToast = () => {

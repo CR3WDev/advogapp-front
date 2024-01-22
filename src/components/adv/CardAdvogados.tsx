@@ -1,7 +1,7 @@
+import { mockAdv } from '@utils/mock/index';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { useState } from 'react';
-import { mockAdv } from '../../utils/mock/index';
 import { AdvList } from './ListaAdvogados';
 
 export const CardAdv = () => {

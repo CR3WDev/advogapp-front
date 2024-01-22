@@ -10,11 +10,12 @@ export const AdvList = (props: { items: any[] }) => {
       {props.items.map((adv) => (
         <li key={adv.id}>
           <AdvItem
-            nome={adv.nome}
-            especializacao={adv.especializacao}
-            nota={adv.nota}
+            id={adv.id}
+            name={adv.name}
+            specialization={adv.specialization}
+            rating={adv.rating}
             numReviews={adv.numReviews}
-            sobre={adv.sobre}
+            about={adv.about}
           />
         </li>
       ))}

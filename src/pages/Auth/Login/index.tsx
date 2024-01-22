@@ -6,10 +6,7 @@ import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import {
-	showToastError,
-	showToastSuccess,
-} from '../../../components/GlobalToast';
+import { showToastSuccess } from '../../../components/GlobalToast';
 import { LogoTopbar } from '../../../components/LogoTopbar';
 import { api } from '../../../services/axios';
 import { getFormErrorMessage } from '../../../utils/hooks/useGetFormErrorMessage';
@@ -39,9 +36,6 @@ export const LoginPage = () => {
 			.then(() => {
 				navigate('/');
 				showToastSuccess('success');
-			})
-			.catch(() => {
-				showToastError('Usuário ou Senha Inválidos');
 			});
 	};
 	return (

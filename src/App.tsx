@@ -6,6 +6,7 @@ import { ChangePassowrdPage } from './pages/Auth/ChangePassword';
 import { HomePage } from './pages/Auth/Home';
 import { LoginPage } from './pages/Auth/Login';
 import { RegisterPage } from './pages/Auth/Register';
+import { Interceptor } from './services/interceptor';
 
 const router = createBrowserRouter([
 	{
@@ -33,7 +34,9 @@ const App = () => {
 	return (
 		<>
 			<PrimeReactProvider>
-				<RouterProvider router={router} />
+				<Interceptor>
+					<RouterProvider router={router} />
+				</Interceptor>
 			</PrimeReactProvider>
 			<GlobalToast />
 		</>

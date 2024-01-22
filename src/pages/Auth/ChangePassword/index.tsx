@@ -56,7 +56,7 @@ export const ChangePassowrdPage = () => {
           <div className="text-center">
             <span
               onClick={() => {
-                navigate("/");
+                navigate("/login");
               }}
               className="no-underline hover:underline text-primary cursor-pointer ml-2"
             >

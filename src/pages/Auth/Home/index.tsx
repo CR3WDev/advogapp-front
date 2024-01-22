@@ -29,6 +29,7 @@ export const HomePage = () => {
             icon="pi pi-user"
             onClick={() => {
               navigate("/");
+              sessionStorage.clear();
             }}
             iconPos="right"
           ></Button>

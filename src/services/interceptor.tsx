@@ -19,6 +19,8 @@ export const Interceptor = ({ children }: any) => {
 		},
 		(error) => {
 			const errorResponse: ErrorResponse = error?.response?.data;
+			if (!errorResponse) return Promise.reject(error);
+
 			if (errorResponse.httpStatus === ErrorTypes.BadRequest) {
 				showToastError(errorResponse.message);
 				throw new Error(errorResponse.message);

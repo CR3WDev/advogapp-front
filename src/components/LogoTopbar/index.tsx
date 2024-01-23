@@ -8,7 +8,7 @@ export const LogoTopbar = () => {
 			className="absolute cursor-pointer"
 			style={{ top: 20, left: 20 }}
 			onClick={() => {
-				navigate('/');
+				navigate('/landingpage');
 			}}
 		>
 			<img src={img} alt="" style={{ borderRadius: 5, overflow: 'hidden' }} />

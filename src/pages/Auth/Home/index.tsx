@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export const HomePage = () => {
 	const navigate = useNavigate();
 	const homeI18n = getI18n('home');
+	console.log(homeI18n);
 	return (
 		<div>
 			<header className="flex h-5rem align-items-center justify-content-between">
@@ -24,11 +25,12 @@ export const HomePage = () => {
 					<Button
 						outlined
 						className="mr-4"
-						label={homeI18n.login}
+						label={homeI18n.logout}
 						severity="secondary"
-						icon="pi pi-user"
+						icon="pi pi-logout"
 						onClick={() => {
-							navigate('/login');
+							navigate('/landingpage');
+							sessionStorage.clear();
 						}}
 						iconPos="right"
 					></Button>

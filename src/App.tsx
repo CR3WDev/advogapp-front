@@ -2,33 +2,11 @@ import { GlobalToast } from '@components/GlobalToast';
 import pt from '@utils/i18n/pt.json';
 import { PrimeReactProvider, addLocale } from 'primereact/api';
 import { QueryClientProvider } from 'react-query';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'routes/PublicRoutes';
 import { GlobalLoalding } from './components/GlobalLoading';
-import { ChangePassowrdPage } from './pages/Auth/ChangePassword';
-import { HomePage } from './pages/Auth/Home';
-import { LoginPage } from './pages/Auth/Login';
-import { RegisterPage } from './pages/Auth/Register';
 import { Interceptor } from './services/interceptor';
 import { queryClient } from './services/queryClient';
-
-const router = createBrowserRouter([
-	{
-		path: '/login',
-		element: <LoginPage />,
-	},
-	{
-		path: '/register',
-		element: <RegisterPage />,
-	},
-	{
-		path: '/changepassword',
-		element: <ChangePassowrdPage />,
-	},
-	{
-		path: '/',
-		element: <HomePage />,
-	},
-]);
 
 const App = () => {
 	//@ts-ignore

@@ -17,7 +17,11 @@
     "already_have_an_account": "Já possui conta?",
     "go_login": "Logue-se",
     "user": "Usuário",
-    "lawyer": "Advogado"
+
+    "lawyer": "Advogado",
+    "email": "Email",
+    "confirm_password": "Confirmar Senha",
+    "full_name": "Nome Completo"
   },
 
   "changePassword": {
@@ -36,7 +40,6 @@
     "findLawyers": "Encontrar Advogados",
     "yourToolForSearchingForLawyers": "Sua ferramenta para a busca de advogados",
     "lookingForALawyer": "Procurando um Advogado?",
-    "AdvogappHelpsYouFindTheLawyerForYourCase": "O Advogapp te ajuda a encontrar o advogado para o seu caso!",
-    "logout": "Sair"
+    "AdvogappHelpsYouFindTheLawyerForYourCase": "O Advogapp te ajuda a encontrar o advogado para o seu caso!"
   }
 }

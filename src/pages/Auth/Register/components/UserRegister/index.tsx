@@ -1,5 +1,6 @@
 import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage'
 import { getI18n } from '@utils/hooks/useGetI18n'
+import { UseValidateEmail } from '@utils/hooks/useValidateEmail'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { Password } from 'primereact/password'
@@ -18,13 +19,15 @@ export const UserRegister = () => {
     control,
     formState: { errors },
     handleSubmit,
+    watch,
     register,
   } = useForm()
 
   const onSubmit = (data: any) => {
     const request: Register = {
-      login: data.login,
-      password: data.password,
+      email: data?.email,
+      password: data?.password,
+      fullName: data?.fullName,
     }
     userRegister(request).then(() => {
       navigate('/login')
@@ -32,22 +35,39 @@ export const UserRegister = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: '500px' }}>
       <div className="mb-2">
         <InputText
           className={classNames({
-            'p-invalid': errors.login,
+            'p-invalid': errors.fullName,
           })}
           style={{ width: '100%' }}
-          placeholder={registerI18n.login}
-          id="login"
-          {...register('login', {
+          placeholder={registerI18n.full_name + ' *'}
+          id="fullName"
+          {...register('fullName', {
             required: true,
           })}
         />
-        {getFormErrorMessage(errors.login)}
+        {getFormErrorMessage(errors.fullName)}
       </div>
-      <div className="mb-3">
+      <div className="mb-2">
+        <InputText
+          className={classNames({
+            'p-invalid': errors.email,
+          })}
+          style={{ width: '100%' }}
+          placeholder={registerI18n.email + ' *'}
+          id="email"
+          {...register('email', {
+            required: true,
+            validate: (e) => {
+              return UseValidateEmail(e) || 'Email Inválido'
+            },
+          })}
+        />
+        {getFormErrorMessage(errors.email)}
+      </div>
+      <div className="mb-2 flex flex-column">
         <Controller
           name="password"
           control={control}
@@ -60,9 +80,34 @@ export const UserRegister = () => {
                 className={classNames({ 'p-invalid': fieldState.error })}
                 feedback={false}
                 toggleMask
-                inputStyle={{ width: '100%' }}
+                inputStyle={{ minWidth: '500px' }}
               />
-              {getFormErrorMessage(errors.password)}
+            </>
+          )}
+        />
+        {getFormErrorMessage(errors.password)}
+      </div>
+      <div className="mb-3  flex flex-column">
+        <Controller
+          name="confirmPassword"
+          control={control}
+          rules={{
+            required: true,
+            validate: (e: string) => {
+              return e === watch('password') || 'Senhas devem ser iguais!'
+            },
+          }}
+          render={({ field, fieldState }) => (
+            <>
+              <Password
+                onChange={(e) => field.onChange(e)}
+                placeholder={registerI18n.confirm_password}
+                className={classNames({ 'p-invalid': fieldState.error })}
+                feedback={false}
+                toggleMask
+                inputStyle={{ minWidth: '500px' }}
+              />
+              {getFormErrorMessage(errors.confirmPassword)}
             </>
           )}
         />

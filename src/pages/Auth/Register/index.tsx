@@ -24,6 +24,7 @@ export const RegisterPage = () => {
           <div className="flex justify-content-center mb-3">
             <SelectButton
               value={isLawyerRegister}
+              allowEmpty={false}
               onChange={(e) => setIsLawyerRegister(e.value)}
               options={options}
             />

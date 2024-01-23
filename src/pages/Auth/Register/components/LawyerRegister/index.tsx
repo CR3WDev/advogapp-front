@@ -30,7 +30,7 @@ export const LawyerRegister = () => {
     console.log('entrou')
   }
   return (
-    <div style={{ width: '500px' }}>
+    <div style={{ minWidth: '500px' }}>
       <Steps
         model={items}
         className="mb-3"

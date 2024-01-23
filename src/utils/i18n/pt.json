@@ -1,40 +1,42 @@
 {
-	"required_field": "Campo Obrigatório",
-	"login": {
-		"title": "Bem-Vindo ao Advogapp",
-		"login": "Login",
-		"password": "Senha",
-		"reset_password": "Redefinir Senha",
-		"no_account": "Não possui conta?",
-		"register": "cadastre-se"
-	},
+  "required_field": "Campo Obrigatório",
+  "login": {
+    "title": "Bem-Vindo ao Advogapp",
+    "login": "Login",
+    "password": "Senha",
+    "reset_password": "Redefinir Senha",
+    "no_account": "Não possui conta?",
+    "register": "cadastre-se"
+  },
 
-	"register": {
-		"title": "Criar conta",
-		"login": "Login",
-		"password": "Senha",
-		"create_account": "Criar conta",
-		"already_have_an_account": "Já possui conta?",
-		"go_login": "Logue-se"
-	},
+  "register": {
+    "title": "Criar conta",
+    "login": "Login",
+    "password": "Senha",
+    "create_account": "Criar conta",
+    "already_have_an_account": "Já possui conta?",
+    "go_login": "Logue-se",
+    "user": "Usuário",
+    "lawyer": "Advogado"
+  },
 
-	"changePassword": {
-		"title": "Redefinir senha",
-		"description": "Digite seu email para enviarmos sua nova senha!",
-		"email": "Email",
-		"changePassword": "Redefinir senha",
-		"cancel": "Cancelar",
-		"back": "Voltar",
-		"send": "Enviar"
-	},
+  "changePassword": {
+    "title": "Redefinir senha",
+    "description": "Digite seu email para enviarmos sua nova senha!",
+    "email": "Email",
+    "changePassword": "Redefinir senha",
+    "cancel": "Cancelar",
+    "back": "Voltar",
+    "send": "Enviar"
+  },
 
-	"home": {
-		"login": "login",
-		"logout": "Encerrar sessão",
-		"findLawyers": "Encontrar Advogados",
-		"yourToolForSearchingForLawyers": "Sua ferramenta para a busca de advogados",
-		"lookingForALawyer": "Procurando um Advogado?",
-		"AdvogappHelpsYouFindTheLawyerForYourCase": "O Advogapp te ajuda a encontrar o advogado para o seu caso!",
-		"logout": "Sair"
-	}
+  "home": {
+    "login": "login",
+    "logout": "Encerrar sessão",
+    "findLawyers": "Encontrar Advogados",
+    "yourToolForSearchingForLawyers": "Sua ferramenta para a busca de advogados",
+    "lookingForALawyer": "Procurando um Advogado?",
+    "AdvogappHelpsYouFindTheLawyerForYourCase": "O Advogapp te ajuda a encontrar o advogado para o seu caso!",
+    "logout": "Sair"
+  }
 }

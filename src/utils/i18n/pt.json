@@ -30,6 +30,7 @@
 
 	"home": {
 		"login": "login",
+		"logout": "Encerrar sessão",
 		"findLawyers": "Encontrar Advogados",
 		"yourToolForSearchingForLawyers": "Sua ferramenta para a busca de advogados",
 		"lookingForALawyer": "Procurando um Advogado?",

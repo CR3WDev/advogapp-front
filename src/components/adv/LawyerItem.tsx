@@ -1,23 +1,23 @@
-import imgUserDefault from "@assets/fotoUsuarioBase.png";
-import { Rating } from "primereact/rating";
-import "./index.scss";
+import imgUserDefault from '@assets/fotoUsuarioBase.png'
+import { Rating } from 'primereact/rating'
+import './index.scss'
 
 export const AdvItem = (props: {
-  id: string;
-  name: string;
-  specialization: string;
-  rating: number;
-  numReviews: number;
-  about: string;
+  id: string
+  name: string
+  specialization: string
+  rating: number
+  numReviews: number
+  about: string
 }) => {
   return (
     <div className="my-3 flex card__advogado card card__two">
-      <div className=" flex justify-content-center">
+      <div className="flex justify-content-center ">
         <img
           src={imgUserDefault}
           style={{
-            width: "100px",
-            height: "100px",
+            width: '100px',
+            height: '100px',
           }}
           className="mx-4"
         />
@@ -32,5 +32,5 @@ export const AdvItem = (props: {
         <span className="ml-1">{props.numReviews} avaliações</span>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,35 +1,34 @@
-import { useState, useEffect } from "react";
-import { Button } from "primereact/button";
-import { DataView } from "primereact/dataview";
-import { Rating } from "primereact/rating";
-import { Tag } from "primereact/tag";
-import { classNames } from "primereact/utils";
-import { mockAdv } from "../../utils/mock/index";
+import { useState, useEffect } from 'react'
+import { Button } from 'primereact/button'
+import { DataView } from 'primereact/dataview'
+import { Rating } from 'primereact/rating'
+import { Tag } from 'primereact/tag'
+import { classNames } from 'primereact/utils'
+import { mockAdv } from '../../utils/mock/index'
 
 interface advogado {
-  id: string;
-  name: string;
-  specialization: string;
-  rating: number;
-  numReviews: number;
-  about: string;
+  id: string
+  name: string
+  specialization: string
+  rating: number
+  numReviews: number
+  about: string
 }
 
 export default function PaginationDemo() {
-  const [advogados, setAdvogados] = useState<advogado[]>([]);
+  const [advogados, setAdvogados] = useState<advogado[]>([])
 
   useEffect(() => {
-    setAdvogados(mockAdv);
-  }, []);
+    setAdvogados(mockAdv)
+  }, [])
 
   const itemTemplate = (product: any, index: any) => {
     return (
       <div className="col-12" key={product.id}>
         <div
-          className={classNames(
-            "flex flex-column xl:flex-row xl:align-items-start p-4 gap-4",
-            { "border-top-1 surface-border": index !== 0 }
-          )}
+          className={classNames('flex flex-column xl:flex-row xl:align-items-start p-4 gap-4', {
+            'border-top-1 surface-border': index !== 0,
+          })}
         >
           <img
             className="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
@@ -56,33 +55,28 @@ export default function PaginationDemo() {
               <Button
                 icon="pi pi-shopping-cart"
                 className="p-button-rounded"
-                disabled={product.inventoryStatus === "OUTOFSTOCK"}
+                disabled={product.inventoryStatus === 'OUTOFSTOCK'}
               ></Button>
             </div>
           </div>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   const listTemplate = (items: any) => {
-    if (!items || items.length === 0) return null;
+    if (!items || items.length === 0) return null
 
     let list = items.map((product: any, index: any) => {
-      return itemTemplate(product, index);
-    });
+      return itemTemplate(product, index)
+    })
 
-    return <div className="grid grid-nogutter">{list}</div>;
-  };
+    return <div className="grid grid-nogutter">{list}</div>
+  }
 
   return (
     <div className="card">
-      <DataView
-        value={advogados}
-        itemTemplate={listTemplate}
-        paginator
-        rows={5}
-      />
+      {/* <DataView value={advogados} listTemplate={listTemplate} paginator rows={5} /> */}
     </div>
-  );
+  )
 }

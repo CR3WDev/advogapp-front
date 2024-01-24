@@ -6,6 +6,7 @@ import { NotFoundPage } from '@pages/NotFound'
 import { createBrowserRouter } from 'react-router-dom'
 import { AuthChecker } from './AuthChecker'
 import { PrivateRoutes } from './PrivateRoutes'
+import { HomePage } from '@pages/Auth/Home'
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
   {
     path: '/changepassword',
     element: <ChangePassowrdPage />,
+  },
+  {
+    path: '/homepage',
+    element: <HomePage />,
   },
   {
     path: '/',

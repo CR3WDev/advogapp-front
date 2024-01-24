@@ -1,21 +1,21 @@
-import { mockAdv } from "@utils/mock/index";
-import { Dropdown } from "primereact/dropdown";
-import { InputText } from "primereact/inputtext";
-import { useState } from "react";
-import { AdvList } from "./ListaAdvogados";
+import { mockAdv } from '@utils/mock/index'
+import { Dropdown } from 'primereact/dropdown'
+import { InputText } from 'primereact/inputtext'
+import { useState } from 'react'
+import { LawyerList } from './LawyerList'
 
-export const CardAdv = () => {
-  const [selectedAdv, setSelectedAdv] = useState(null);
+export const CardLawyerList = () => {
+  const [selectedAdv, setSelectedAdv] = useState(null)
   const advType = [
-    { type: "Cível" },
-    { type: "Trabalhista" },
-    { type: "Imobiliário" },
-    { type: "Ambientalista" },
-    { type: "Do consumidor" },
-    { type: "Criminalista" },
-    { type: "Previdenciário" },
-    { type: "Digital" },
-  ];
+    { type: 'Cível' },
+    { type: 'Trabalhista' },
+    { type: 'Imobiliário' },
+    { type: 'Ambientalista' },
+    { type: 'Do consumidor' },
+    { type: 'Criminalista' },
+    { type: 'Previdenciário' },
+    { type: 'Digital' },
+  ]
 
   const selectedAdvTemplate = (option: any, props: any) => {
     if (option) {
@@ -23,19 +23,19 @@ export const CardAdv = () => {
         <div className="flex align-items-center">
           <div>{option.type}</div>
         </div>
-      );
+      )
     }
 
-    return <span>{props.placeholder}</span>;
-  };
+    return <span>{props.placeholder}</span>
+  }
 
   const advOptionTemplate = (option: any) => {
     return (
       <div className="flex align-items-center">
         <div>{option.type}</div>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div>
@@ -57,7 +57,7 @@ export const CardAdv = () => {
         </span>
       </div>
 
-      <AdvList items={mockAdv} />
+      <LawyerList items={mockAdv} />
     </div>
-  );
-};
+  )
+}

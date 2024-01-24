@@ -1,8 +1,8 @@
-import { AdvItem } from "./ItemAdvogado";
+import { AdvItem } from './LawyerItem'
 
-export const AdvList = (props: { items: any[] }) => {
+export const LawyerList = (props: { items: any[] }) => {
   if (props.items.length === 0) {
-    return <h4>Nenhum advogado encontrado.</h4>;
+    return <h4>Nenhum advogado encontrado.</h4>
   }
 
   return (
@@ -20,5 +20,5 @@ export const AdvList = (props: { items: any[] }) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}

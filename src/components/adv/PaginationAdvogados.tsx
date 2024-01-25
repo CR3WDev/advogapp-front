@@ -1,28 +1,35 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from 'primereact/button'
-import { DataView } from 'primereact/dataview'
+import { DataView, DataViewLayoutOptions } from 'primereact/dataview'
 import { Rating } from 'primereact/rating'
 import { Tag } from 'primereact/tag'
 import { classNames } from 'primereact/utils'
-import { mockAdv } from '../../utils/mock/index'
-
-interface advogado {
-  id: string
-  name: string
-  specialization: string
-  rating: number
-  numReviews: number
-  about: string
-}
+import { ProductService } from './service/ProductService'
 
 export default function PaginationDemo() {
-  const [advogados, setAdvogados] = useState<advogado[]>([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    setAdvogados(mockAdv)
+    ProductService.getProducts().then((data) => setProducts(data))
   }, [])
 
-  const itemTemplate = (product: any, index: any) => {
+  const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+      case 'INSTOCK':
+        return 'success'
+
+      case 'LOWSTOCK':
+        return 'warning'
+
+      case 'OUTOFSTOCK':
+        return 'danger'
+
+      default:
+        return null
+    }
+  }
+
+  const itemTemplate = (product, index) => {
     return (
       <div className="col-12" key={product.id}>
         <div
@@ -44,10 +51,7 @@ export default function PaginationDemo() {
                   <i className="pi pi-tag"></i>
                   <span className="font-semibold">{product.category}</span>
                 </span>
-                {/* <Tag
-                  value={product.inventoryStatus}
-                  severity={getSeverity(product)}
-                ></Tag> */}
+                <Tag value={product.inventoryStatus} severity={getSeverity(product)}></Tag>
               </div>
             </div>
             <div className="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
@@ -64,10 +68,10 @@ export default function PaginationDemo() {
     )
   }
 
-  const listTemplate = (items: any) => {
+  const listTemplate = (items) => {
     if (!items || items.length === 0) return null
 
-    let list = items.map((product: any, index: any) => {
+    let list = items.map((product, index) => {
       return itemTemplate(product, index)
     })
 
@@ -76,7 +80,7 @@ export default function PaginationDemo() {
 
   return (
     <div className="card">
-      {/* <DataView value={advogados} listTemplate={listTemplate} paginator rows={5} /> */}
+      <DataView value={products} listTemplate={listTemplate} paginator rows={5} />
     </div>
   )
 }

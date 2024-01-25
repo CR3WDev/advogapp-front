@@ -2,7 +2,8 @@ import { mockAdv } from '@utils/mock/index'
 import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
 import { useState } from 'react'
-import { LawyerList } from './LawyerList'
+import { DataView, DataViewLayoutOptions } from 'primereact/dataview'
+import { LawyerItem } from './LawyerItem'
 
 export const CardLawyerList = () => {
   const [selectedAdv, setSelectedAdv] = useState(null)
@@ -56,8 +57,9 @@ export const CardLawyerList = () => {
           <InputText placeholder="Pesquisa" />
         </span>
       </div>
-
-      <LawyerList items={mockAdv} />
+      <div>
+        <DataView value={mockAdv} itemTemplate={LawyerItem} paginator rows={5} />
+      </div>
     </div>
   )
 }

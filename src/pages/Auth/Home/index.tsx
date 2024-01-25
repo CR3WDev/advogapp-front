@@ -1,7 +1,6 @@
 import img_men from '@assets/home_imj.jpg'
 import img from '@assets/icon.svg'
 import { CardLawyerList } from '@components/adv/CardLawyerList'
-import PaginationAdvogados from '@components/adv/PaginationAdvogados'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
@@ -39,7 +38,7 @@ export const HomePage = () => {
       <main
         className="flex flex-column"
         style={{
-          height: 'calc(200vh - 5rem)',
+          height: 'calc(300vh - 5rem)',
           overflowY: 'auto',
         }}
       >
@@ -80,14 +79,13 @@ export const HomePage = () => {
         <div
           className="flex flex-column m-8"
           style={{
-            height: '100vh',
+            height: '200vh',
             overflowY: 'auto',
             backgroundColor: '#ffffff',
           }}
         >
           <Divider />
           <CardLawyerList />
-          {/* <PaginationAdvogados /> */}
         </div>
       </main>
     </div>

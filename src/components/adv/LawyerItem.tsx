@@ -2,7 +2,7 @@ import imgUserDefault from '@assets/fotoUsuarioBase.png'
 import { Rating } from 'primereact/rating'
 import './index.scss'
 
-export const AdvItem = (props: {
+export const LawyerItem = (props: {
   id: string
   name: string
   specialization: string

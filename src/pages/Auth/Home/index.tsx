@@ -1,6 +1,7 @@
 import img_men from '@assets/home_imj.jpg'
 import img from '@assets/icon.svg'
 import { CardLawyerList } from '@components/adv/CardLawyerList'
+import LawyerPagination from '@components/adv/LawyerPagination'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
@@ -85,7 +86,8 @@ export const HomePage = () => {
           }}
         >
           <Divider />
-          <CardLawyerList />
+          {/* <CardLawyerList /> */}
+          <LawyerPagination />
         </div>
       </main>
     </div>

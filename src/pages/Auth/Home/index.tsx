@@ -1,6 +1,5 @@
 import img_men from '@assets/home_imj.jpg'
 import img from '@assets/icon.svg'
-import { CardLawyerList } from '@components/adv/CardLawyerList'
 import LawyerPagination from '@components/adv/LawyerPagination'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
@@ -39,7 +38,7 @@ export const HomePage = () => {
       <main
         className="flex flex-column"
         style={{
-          height: 'calc(300vh - 5rem)',
+          height: 'calc(260vh - 5rem)',
           overflowY: 'auto',
         }}
       >
@@ -80,7 +79,7 @@ export const HomePage = () => {
         <div
           className="flex flex-column m-8"
           style={{
-            height: '200vh',
+            height: '160vh',
             overflowY: 'auto',
             backgroundColor: '#ffffff',
           }}

@@ -2,7 +2,7 @@ import { mockAdv } from '@utils/mock/index'
 import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
 import { useState } from 'react'
-import { DataView, DataViewLayoutOptions } from 'primereact/dataview'
+import { DataView } from 'primereact/dataview'
 import { LawyerItem } from './LawyerItem'
 
 export const CardLawyerList = () => {

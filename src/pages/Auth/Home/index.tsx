@@ -38,14 +38,14 @@ export const HomePage = () => {
       <main
         className="flex flex-column"
         style={{
-          height: 'calc(260vh - 5rem)',
+          height: 'calc(270vh - 5rem)',
           overflowY: 'auto',
         }}
       >
         <div
           className="flex"
           style={{
-            height: '100vh',
+            height: 'calc(100vh - 5rem)',
             backgroundColor: '#ffffff',
             overflowY: 'auto',
             // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -79,7 +79,7 @@ export const HomePage = () => {
         <div
           className="flex flex-column m-8"
           style={{
-            height: '160vh',
+            height: '170vh',
             overflowY: 'auto',
             backgroundColor: '#ffffff',
           }}

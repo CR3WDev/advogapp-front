@@ -139,7 +139,7 @@ export default function LawyerPagination() {
   // }
 
   return (
-    <div className="card">
+    <div className="card mt-8">
       <DataView
         value={lawyers}
         itemTemplate={itemTemplate}

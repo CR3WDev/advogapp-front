@@ -1,5 +1,5 @@
 import img_men from '@assets/home_imj.jpg'
-import img from '@assets/icon.svg'
+import { LogoTopbar } from '@components/LogoTopbar'
 import LawyerPagination from '@components/adv/LawyerPagination'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
@@ -9,32 +9,50 @@ import { useNavigate } from 'react-router-dom'
 export const HomePage = () => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
+  //   <header className="flex h-5rem align-items-center justify-content-between">
+  //   <div className="flex">
+  //     <div className="flex align-items-center">
+  //       <img src={img} style={{ borderRadius: 5 }} className="mx-4" />
+  //     </div>
+  //     <div className="flex align-items-center">
+  //       <span>{homeI18n.findLawyers}</span>
+  //     </div>
+  //   </div>
+  //   <div>
+  //     <Button
+  //       outlined
+  //       className="mr-4"
+  //       label={homeI18n.login}
+  //       severity="secondary"
+  //       icon="pi pi-user"
+  //       onClick={() => {
+  //         navigate('/login')
+  //         sessionStorage.clear()
+  //       }}
+  //       iconPos="right"
+  //     ></Button>
+  //   </div>
+  // </header>
+  const right = () => {
+    return <div className="ml-3">{homeI18n.findLawyers}</div>
+  }
+  const left = () => {
+    return (
+      <>
+        <Button
+          outlined
+          onClick={() => {
+            navigate('/login')
+          }}
+        >
+          {homeI18n.login}
+        </Button>
+      </>
+    )
+  }
   return (
     <div>
-      <header className="flex h-5rem align-items-center justify-content-between">
-        <div className="flex">
-          <div className="flex align-items-center">
-            <img src={img} style={{ borderRadius: 5 }} className="mx-4" />
-          </div>
-          <div className="flex align-items-center">
-            <span>{homeI18n.findLawyers}</span>
-          </div>
-        </div>
-        <div>
-          <Button
-            outlined
-            className="mr-4"
-            label={homeI18n.logout}
-            severity="secondary"
-            icon="pi pi-user"
-            onClick={() => {
-              navigate('/landingpage')
-              sessionStorage.clear()
-            }}
-            iconPos="right"
-          ></Button>
-        </div>
-      </header>
+      <LogoTopbar rightContent={right} leftContent={left} />
       <main
         className="flex flex-column"
         style={{

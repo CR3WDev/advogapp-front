@@ -9,45 +9,33 @@ import { useNavigate } from 'react-router-dom'
 export const HomePage = () => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
-  //   <header className="flex h-5rem align-items-center justify-content-between">
-  //   <div className="flex">
-  //     <div className="flex align-items-center">
-  //       <img src={img} style={{ borderRadius: 5 }} className="mx-4" />
-  //     </div>
-  //     <div className="flex align-items-center">
-  //       <span>{homeI18n.findLawyers}</span>
-  //     </div>
-  //   </div>
-  //   <div>
-  //     <Button
-  //       outlined
-  //       className="mr-4"
-  //       label={homeI18n.login}
-  //       severity="secondary"
-  //       icon="pi pi-user"
-  //       onClick={() => {
-  //         navigate('/login')
-  //         sessionStorage.clear()
-  //       }}
-  //       iconPos="right"
-  //     ></Button>
-  //   </div>
-  // </header>
+
   const right = () => {
     return <div className="ml-3">{homeI18n.findLawyers}</div>
   }
   const left = () => {
     return (
-      <>
-        <Button
-          outlined
-          onClick={() => {
-            navigate('/login')
-          }}
-        >
-          {homeI18n.login}
-        </Button>
-      </>
+      <div className="flex">
+        <div>
+          <Button
+            outlined
+            text
+            onClick={() => {}}
+            label={homeI18n.becomes_one_of_lawyers}
+            className="mr-3"
+          ></Button>
+        </div>
+        <div>
+          <Button
+            outlined
+            onClick={() => {
+              navigate('/login')
+            }}
+          >
+            {homeI18n.login}
+          </Button>
+        </div>
+      </div>
     )
   }
   return (

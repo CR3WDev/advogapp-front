@@ -19,7 +19,7 @@ interface Lawyer {
 export default function LawyerPagination() {
   const [lawyers, setLawyers] = useState<Lawyer[]>([])
   const [sortField, setSortField] = useState('')
-  const [sortOrder, setSortOrder] = useState(0)
+  const [sortOrder, _setSortOrder] = useState<0 | 1 | -1 | null>(0)
   const [sortKey, setSortKey] = useState('')
 
   useEffect(() => {

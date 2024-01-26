@@ -4,11 +4,27 @@ import LawyerPagination from '@components/adv/LawyerPagination'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export const HomePage = () => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('token')
+    setIsLoggedIn(!!token)
+  }, [])
+
+  const handleButtonLoginLogoutClick = () => {
+    if (isLoggedIn) {
+      sessionStorage.clear()
+      setIsLoggedIn(false)
+    } else {
+      navigate('/login')
+    }
+  }
 
   const right = () => {
     return <div className="ml-3">{homeI18n.findLawyers}</div>
@@ -26,18 +42,14 @@ export const HomePage = () => {
           ></Button>
         </div>
         <div>
-          <Button
-            outlined
-            onClick={() => {
-              navigate('/login')
-            }}
-          >
-            {homeI18n.login}
+          <Button outlined onClick={handleButtonLoginLogoutClick}>
+            {isLoggedIn ? 'Logout' : 'Login'}
           </Button>
         </div>
       </div>
     )
   }
+
   return (
     <div>
       <LogoTopbar rightContent={right} leftContent={left} />

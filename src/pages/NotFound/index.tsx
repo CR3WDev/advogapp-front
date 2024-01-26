@@ -2,10 +2,10 @@ import { LogoTopbar } from '@components/LogoTopbar'
 import { Button } from 'primereact/button'
 import { useNavigate } from 'react-router-dom'
 import { getI18n } from '@utils/hooks/useGetI18n'
-const notFoundPageI18n = getI18n('notFound')
 
 export const NotFoundPage = () => {
   const navigate = useNavigate()
+  const notFoundPageI18n = getI18n('notFound')
   return (
     <div className="h-screen w-screen flex justify-content-center align-items-center">
       <div className="flex flex-column w-16rem align-items-center">

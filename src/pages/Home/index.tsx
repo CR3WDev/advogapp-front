@@ -3,7 +3,7 @@ import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import LawyerPagination from '@components/adv/LawyerPagination'
+import LawyerPagination from '@components/LawyerList/LawyerPagination'
 import { LogoTopbar } from '@components/LogoTopbar'
 import img_men from '@assets/home_imj.jpg'
 import './index.scss'
@@ -71,7 +71,7 @@ export const HomePage = () => {
             <div className="p-4">
               <h1 className="md:text-2xl lg:text-4xl">{homeI18n.yourToolForSearchingForLawyers}</h1>
               <div className="flex flex-column p-1">
-                <span className="md:text-lg lg:text-xl">{homeI18n.lookingForALawyer}</span>
+                <span className="md:text-lg lg:text-xl mb-2">{homeI18n.lookingForALawyer}</span>
                 <span className="md:text-lg lg:text-xl">
                   {homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}
                 </span>

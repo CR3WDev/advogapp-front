@@ -1,11 +1,12 @@
-import img_men from '@assets/home_imj.jpg'
-import { LogoTopbar } from '@components/LogoTopbar'
-import LawyerPagination from '@components/adv/LawyerPagination'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import LawyerPagination from '@components/adv/LawyerPagination'
+import { LogoTopbar } from '@components/LogoTopbar'
+import img_men from '@assets/home_imj.jpg'
+import './index.scss'
 
 export const HomePage = () => {
   const navigate = useNavigate()
@@ -26,18 +27,18 @@ export const HomePage = () => {
     }
   }
 
-  const right = () => {
+  const left = () => {
     return <div className="ml-3">{homeI18n.findLawyers}</div>
   }
-  const left = () => {
+  const right = () => {
     return (
-      <div className="flex">
+      <div className="flex align-items-center">
         <div>
           <Button
             outlined
             text
             onClick={() => {}}
-            label={homeI18n.becomes_one_of_lawyers}
+            label={homeI18n.become_one_of_lawyers}
             className="mr-3"
           ></Button>
         </div>
@@ -52,7 +53,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      <LogoTopbar rightContent={right} leftContent={left} />
+      <LogoTopbar leftContent={left} rightContent={right} />
       <main
         className="flex flex-column"
         style={{
@@ -61,38 +62,21 @@ export const HomePage = () => {
         }}
       >
         <div
-          className="flex"
           style={{
             height: 'calc(100vh - 5rem)',
             backgroundColor: '#ffffff',
-            overflowY: 'auto',
-            // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           }}
         >
-          <div className="flex flex-column-reverse xl:flex-row w-screen align-items-center justify-content-evenly">
-            <div className="mx-4">
-              <div>
-                <h1>{homeI18n.yourToolForSearchingForLawyers}</h1>
-              </div>
-              <div>
-                <span>
-                  {homeI18n.lookingForALawyer} <br />
-                  {homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}
-                </span>
-              </div>
+          <section className="flex01">
+            <div className="p-5">
+              <h1>{homeI18n.yourToolForSearchingForLawyers}</h1>
+              <span>{homeI18n.lookingForALawyer}</span>
+              <span>{homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}</span>
             </div>
-            <div className="mx-8">
-              <img
-                src={img_men}
-                style={{
-                  borderRadius: 5,
-                  width: '40vw',
-                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                }}
-                className="mx-4"
-              />
+            <div className="p-5">
+              <img src={img_men} />
             </div>
-          </div>
+          </section>
         </div>
         <div
           className="flex flex-column m-8"

@@ -57,7 +57,7 @@ export const HomePage = () => {
       <main
         className="flex flex-column"
         style={{
-          height: 'calc(270vh - 5rem)',
+          height: 'calc(300vh - 5rem)',
           overflowY: 'auto',
         }}
       >
@@ -83,9 +83,8 @@ export const HomePage = () => {
           </section>
         </div>
         <div
-          className="flex flex-column m-8"
           style={{
-            height: '170vh',
+            height: '200vh',
             overflowY: 'auto',
             backgroundColor: '#ffffff',
           }}

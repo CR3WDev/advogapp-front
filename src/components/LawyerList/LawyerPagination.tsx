@@ -82,7 +82,11 @@ export default function LawyerPagination() {
 
   const header = () => {
     return (
-      <div>
+      <div className="filter">
+        <span className="flex flex-row p-input-icon-right">
+          <i className="pi pi-search" />
+          <InputText placeholder="Pesquisa" className="filterItem" />
+        </span>
         <Dropdown
           value={selectedAdv}
           onChange={(e) => setSelectedAdv(e.value)}
@@ -92,38 +96,30 @@ export default function LawyerPagination() {
           filter
           valueTemplate={selectedAdvTemplate}
           itemTemplate={advOptionTemplate}
-          className="w-full md:w-14rem"
+          className="filterItem"
         />
-        <span className="p-input-icon-right ml-2">
-          <i className="pi pi-search" />
-          <InputText placeholder="Pesquisa" />
-        </span>
       </div>
     )
   }
 
   const itemTemplate = (lawyer: any) => {
     return (
-      <div className="my-3 flex card__advogado card card__two">
-        <div className="flex justify-content-center ">
-          <img
-            src={imgUserDefault}
-            style={{
-              width: '100px',
-              height: '100px',
-            }}
-            className="mx-4"
-          />
-          <div className="ml-4 mr-6">
-            <h2 className="my-2">{lawyer.name} </h2>
+      <div className="card card__advogado card__two grid m-2">
+        <div className="card__img flex flex-row align-items-center">
+          <div>
+            <img src={imgUserDefault} />
+          </div>
+          <div className="flex flex-column ml-2">
+            <span className="text-3xl font-bold">{lawyer.name} </span>
             <span>{lawyer.specialization} </span>
           </div>
-          <div className="max-width-sobre">{lawyer.about} </div>
         </div>
-        <div className="ml-4 mr-8">
+
+        <div className="p-2 sm: p-0">
           <Rating value={lawyer.rating} readOnly cancel={false} className="mb-3" />
           <span className="ml-1">{lawyer.numReviews} avaliações</span>
         </div>
+        <div className="max-width-sobre p-1">{lawyer.about} </div>
       </div>
     )
   }
@@ -139,7 +135,7 @@ export default function LawyerPagination() {
   // }
 
   return (
-    <div className="card mt-8">
+    <div className="card mt-8 lg:mx-8">
       <DataView
         value={lawyers}
         itemTemplate={itemTemplate}

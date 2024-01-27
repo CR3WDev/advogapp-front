@@ -39,7 +39,7 @@ export const HomePage = () => {
             text
             onClick={() => {}}
             label={homeI18n.become_one_of_lawyers}
-            className="mr-3"
+            className="mr-2"
           ></Button>
         </div>
         <div>
@@ -68,12 +68,16 @@ export const HomePage = () => {
           }}
         >
           <section className="flex01">
-            <div className="p-5">
-              <h1>{homeI18n.yourToolForSearchingForLawyers}</h1>
-              <span>{homeI18n.lookingForALawyer}</span>
-              <span>{homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}</span>
+            <div className="p-4">
+              <h1 className="md:text-2xl lg:text-4xl">{homeI18n.yourToolForSearchingForLawyers}</h1>
+              <div className="flex flex-column p-1">
+                <span className="md:text-lg lg:text-xl">{homeI18n.lookingForALawyer}</span>
+                <span className="md:text-lg lg:text-xl">
+                  {homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}
+                </span>
+              </div>
             </div>
-            <div className="p-5">
+            <div className="p-4 md:p-0">
               <img src={img_men} />
             </div>
           </section>
@@ -87,7 +91,6 @@ export const HomePage = () => {
           }}
         >
           <Divider />
-          {/* <CardLawyerList /> */}
           <LawyerPagination />
         </div>
       </main>

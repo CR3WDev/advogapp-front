@@ -5,16 +5,13 @@ body {
 
 .flex01 > div > img {
   max-width: 100%;
+  width: 42rem;
   display: block;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+  //flex: 1 1 100px;
 }
 
-// .flex01 > div {
-//   flex: 1 1 300px;
-
-// }
 
 .flex01 {
   display: flex;
@@ -22,6 +19,5 @@ body {
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-  background-color: tomato;
 }
 

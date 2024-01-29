@@ -22,6 +22,24 @@
     "confirm_password": "Confirmar Senha",
     "full_name": "Nome Completo"
   },
+  "register_lawyer": {
+    "title": "Torne-se um de nossos Advogados!",
+    "login": "Login",
+    "oab": "OAB",
+    "cpf": "CPF",
+    "date_birth": "Data de Nascimento",
+    "specialization": "Especialização",
+    "password": "Senha",
+    "create_account": "Criar conta",
+    "already_have_an_account": "Já possui conta?",
+    "go_login": "Logue-se",
+    "register": "Cadastre-se",
+    "user": "Usuário",
+    "lawyer": "Advogado",
+    "email": "Email",
+    "confirm_password": "Confirmar Senha",
+    "full_name": "Nome Completo"
+  },
 
   "changePassword": {
     "title": "Redefinir senha",
@@ -44,10 +62,9 @@
   },
 
   "notFound": {
-    "oops":"Oops...",
-    "erro404":"404",
-    "page_not_found":"Pagina não encontrada",
-    "return_to_home_page":"Voltar a pagina incial"
+    "oops": "Oops...",
+    "erro404": "404",
+    "page_not_found": "Pagina não encontrada",
+    "return_to_home_page": "Voltar a pagina incial"
   }
-
 }

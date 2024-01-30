@@ -49,9 +49,9 @@ export const LoginPage = () => {
       <div className="contentSpace authFormat">
         <div className=" w-16rem">
           <div className="text-center mb-4">
-            <span className="text-3xl sm:text-4xl font-bold">{loginI18n.title}</span>
+            <span className="title">{loginI18n.title}</span>
           </div>
-          <div className="pl-2 pr-2 sm:p-0 mb-2">
+          <div className="paddingResponsiveness mb-2">
             <InputText
               className={classNames('formTextResponsiveness', {
                 'p-invalid': errors.login,
@@ -64,7 +64,7 @@ export const LoginPage = () => {
             />
             {getFormErrorMessage(errors.login)}
           </div>
-          <div className="pl-2 pr-2 sm:p-0 mb-3">
+          <div className="paddingResponsiveness mb-3">
             <Controller
               name="password"
               control={control}
@@ -86,7 +86,7 @@ export const LoginPage = () => {
               )}
             />
           </div>
-          <div className="pl-2 pr-2 sm:p-0 mb-3">
+          <div className="paddingResponsiveness mb-3">
             <Button className="w-full formTextResponsiveness" label={loginI18n.login} />
           </div>
           <div className="text-center">

@@ -22,3 +22,20 @@ $x-large: 1200px;
     font-size: .875rem;
   }
 }
+
+.title{
+  font-size: 2rem;
+  font-weight: bold;
+
+  @media screen and (max-width: $small) {
+    font-size: 1.75rem;
+  }
+}
+
+.paddingResponsiveness{
+  padding: 0;
+  @media screen and (max-width: $small) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

@@ -18,9 +18,9 @@ interface Lawyer {
 
 export default function LawyerPagination() {
   const [lawyers, setLawyers] = useState<Lawyer[]>([])
-  const [sortField, setSortField] = useState('')
+  const [sortField, _setSortField] = useState('')
   const [sortOrder, _setSortOrder] = useState<0 | 1 | -1 | null>(0)
-  const [sortKey, setSortKey] = useState('')
+  const [_sortKey, _setSortKey] = useState('')
 
   useEffect(() => {
     setLawyers(mockAdv)

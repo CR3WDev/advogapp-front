@@ -1,0 +1,24 @@
+$small: 575px;
+$medium: 768px;
+$large: 992px;
+$x-large: 1200px;
+
+//(Espaço da tela - header)
+.contentSpace{
+  height: 92vh;
+  width: 100vw;
+}
+
+.authFormat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formTextResponsiveness{
+  width: 100%;
+  font-size: 1rem;
+  @media screen and (max-width: $small) {
+    font-size: .875rem;
+  }
+}

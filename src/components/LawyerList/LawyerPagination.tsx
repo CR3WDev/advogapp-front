@@ -135,12 +135,12 @@ export default function LawyerPagination() {
   // }
 
   return (
-    <div className="card mt-8 lg:mx-8">
+    <div className="card mt-8 lg:mx-8 ">
       <DataView
         value={lawyers}
         itemTemplate={itemTemplate}
         paginator
-        rows={5}
+        rows={10}
         header={header()}
         sortField={sortField}
         sortOrder={sortOrder}

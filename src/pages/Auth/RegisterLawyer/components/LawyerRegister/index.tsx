@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom'
 import { Register } from '../../interfaces'
 import { postRegister } from '../../services'
 
+import '../../../index.scss'
+
 export const LawyerRegister = () => {
   const registerI18n = getI18n('register_lawyer')
   const { mutateAsync: userRegister } = postRegister()
@@ -37,13 +39,12 @@ export const LawyerRegister = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: '500px' }}>
-      <div className="mb-2">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames({
+          className={classNames('form-text-responsiveness', {
             'p-invalid': errors.oab,
           })}
-          style={{ width: '100%' }}
           placeholder={registerI18n.oab + ' *'}
           id="oab"
           {...register('oab', {
@@ -52,7 +53,7 @@ export const LawyerRegister = () => {
         />
         {getFormErrorMessage(errors.oab)}
       </div>
-      <div className="mb-2  flex flex-column">
+      <div className="padding-responsiveness mb-2 flex flex-column">
         <Controller
           name="cpf"
           control={control}
@@ -77,7 +78,7 @@ export const LawyerRegister = () => {
           )}
         />
       </div>
-      <div className="mb-2  flex flex-column">
+      <div className="padding-responsiveness mb-2  flex flex-column">
         <Controller
           name="dateBirth"
           control={control}
@@ -102,7 +103,7 @@ export const LawyerRegister = () => {
           )}
         />
       </div>
-      <div className="mb-3 flex flex-column">
+      <div className="padding-responsiveness mb-3 flex flex-column">
         <Controller
           name="specialization"
           control={control}
@@ -127,8 +128,8 @@ export const LawyerRegister = () => {
         />
         {getFormErrorMessage(errors.specialization)}
       </div>
-      <div className="mb-3">
-        <Button className="w-full" label={registerI18n.create_account} />
+      <div className="padding-responsiveness mb-3">
+        <Button className="w-full form-text-responsiveness" label={registerI18n.create_account} />
       </div>
     </form>
   )

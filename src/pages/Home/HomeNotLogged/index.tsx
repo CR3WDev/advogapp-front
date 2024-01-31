@@ -16,16 +16,12 @@ const HomeNotLogged = () => {
   }
 
   const left = () => {
-    return <div className="ml-3">{homeI18n.findLawyers}</div>
+    return <div className="ml-3">{homeI18n.find_lawyers}</div>
   }
   const right = () => {
     return (
       <div className="flex align-items-center">
-        <div>
-          <Button outlined onClick={handleButtonLoginLogoutClick}>
-            {'Login'}
-          </Button>
-        </div>
+        <Button outlined label="Login" onClick={handleButtonLoginLogoutClick} />
       </div>
     )
   }
@@ -33,44 +29,28 @@ const HomeNotLogged = () => {
   return (
     <div>
       <LogoTopbar leftContent={left} rightContent={right} />
-      <main
-        className="flex flex-column"
-        style={{
-          height: 'calc(300vh - 5rem)',
-          overflowY: 'auto',
-        }}
-      >
-        <div
-          style={{
-            height: 'calc(100vh - 5rem)',
-            backgroundColor: '#ffffff',
-          }}
-        >
-          <section className="flex01">
-            <div className="p-4">
-              <h1 className="md:text-2xl lg:text-4xl">{homeI18n.yourToolForSearchingForLawyers}</h1>
-              <div className="flex flex-column p-1">
-                <span className="md:text-lg lg:text-xl mb-2">{homeI18n.lookingForALawyer}</span>
-                <span className="md:text-lg lg:text-xl">
-                  {homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}
-                </span>
-              </div>
+      <main className="flex flex-column">
+        <section className="flex01" style={{ height: 'calc(100vh - 5rem)' }}>
+          <div className="p-4">
+            <h1 className="md:text-2xl lg:text-4xl">
+              {homeI18n.your_tool_for_searching_for_lawyers}
+            </h1>
+            <div className="flex flex-column p-1">
+              <span className="md:text-lg lg:text-xl mb-2">{homeI18n.looking_for_a_lawyer}</span>
+              <span className="md:text-lg lg:text-xl">
+                {homeI18n.advogapp_helps_you_find_the_lawyer_for_your_case}
+              </span>
             </div>
-            <div className="p-4 md:p-0">
-              <img src={img_men} />
-            </div>
-          </section>
-        </div>
-        <div
-          style={{
-            height: '200vh',
-            overflowY: 'auto',
-            backgroundColor: '#ffffff',
-          }}
-        >
+          </div>
+          <div className="p-4 md:p-0">
+            <img src={img_men} />
+          </div>
+        </section>
+
+        <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
           <Divider />
-          <LawyerPagination />
         </div>
+        <LawyerPagination />
       </main>
     </div>
   )

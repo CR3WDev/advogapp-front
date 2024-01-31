@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 import '../index.scss'
 
 export const ChangePassowrdPage = () => {
-  const changePasswordI18n = getI18n('changePassword')
+  const changePasswordI18n = getI18n('change_password')
   const navigate = useNavigate()
   const {
     formState: { errors },

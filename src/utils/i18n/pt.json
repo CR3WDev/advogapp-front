@@ -41,11 +41,10 @@
     "full_name": "Nome Completo"
   },
 
-  "changePassword": {
+  "change_password": {
     "title": "Redefinir senha",
     "description": "Digite seu email para enviarmos sua nova senha!",
     "email": "Email",
-    "changePassword": "Redefinir senha",
     "cancel": "Cancelar",
     "back": "Voltar",
     "send": "Enviar"
@@ -54,11 +53,11 @@
   "home": {
     "login": "login",
     "logout": "Encerrar sessão",
-    "findLawyers": "Encontrar Advogados",
+    "find_lawyers": "Encontrar Advogados",
     "become_one_of_lawyers": "Seja um de nossos advogados!",
-    "yourToolForSearchingForLawyers": "Sua ferramenta para a busca de advogados",
-    "lookingForALawyer": "Procurando um Advogado?",
-    "AdvogappHelpsYouFindTheLawyerForYourCase": "O Advogapp te ajuda a encontrar o advogado para o seu caso!"
+    "your_tool_for_searching_for_lawyers": "Sua ferramenta para a busca de advogados",
+    "looking_for_a_lawyer": "Procurando um Advogado?",
+    "advogapp_helps_you_find_the_lawyer_for_your_case": "O Advogapp te ajuda a encontrar o advogado para o seu caso!"
   },
 
   "notFound": {

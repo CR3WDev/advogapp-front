@@ -17,7 +17,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   }
 
   const left = () => {
-    return <div className="ml-3">{homeI18n.findLawyers}</div>
+    return <div className="ml-3">{homeI18n.find_lawyers}</div>
   }
   const right = () => {
     return (
@@ -46,11 +46,13 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
       <main className="flex flex-column">
         <section className="flex01" style={{ height: 'calc(100vh - 5rem)' }}>
           <div className="p-4">
-            <h1 className="md:text-2xl lg:text-4xl">{homeI18n.yourToolForSearchingForLawyers}</h1>
+            <h1 className="md:text-2xl lg:text-4xl">
+              {homeI18n.your_tool_for_searching_for_lawyers}
+            </h1>
             <div className="flex flex-column p-1">
-              <span className="md:text-lg lg:text-xl mb-2">{homeI18n.lookingForALawyer}</span>
+              <span className="md:text-lg lg:text-xl mb-2">{homeI18n.looking_for_a_lawyer}</span>
               <span className="md:text-lg lg:text-xl">
-                {homeI18n.AdvogappHelpsYouFindTheLawyerForYourCase}
+                {homeI18n.advogapp_helps_you_find_the_lawyer_for_your_case}
               </span>
             </div>
           </div>

@@ -38,7 +38,7 @@ export const LoginPage = () => {
     }
     login(request).then((data: any) => {
       navigate('/')
-      showToastSuccess('success')
+      //showToastSuccess('success')
       sessionStorage.setItem('token', data?.data?.token)
     })
   }
@@ -46,14 +46,14 @@ export const LoginPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <LogoTopbar />
-      <div className="contentSpace authFormat">
+      <div className="content-space auth-format">
         <div className=" w-16rem">
           <div className="text-center mb-4">
             <span className="title">{loginI18n.title}</span>
           </div>
-          <div className="paddingResponsiveness mb-2">
+          <div className="padding-responsiveness mb-2">
             <InputText
-              className={classNames('formTextResponsiveness', {
+              className={classNames('form-text-responsiveness', {
                 'p-invalid': errors.login,
               })}
               placeholder={loginI18n.login}
@@ -64,17 +64,17 @@ export const LoginPage = () => {
             />
             {getFormErrorMessage(errors.login)}
           </div>
-          <div className="paddingResponsiveness mb-3">
+          <div className="padding-responsiveness mb-3">
             <Controller
               name="password"
               control={control}
               rules={{ required: true }}
               render={({ field, fieldState }) => (
-                <div className="formTextResponsiveness custom-password">
+                <div className="custom-password">
                   <Password
                     onChange={(e) => field.onChange(e)}
-                    placeholder={loginI18n.password + ' <- não responsivo'}
-                    className={classNames('formTextResponsiveness', {
+                    placeholder={loginI18n.password}
+                    className={classNames({
                       'p-invalid': fieldState.error,
                     })}
                     feedback={false}
@@ -86,8 +86,8 @@ export const LoginPage = () => {
               )}
             />
           </div>
-          <div className="paddingResponsiveness mb-3">
-            <Button className="w-full formTextResponsiveness" label={loginI18n.login} />
+          <div className="padding-responsiveness mb-3">
+            <Button className="w-full form-text-responsiveness" label={loginI18n.login} />
           </div>
           <div className="text-center">
             <div className="mb-1">
@@ -95,12 +95,12 @@ export const LoginPage = () => {
                 onClick={() => {
                   navigate('/changepassword')
                 }}
-                className="no-underline hover:underline text-primary cursor-pointer formTextResponsiveness"
+                className="no-underline hover:underline text-primary cursor-pointer form-text-responsiveness"
               >
                 {loginI18n.reset_password}
               </span>
             </div>
-            <div className="flex flex-wrap align-items-center justify-content-center p-2 formTextResponsiveness">
+            <div className="flex flex-wrap align-items-center justify-content-center p-2 form-text-responsiveness">
               <span>{loginI18n.no_account}</span>
               <span
                 onClick={() => {

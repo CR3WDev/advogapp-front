@@ -3,12 +3,12 @@ $medium: 768px;
 $large: 992px;
 $x-large: 1200px;
 
-.contentSpace {
+.content-space {
   height: 92vh;
   width: 100vw;
 }
 
-.authFormat {
+.auth-format {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ $x-large: 1200px;
   }
 }
 
-.paddingResponsiveness {
+.padding-responsiveness {
   padding: 0;
   @media screen and (max-width: $small) {
     padding-left: 0.5rem;
@@ -31,7 +31,7 @@ $x-large: 1200px;
   }
 }
 .custom-password .p-password-input,
-.formTextResponsiveness {
+.form-text-responsiveness {
   width: 100%;
   font-size: 1rem;
   @media screen and (max-width: $small) {

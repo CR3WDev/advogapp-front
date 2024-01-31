@@ -46,11 +46,13 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
       <main
         className="flex flex-column"
         style={{
+          height: 'calc(300vh - 5rem)',
           overflowY: 'auto',
         }}
       >
         <div
           style={{
+            height: 'calc(100vh - 5rem)',
             backgroundColor: '#ffffff',
           }}
         >
@@ -71,6 +73,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
         </div>
         <div
           style={{
+            height: '200vh',
             overflowY: 'auto',
             backgroundColor: '#ffffff',
           }}

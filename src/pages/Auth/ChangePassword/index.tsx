@@ -32,17 +32,17 @@ export const ChangePassowrdPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <LogoTopbar />
-      <div className="contentSpace authFormat">
+      <div className="content-space auth-format">
         <div className="w-16rem">
-          <div className="text-center paddingResponsiveness mb-3">
+          <div className="text-center padding-responsiveness mb-3">
             <span className="title">{changePasswordI18n.title}</span>
           </div>
-          <div className="paddingResponsiveness mb-3 text-center formTextResponsiveness">
+          <div className="padding-responsiveness mb-3 text-center form-text-responsiveness">
             <span>{changePasswordI18n.description}</span>
           </div>
-          <div className="paddingResponsiveness mb-3">
+          <div className="padding-responsiveness mb-3">
             <InputText
-              className={classNames('formTextResponsiveness', {
+              className={classNames('form-text-responsiveness', {
                 'p-invalid': errors.email,
               })}
               style={{ width: '100%' }}
@@ -54,10 +54,10 @@ export const ChangePassowrdPage = () => {
             />
             {getFormErrorMessage(errors.email)}
           </div>
-          <div className="paddingResponsiveness mb-3">
-            <Button className="w-full formTextResponsiveness" label={changePasswordI18n.send} />
+          <div className="padding-responsiveness mb-3">
+            <Button className="w-full form-text-responsiveness" label={changePasswordI18n.send} />
           </div>
-          <div className="text-center formTextResponsiveness p-2 sm:p-0">
+          <div className="text-center form-text-responsiveness p-2 sm:p-0">
             <span
               onClick={() => {
                 navigate('/login')

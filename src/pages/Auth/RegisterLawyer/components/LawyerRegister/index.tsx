@@ -20,7 +20,6 @@ export const LawyerRegister = () => {
     control,
     formState: { errors },
     handleSubmit,
-    watch,
     register,
   } = useForm()
 

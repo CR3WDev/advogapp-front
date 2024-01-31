@@ -3,27 +3,18 @@ $medium: 768px;
 $large: 992px;
 $x-large: 1200px;
 
-//(Espaço da tela - header)
-.contentSpace{
+.contentSpace {
   height: 92vh;
   width: 100vw;
 }
 
-.authFormat{
+.authFormat {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.formTextResponsiveness{
-  width: 100%;
-  font-size: 1rem;
-  @media screen and (max-width: $small) {
-    font-size: .875rem;
-  }
-}
-
-.title{
+.title {
   font-size: 2rem;
   font-weight: bold;
 
@@ -32,10 +23,18 @@ $x-large: 1200px;
   }
 }
 
-.paddingResponsiveness{
+.paddingResponsiveness {
   padding: 0;
   @media screen and (max-width: $small) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+}
+.custom-password .p-password-input,
+.formTextResponsiveness {
+  width: 100%;
+  font-size: 1rem;
+  @media screen and (max-width: $small) {
+    font-size: 0.875rem;
   }
 }

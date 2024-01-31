@@ -70,7 +70,7 @@ export const LoginPage = () => {
               control={control}
               rules={{ required: true }}
               render={({ field, fieldState }) => (
-                <div className="formTextResponsiveness">
+                <div className="formTextResponsiveness custom-password">
                   <Password
                     onChange={(e) => field.onChange(e)}
                     placeholder={loginI18n.password + ' <- não responsivo'}

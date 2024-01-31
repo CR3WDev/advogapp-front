@@ -7,12 +7,13 @@ import { Divider } from 'primereact/divider'
 import { useNavigate } from 'react-router-dom'
 import '../index.scss'
 
-export const HomeLogged = () => {
+export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
 
   const handleButtonLoginLogoutClick = () => {
     sessionStorage.clear()
+    setLogoutIsClicked(true)
   }
 
   const left = () => {
@@ -33,9 +34,7 @@ export const HomeLogged = () => {
           ></Button>
         </div>
         <div>
-          <Button outlined onClick={handleButtonLoginLogoutClick}>
-            {'Logout'}
-          </Button>
+          <Button outlined label="Logout" onClick={handleButtonLoginLogoutClick} />
         </div>
       </div>
     )
@@ -47,13 +46,11 @@ export const HomeLogged = () => {
       <main
         className="flex flex-column"
         style={{
-          height: 'calc(300vh - 5rem)',
           overflowY: 'auto',
         }}
       >
         <div
           style={{
-            height: 'calc(100vh - 5rem)',
             backgroundColor: '#ffffff',
           }}
         >
@@ -74,7 +71,6 @@ export const HomeLogged = () => {
         </div>
         <div
           style={{
-            height: '200vh',
             overflowY: 'auto',
             backgroundColor: '#ffffff',
           }}

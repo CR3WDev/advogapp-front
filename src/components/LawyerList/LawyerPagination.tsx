@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
-import { DataView } from 'primereact/dataview'
-import { Rating } from 'primereact/rating'
-import { mockAdv } from '../../utils/mock/index'
 import imgUserDefault from '@assets/fotoUsuarioBase.png'
-import './index.scss'
+import { DataView } from 'primereact/dataview'
 import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
+import { Rating } from 'primereact/rating'
+import { useEffect, useState } from 'react'
+import { mockAdv } from '../../utils/mock/index'
+import './index.scss'
 
 interface Lawyer {
   id: string

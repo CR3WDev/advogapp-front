@@ -47,7 +47,7 @@ export const LoginPage = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <LogoTopbar />
       <div className="content-space auth-format">
-        <div className=" w-16rem">
+        <div className="w-16rem">
           <div className="text-center mb-4">
             <span className="title">{loginI18n.title}</span>
           </div>

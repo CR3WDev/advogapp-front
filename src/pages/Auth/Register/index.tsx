@@ -4,6 +4,8 @@ import { LogoTopbar } from '@components/LogoTopbar'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { UserRegister } from './components/UserRegister'
 
+import '../index.scss'
+
 export const RegisterPage = () => {
   const registerI18n = getI18n('register')
   const navigate = useNavigate()
@@ -11,13 +13,13 @@ export const RegisterPage = () => {
   return (
     <>
       <LogoTopbar />
-      <div className="h-screen w-screen flex justify-content-center align-items-center">
-        <div className="flex flex-column">
-          <div className="text-center mb-2">
-            <h1>{registerI18n.title}</h1>
+      <div className="content-space auth-format">
+        <div className="w-16rem">
+          <div className="text-center mb-3">
+            <span className="title">{registerI18n.title}</span>
           </div>
           <UserRegister />
-          <div className="text-center">
+          <div className="text-center form-text-responsiveness">
             <div>
               <span>{registerI18n.already_have_an_account}</span>
               <span

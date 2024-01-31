@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom'
 import { Register } from '../../interfaces'
 import { postRegister } from '../../services'
 
+import '../../../index.scss'
+
 export const UserRegister = () => {
   const registerI18n = getI18n('register')
   const { mutateAsync: userRegister } = postRegister()
@@ -35,13 +37,12 @@ export const UserRegister = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ minWidth: '500px' }}>
-      <div className="mb-2">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames({
+          className={classNames('form-text-responsiveness', {
             'p-invalid': errors.fullName,
           })}
-          style={{ width: '100%' }}
           placeholder={registerI18n.full_name + ' *'}
           id="fullName"
           {...register('fullName', {
@@ -50,12 +51,11 @@ export const UserRegister = () => {
         />
         {getFormErrorMessage(errors.fullName)}
       </div>
-      <div className="mb-2">
+      <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames({
+          className={classNames('form-text-responsiveness', {
             'p-invalid': errors.email,
           })}
-          style={{ width: '100%' }}
           placeholder={registerI18n.email + ' *'}
           id="email"
           {...register('email', {
@@ -67,27 +67,27 @@ export const UserRegister = () => {
         />
         {getFormErrorMessage(errors.email)}
       </div>
-      <div className="mb-2 flex flex-column">
+      <div className="padding-responsiveness mb-2">
         <Controller
           name="password"
           control={control}
           rules={{ required: true }}
           render={({ field, fieldState }) => (
-            <>
+            <div className="custom-password">
               <Password
                 onChange={(e) => field.onChange(e)}
                 placeholder={registerI18n.password}
                 className={classNames({ 'p-invalid': fieldState.error })}
                 feedback={false}
                 toggleMask
-                inputStyle={{ minWidth: '500px' }}
+                inputStyle={{ width: '100%' }}
               />
-            </>
+            </div>
           )}
         />
         {getFormErrorMessage(errors.password)}
       </div>
-      <div className="mb-3  flex flex-column">
+      <div className="padding-responsiveness mb-3">
         <Controller
           name="confirmPassword"
           control={control}
@@ -98,22 +98,22 @@ export const UserRegister = () => {
             },
           }}
           render={({ field, fieldState }) => (
-            <>
+            <div className="custom-password">
               <Password
                 onChange={(e) => field.onChange(e)}
                 placeholder={registerI18n.confirm_password}
                 className={classNames({ 'p-invalid': fieldState.error })}
                 feedback={false}
                 toggleMask
-                inputStyle={{ minWidth: '500px' }}
+                inputStyle={{ width: '100%' }}
               />
               {getFormErrorMessage(errors.confirmPassword)}
-            </>
+            </div>
           )}
         />
       </div>
-      <div className="mb-3">
-        <Button className="w-full" label={registerI18n.create_account} />
+      <div className="padding-responsiveness mb-3">
+        <Button className="w-full form-text-responsiveness" label={registerI18n.create_account} />
       </div>
     </form>
   )

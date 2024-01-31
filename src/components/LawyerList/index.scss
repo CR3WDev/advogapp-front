@@ -42,9 +42,9 @@ $x-large: 1200px;
 .grid {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
-  max-width: 100%;
+  justify-content: center;
   margin: 0 auto;
+
 }
 
 .card {
@@ -54,17 +54,16 @@ $x-large: 1200px;
   padding: $card-padding;
   background: lighten($color-bg, 3%);
 
-  // @media screen and (min-width: $medium) {
-  //   flex-basis: calc(33.33% - (#{$grid-gutter * 2} + #{$card-padding * 2}));
-  //   margin: 0 $grid-gutter;
-  // }
-
+  @media screen and (min-width: 1428px) {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
 
 }
 
 .card__advogado {
     flex: 1 1 100%;
-    max-width: 70%;
+    //max-width: 100%;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;

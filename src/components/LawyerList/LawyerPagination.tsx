@@ -4,8 +4,8 @@ import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
 import { Rating } from 'primereact/rating'
 import { useEffect, useState } from 'react'
-import { mockAdv } from '../../utils/mock/index'
 import './index.scss'
+import { lawerListByPage } from './service'
 
 interface Lawyer {
   id: string
@@ -21,11 +21,16 @@ export default function LawyerPagination() {
   const [sortField, _setSortField] = useState('')
   const [sortOrder, _setSortOrder] = useState<0 | 1 | -1 | null>(0)
   const [_sortKey, _setSortKey] = useState('')
+  const { mutateAsync: listLawyers } = lawerListByPage()
 
   useEffect(() => {
-    setLawyers(mockAdv)
+    listLawyers({
+      pagina: 0,
+      tamanhoPagina: 10,
+    }).then((data: any) => {
+      console.log(data)
+    })
   }, [])
-
   // const onSortChange = (event: any) => {
   //   const value = event.value
 

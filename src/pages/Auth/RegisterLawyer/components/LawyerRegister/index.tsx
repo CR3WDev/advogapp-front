@@ -4,32 +4,29 @@ import { lawTypes } from '@utils/mock'
 import { Button } from 'primereact/button'
 import { Dropdown } from 'primereact/dropdown'
 import { InputMask } from 'primereact/inputmask'
-import { InputText } from 'primereact/inputtext'
 import { classNames } from 'primereact/utils'
 import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { Register } from '../../interfaces'
 import { postRegister } from '../../services'
 
+import { useGetUserRole } from '@utils/hooks/useGetToken'
 import '../../../index.scss'
+import { RegisterLawyer } from '../../interfaces'
 
 export const LawyerRegister = () => {
   const registerI18n = getI18n('register_lawyer')
   const { mutateAsync: userRegister } = postRegister()
   const navigate = useNavigate()
-
+  console.log(useGetUserRole())
   const {
     control,
     formState: { errors },
     handleSubmit,
-    register,
   } = useForm()
 
   const onSubmit = (data: any) => {
-    const request: Register = {
-      id: '0',
+    const request: RegisterLawyer = {
       cpf: data.cpf,
-      dateBirth: data.dataBirth,
       oab: data.oab,
       specialization: data.specialization,
     }
@@ -40,18 +37,32 @@ export const LawyerRegister = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="padding-responsiveness mb-2">
-        <InputText
-          className={classNames('form-text-responsiveness', {
-            'p-invalid': errors.oab,
-          })}
-          placeholder={registerI18n.oab + ' *'}
-          id="oab"
-          {...register('oab', {
+      <div className="padding-responsiveness mb-2 flex flex-column">
+        <Controller
+          name="oab"
+          control={control}
+          rules={{
             required: true,
-          })}
+          }}
+          render={({ field, fieldState }) => (
+            <>
+              <InputMask
+                id={field.name}
+                name={field.name}
+                value={field.value}
+                className={classNames('form-text-responsiveness', {
+                  'p-invalid': fieldState.error,
+                })}
+                onChange={(e) => {
+                  field.onChange(e?.value)
+                }}
+                mask="aa999999"
+                placeholder={registerI18n.oab + ' *'}
+              />
+              {getFormErrorMessage(errors.oab)}
+            </>
+          )}
         />
-        {getFormErrorMessage(errors.oab)}
       </div>
       <div className="padding-responsiveness mb-2 flex flex-column">
         <Controller
@@ -78,31 +89,6 @@ export const LawyerRegister = () => {
           )}
         />
       </div>
-      <div className="padding-responsiveness mb-2  flex flex-column">
-        <Controller
-          name="dateBirth"
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field, fieldState }) => (
-            <>
-              <InputMask
-                id={field.name}
-                name={field.name}
-                value={field.value}
-                onChange={(e) => {
-                  field.onChange(e.value)
-                }}
-                placeholder={registerI18n.date_birth}
-                mask="99/99/9999"
-                className={classNames({ 'p-invalid': fieldState.error })}
-              />
-              {getFormErrorMessage(errors.dateBirth)}
-            </>
-          )}
-        />
-      </div>
       <div className="padding-responsiveness mb-3 flex flex-column">
         <Controller
           name="specialization"
@@ -119,7 +105,7 @@ export const LawyerRegister = () => {
                 }}
                 options={lawTypes}
                 optionLabel="type"
-                optionValue="type"
+                optionValue="code"
                 placeholder={registerI18n.specialization}
                 className={classNames({ 'p-invalid': fieldState.error })}
               />

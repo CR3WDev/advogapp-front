@@ -124,7 +124,10 @@ export default function LawyerPagination() {
           <Rating value={lawyer.rating} readOnly cancel={false} className="mb-3" />
           <span className="ml-1">{lawyer.numReviews} avaliações</span>
         </div>
-        <div className="max-width-sobre p-1">{lawyer.about} </div>
+        <div className="about text-justify p-1">{lawyer.about}</div>
+        <button id="read_button">Ler mais</button>
+
+        <script src="script.js"></script>
       </div>
     )
   }

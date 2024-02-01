@@ -23,7 +23,10 @@ export const LogoTopbar = ({ rightContent, leftContent }: LogoTopbarProps) => {
         />
       </div>
       <div style={{ marginLeft: '73px', paddingTop: '20px', marginRight: '20px' }}>
-        <div style={{ height: '53px' }} className="flex justify-content-between align-items-center">
+        <div
+          style={{ height: '53px' }}
+          className="justify-content-end sm:justify-content-between flex align-items-center"
+        >
           {leftContent && leftContent()}
           {rightContent && rightContent()}
         </div>

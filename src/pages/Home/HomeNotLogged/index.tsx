@@ -16,7 +16,7 @@ const HomeNotLogged = () => {
   }
 
   const left = () => {
-    return <div className="ml-3">{homeI18n.find_lawyers}</div>
+    return <div className="hide-on-cell-phone ml-3">{homeI18n.find_lawyers}</div>
   }
   const right = () => {
     return (

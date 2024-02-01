@@ -21,3 +21,13 @@ body {
   height: 100%;
 }
 
+.hide-on-cell-phone{
+  display: block;
+
+  @media screen and (max-width: 575px) {
+
+    display: none;
+  }
+
+}
+

@@ -3,9 +3,8 @@ import { DataView } from 'primereact/dataview'
 import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
 import { Rating } from 'primereact/rating'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './index.scss'
-import { lawerListByPage } from './service'
 
 interface Lawyer {
   id: string
@@ -17,23 +16,11 @@ interface Lawyer {
 }
 
 export default function LawyerPagination() {
-  const [lawyers, setLawyers] = useState<Lawyer[]>([])
-  const [totalRecords, setTotalRecords] = useState(0)
-  const [page, setPage] = useState(0)
+  const [lawyers, _setLawyers] = useState<Lawyer[]>([])
   const [sortField, _setSortField] = useState('')
   const [sortOrder, _setSortOrder] = useState<0 | 1 | -1 | null>(0)
   const [_sortKey, _setSortKey] = useState('')
-  const { mutateAsync: listLawyers, data } = lawerListByPage()
 
-  useEffect(() => {
-    listLawyers({
-      pagina: page,
-      tamanhoPagina: 2,
-    }).then((data: any) => {
-      setLawyers(data?.data?.list)
-      setTotalRecords(data?.data?.totalRecords)
-    })
-  }, [page])
   // const onSortChange = (event: any) => {
   //   const value = event.value
 
@@ -47,10 +34,6 @@ export default function LawyerPagination() {
   //     setSortKey(value)
   //   }
   // }
-  useEffect(() => {
-    console.log(totalRecords)
-    console.log(lawyers)
-  }, [lawyers, totalRecords])
 
   const [selectedAdv, setSelectedAdv] = useState(null)
   const advType = [
@@ -154,10 +137,6 @@ export default function LawyerPagination() {
       <DataView
         value={lawyers}
         itemTemplate={itemTemplate}
-        totalRecords={totalRecords}
-        onPage={(page) => {
-          setPage(page.page)
-        }}
         paginator
         rows={2}
         header={header()}

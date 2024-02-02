@@ -61,10 +61,19 @@
     "advogapp_helps_you_find_the_lawyer_for_your_case": "O Advogapp te ajuda a encontrar o advogado para o seu caso!"
   },
 
-  "notFound": {
+  "not_found": {
     "oops": "Oops...",
     "erro404": "404",
     "page_not_found": "Pagina não encontrada",
     "return_to_home_page": "Voltar a pagina incial"
+  },
+
+  "toggle_menu":{
+    "home": "Início",
+    "profile": "Perfil",
+    "messages": "Mensagens",
+    "logout": "Sair",
+    "menu": "Menu"
+
   }
 }

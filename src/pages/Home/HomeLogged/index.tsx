@@ -1,6 +1,7 @@
 import img_men from '@assets/home_imj.jpg'
 import LawyerPagination from '@components/LawyerList/LawyerPagination'
 import { LogoTopbar } from '@components/LogoTopbar'
+import ToggleMenu from '@components/ToggleMenu'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
@@ -11,9 +12,8 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
 
-  const handleButtonLoginLogoutClick = () => {
-    sessionStorage.clear()
-    setLogoutIsClicked(true)
+  const handleToggleMenuLogoutWasClicked = (data: boolean) => {
+    setLogoutIsClicked(data)
   }
 
   const left = () => {
@@ -33,8 +33,8 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
             className="mr-2"
           ></Button>
         </div>
-        <div>
-          <Button outlined label="Logout" onClick={handleButtonLoginLogoutClick} />
+        <div className="flex">
+          <ToggleMenu logoutWasClicked={handleToggleMenuLogoutWasClicked} />
         </div>
       </div>
     )

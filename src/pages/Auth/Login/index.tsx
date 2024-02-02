@@ -6,13 +6,13 @@ import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
-import { showToastSuccess } from '@components/GlobalToast'
 import { LogoTopbar } from '@components/LogoTopbar'
 import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { postLogin } from './Services'
 import { Login } from './interfaces'
 
+import { showToastSuccess } from '@components/GlobalToast'
 import '../index.scss'
 
 export const LoginPage = () => {
@@ -38,7 +38,7 @@ export const LoginPage = () => {
     }
     login(request).then((data: any) => {
       navigate('/')
-      //showToastSuccess('success')
+      showToastSuccess('success')
       sessionStorage.setItem('token', data?.data?.token)
     })
   }

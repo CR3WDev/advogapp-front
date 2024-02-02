@@ -1,55 +1,48 @@
-import { getI18n } from '@utils/hooks/useGetI18n';
-import { Toast, ToastProps } from 'primereact/toast';
-import { useEffect, useRef } from 'react';
+import { getI18n } from '@utils/hooks/useGetI18n'
+import { Toast, ToastProps } from 'primereact/toast'
+import { useEffect, useRef } from 'react'
 
-let getToastRef: ToastProps | any;
+let getToastRef: ToastProps | any
 const GlobalToast = () => {
-	const toast = useRef<ToastProps | any>();
+  const toast = useRef<ToastProps | any>()
 
-	useEffect(() => {
-		getToastRef = toast;
-	}, []);
+  useEffect(() => {
+    getToastRef = toast
+  }, [])
 
-	return <Toast ref={toast} />;
-};
+  return <Toast ref={toast} position="top-center" />
+}
 const showToastError = (message: string, title?: string) => {
-	if (getToastRef.current)
-		getToastRef.current.show({
-			severity: 'error',
-			summary: title || getI18n('error'),
-			detail: message,
-		});
-};
+  if (getToastRef.current)
+    getToastRef.current.show({
+      severity: 'error',
+      summary: title || getI18n('error'),
+      detail: message,
+    })
+}
 const showToastSuccess = (message: string, title?: string) => {
-	if (getToastRef)
-		getToastRef.current.show({
-			severity: 'success',
-			summary: title || getI18n('success'),
-			detail: message,
-		});
-};
+  if (getToastRef)
+    getToastRef.current.show({
+      severity: 'success',
+      summary: title || getI18n('success'),
+      detail: message,
+    })
+}
 
 const showToastWarn = (message: string, title?: string) => {
-	if (getToastRef)
-		getToastRef.current.show({
-			severity: 'warn',
-			summary: title || getI18n('warn'),
-			detail: message,
-		});
-};
+  if (getToastRef)
+    getToastRef.current.show({
+      severity: 'warn',
+      summary: title || getI18n('warn'),
+      detail: message,
+    })
+}
 const showToastInfo = (message: string, title?: string) => {
-	if (getToastRef)
-		getToastRef.current.show({
-			severity: 'info',
-			summary: title || getI18n('info'),
-			detail: message,
-		});
-};
-export {
-	GlobalToast,
-	getToastRef,
-	showToastError,
-	showToastInfo,
-	showToastSuccess,
-	showToastWarn,
-};
+  if (getToastRef)
+    getToastRef.current.show({
+      severity: 'info',
+      summary: title || getI18n('info'),
+      detail: message,
+    })
+}
+export { GlobalToast, getToastRef, showToastError, showToastInfo, showToastSuccess, showToastWarn }

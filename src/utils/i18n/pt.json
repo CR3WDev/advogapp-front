@@ -38,7 +38,8 @@
     "lawyer": "Advogado",
     "email": "Email",
     "confirm_password": "Confirmar Senha",
-    "full_name": "Nome Completo"
+    "full_name": "Nome Completo",
+    "invalid_cpf": "CPF inválido"
   },
 
   "change_password": {

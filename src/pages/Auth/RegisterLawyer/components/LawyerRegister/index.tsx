@@ -75,7 +75,7 @@ export const LawyerRegister = () => {
           control={control}
           rules={{
             required: true,
-            validate: (value) => useValidateCpfs(value) || 'CPF inválido',
+            validate: (value) => useValidateCpfs(value) || registerI18n.invalid_cpf,
           }}
           render={({ field, fieldState }) => (
             <>
@@ -89,7 +89,7 @@ export const LawyerRegister = () => {
                   if (!isValidCpf) {
                     setError('cpf', {
                       type: 'manual',
-                      message: 'CPF inválido',
+                      message: registerI18n.invalid_cpf,
                     })
                   } else {
                     clearErrors('cpf')

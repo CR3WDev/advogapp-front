@@ -116,8 +116,6 @@ export default function LawyerPagination() {
         </div>
         <div className="about text-justify p-1">{lawyer.about}</div>
         <button id="read_button">Ler mais</button>
-
-        <script src="script.js"></script>
       </div>
     )
   }

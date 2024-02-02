@@ -9,7 +9,9 @@ import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { postRegister } from '../../services'
 
+import { showToastSuccess } from '@components/GlobalToast'
 import { useGetUserRole } from '@utils/hooks/useGetToken'
+import { useValidateCpfs } from '@utils/hooks/useValidateCpf'
 import '../../../index.scss'
 import { RegisterLawyer } from '../../interfaces'
 
@@ -22,6 +24,8 @@ export const LawyerRegister = () => {
     control,
     formState: { errors },
     handleSubmit,
+    setError,
+    clearErrors,
   } = useForm()
 
   const onSubmit = (data: any) => {
@@ -31,7 +35,8 @@ export const LawyerRegister = () => {
       specialization: data.specialization,
     }
     userRegister(request).then(() => {
-      navigate('/login')
+      navigate('/')
+      showToastSuccess('success')
     })
   }
 
@@ -70,6 +75,7 @@ export const LawyerRegister = () => {
           control={control}
           rules={{
             required: true,
+            validate: (value) => useValidateCpfs(value) || 'CPF inválido',
           }}
           render={({ field, fieldState }) => (
             <>
@@ -79,6 +85,18 @@ export const LawyerRegister = () => {
                 value={field.value}
                 onChange={(e) => {
                   field.onChange(e.value)
+                  const isValidCpf = useValidateCpfs(e.value)
+                  if (!isValidCpf) {
+                    setError('cpf', {
+                      type: 'manual',
+                      message: 'CPF inválido',
+                    })
+                  } else {
+                    clearErrors('cpf')
+                  }
+                }}
+                onBlur={() => {
+                  field.onBlur()
                 }}
                 placeholder={registerI18n.cpf}
                 mask="999.999.999-99"

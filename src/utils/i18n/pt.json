@@ -79,8 +79,16 @@
   "profile":{
     "title": "Perfil",
     "find_lawyers": "Encontrar Advogados",
-    "become_one_of_lawyers": "Seja um de nossos advogados!"
+    "become_one_of_lawyers": "Seja um de nossos advogados!",
+    "user_name": "Nome de usuário",
+    "password": "Senha",
+    "cpf": "CPF",
+    "oab": "OAB",
+    "specialization": "Especialização",
+    "about": "Sobre",
+    "save_changes": "Salvar alterações"
   }
+
 
 
 }

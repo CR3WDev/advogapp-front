@@ -1,0 +1,33 @@
+$small: 575px;
+$medium: 768px;
+$large: 992px;
+$x-large: 1200px;
+
+.content-space {
+  height: 92vh;
+  width: 100vw;
+}
+
+.auth-format {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+
+  @media screen and (max-width: $small) {
+    font-size: 1.75rem;
+  }
+}
+
+.padding-responsiveness {
+  padding: 0;
+  @media screen and (max-width: $small) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+

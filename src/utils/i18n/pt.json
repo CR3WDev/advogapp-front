@@ -74,6 +74,13 @@
     "messages": "Mensagens",
     "logout": "Sair",
     "menu": "Menu"
+  },
 
+  "profile":{
+    "title": "Perfil",
+    "find_lawyers": "Encontrar Advogados",
+    "become_one_of_lawyers": "Seja um de nossos advogados!"
   }
+
+
 }

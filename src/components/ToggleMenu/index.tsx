@@ -32,10 +32,16 @@ export default function ToggleMenu({
     {
       label: toggleMenuI18n.home,
       icon: 'pi pi-home',
+      command: () => {
+        navigate('/')
+      },
     },
     {
       label: toggleMenuI18n.profile,
       icon: 'pi pi-user',
+      command: () => {
+        navigate('/profilepage')
+      },
     },
     {
       label: toggleMenuI18n.messages,

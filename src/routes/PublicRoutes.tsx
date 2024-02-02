@@ -4,6 +4,7 @@ import { RegisterPage } from '@pages/Auth/Register'
 import { RegisterLawyer } from '@pages/Auth/RegisterLawyer'
 import { HomePage } from '@pages/Home'
 import { NotFoundPage } from '@pages/NotFound'
+import { ProfilePage } from '@pages/Profile'
 import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
   {
     path: '/changepassword',
     element: <ChangePassowrdPage />,
+  },
+  {
+    path: '/profilepage',
+    element: <ProfilePage />,
   },
   {
     path: '/',

@@ -86,7 +86,12 @@
     "oab": "OAB",
     "specialization": "Especialização",
     "about": "Sobre",
-    "save_changes": "Salvar alterações"
+    "save_changes": "Salvar alterações",
+    "edit": "Editar",
+    "email": "Email",
+    "edit_user_name": "Editar nome de usuário",
+    "edit_user_specialization":"Editar especialização",
+    "save": "Salvar"
   }
 
 

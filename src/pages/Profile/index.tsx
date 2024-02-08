@@ -47,10 +47,11 @@ export const ProfilePage = () => {
   }
 
   const onSubmit = (_data: any) => {}
-  const [value, setValue] = useState('')
+  const [aboutValue, setAboutValue] = useState('')
 
   const [editUserNameVisible, setEditUserNameVisible] = useState(false)
   const [editUserSpecializationVisible, setEditUserSpecializationVisible] = useState(false)
+  const [editUserAboutVisible, setEditUserAboutVisible] = useState(false)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -95,7 +96,7 @@ export const ProfilePage = () => {
                       <Button
                         className="max-w-full form-text-responsiveness"
                         label={profileI18n.save_changes}
-                        onClick={() => setEditUserNameVisible(true)}
+                        onClick={() => setEditUserNameVisible(false)}
                       />
                     </div>
                   </Dialog>
@@ -209,7 +210,7 @@ export const ProfilePage = () => {
                       <Button
                         className="max-w-full form-text-responsiveness"
                         label={profileI18n.save_changes}
-                        onClick={() => setEditUserSpecializationVisible(true)}
+                        onClick={() => setEditUserSpecializationVisible(false)}
                       />
                     </div>
                   </Dialog>
@@ -217,17 +218,49 @@ export const ProfilePage = () => {
               </div>
 
               <div className="flex flex-column mb-3">
-                <label className="text-left ml-1">{profileI18n.about}</label>
-                <span className="p-float-label">
+                <label className="text-left ml-1">{profileI18n.about}:</label>
+                <div className="p-float-label">
                   <InputTextarea
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    value={aboutValue}
+                    onChange={(e) => setAboutValue(e.target.value)}
                     rows={5}
                     cols={30}
                     maxLength={225}
                     style={{ resize: 'none', height: '100%', width: '100%' }}
+                    disabled
                   />
-                </span>
+                  <Button
+                    className="max-w-full form-text-responsiveness"
+                    label={profileI18n.edit}
+                    onClick={() => setEditUserAboutVisible(true)}
+                  />
+
+                  <Dialog
+                    header={profileI18n.edit_user_about}
+                    visible={editUserAboutVisible}
+                    onHide={() => setEditUserAboutVisible(false)}
+                    style={{ width: '30vw' }}
+                    breakpoints={{ '960px': '75vw', '641px': '100vw' }}
+                  >
+                    <div className="flex flex-column align-content-around">
+                      <div className="mb-2">
+                        <InputTextarea
+                          value={aboutValue}
+                          onChange={(e) => setAboutValue(e.target.value)}
+                          rows={5}
+                          cols={30}
+                          maxLength={225}
+                          style={{ resize: 'none', height: '100%', width: '100%' }}
+                        />
+                      </div>
+                      <Button
+                        className="max-w-full form-text-responsiveness"
+                        label={profileI18n.save_changes}
+                        onClick={() => setEditUserAboutVisible(false)}
+                      />
+                    </div>
+                  </Dialog>
+                </div>
               </div>
             </div>
           </div>

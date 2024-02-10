@@ -1,14 +1,14 @@
 import { LogoTopbar } from '@components/LogoTopbar'
 import ToggleMenu from '@components/ToggleMenu'
 import { EditProfile } from '@pages/Profile/EditProfile'
+import { getLawyerInfo } from '@pages/Profile/service.ts'
 import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
-import { InputTextarea } from 'primereact/inputtextarea'
+import { Fieldset } from 'primereact/fieldset'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { getLawyerInfo } from '@pages/Profile/service.ts'
 
 export const ProfilePage = () => {
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ export const ProfilePage = () => {
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
 
-  const {} = getLawyerInfo()
+  const { data } = getLawyerInfo()
   const handleToggleMenuLogoutWasClicked = (_data: boolean) => {
     // setLogoutIsClicked(data)
   }
@@ -52,6 +52,8 @@ export const ProfilePage = () => {
 
   const onSubmit = (_data: any) => {}
 
+  //console.log(data)
+
   return (
     <>
       <EditProfile isVisible={showEditDialog} setIsVisible={setShowEditDialog} />
@@ -74,7 +76,7 @@ export const ProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      Nome do mano
+                      {data?.data.fullName || ' '}
                     </span>
                   </div>
                 </div>
@@ -102,7 +104,7 @@ export const ProfilePage = () => {
                   </label>
                   <div className="flex flex-row align-content-around">
                     <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                      emailDoMano@gmail.com
+                      {data?.data.email || ' '}
                     </span>
                   </div>
                 </div>
@@ -113,7 +115,7 @@ export const ProfilePage = () => {
                     id="textProfileOAB"
                     className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    aa999999
+                    {data?.data.oab || ' '}
                   </span>
                 </div>
 
@@ -123,7 +125,7 @@ export const ProfilePage = () => {
                     id="textProfileCPF"
                     className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    999.999.999-99
+                    {data?.data.cpf || ' '}
                   </span>
                 </div>
 
@@ -136,7 +138,7 @@ export const ProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      Especialização do mano
+                      {data?.data.specialization || ' '}
                     </span>
                   </div>
                 </div>
@@ -146,15 +148,7 @@ export const ProfilePage = () => {
                     {profileI18n.about}:
                   </label>
                   <div className="p-float-label">
-                    <InputTextarea
-                      value={aboutValue}
-                      onChange={(e) => setAboutValue(e.target.value)}
-                      rows={5}
-                      cols={30}
-                      maxLength={225}
-                      style={{ resize: 'none', height: '100%', width: '100%' }}
-                      disabled
-                    />
+                    <Fieldset className="text-left m-0">{data?.data.description || ' '}</Fieldset>
                     <div>
                       <Button
                         className="w-full mt-2"

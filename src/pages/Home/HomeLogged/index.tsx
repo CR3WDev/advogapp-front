@@ -57,7 +57,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
     // })
   }, [])
 
-  console.log(responseList)
+  //console.log(responseList)
 
   return (
     <div>

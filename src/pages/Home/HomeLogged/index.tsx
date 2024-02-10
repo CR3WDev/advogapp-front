@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
-  const { mutateAsync: lawyerList } = postLawyerList()
+  const { mutateAsync: lawyerList, data: responseList } = postLawyerList()
 
   const handleToggleMenuLogoutWasClicked = (data: boolean) => {
     setLogoutIsClicked(data)
@@ -50,10 +50,14 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
     lawyerList({
       pagina: 0,
       tamanhoPagina: 20,
-    }).then((data: any) => {
-      console.log(data)
     })
+
+    // .then((data: any) => {
+    //   console.log(data)
+    // })
   }, [])
+
+  // console.log(responseList)
 
   return (
     <div>
@@ -67,7 +71,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
             <h1 className="md:text-2xl lg:text-4xl">
               {homeI18n.your_tool_for_searching_for_lawyers}
             </h1>
-            <div className="flex flex-column p-1 ">
+            <div className="flex flex-column p-1">
               <span className="md:text-lg lg:text-xl mb-2">{homeI18n.looking_for_a_lawyer}</span>
               <span className="md:text-lg lg:text-xl">
                 {homeI18n.advogapp_helps_you_find_the_lawyer_for_your_case}
@@ -81,7 +85,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
           <Divider />
         </div>
-        <LawyerList data={[]} />
+        <LawyerList data={responseList?.data?.list} />
       </main>
     </div>
   )

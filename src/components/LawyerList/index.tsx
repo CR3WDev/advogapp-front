@@ -5,8 +5,7 @@ import { InputText } from 'primereact/inputtext'
 import { Rating } from 'primereact/rating'
 import { useState } from 'react'
 import './index.scss'
-import { Lawyer } from './types'
-type LawyerListProps = { data: Lawyer[] }
+type LawyerListProps = { data: any }
 
 export const LawyerList = ({ data }: LawyerListProps) => {
   const [sortField, _setSortField] = useState('')

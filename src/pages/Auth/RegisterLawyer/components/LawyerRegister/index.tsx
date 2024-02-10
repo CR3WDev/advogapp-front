@@ -12,7 +12,6 @@ import { postRegister } from '../../services'
 import { showToastSuccess } from '@components/GlobalToast'
 import { useGetUserRole } from '@utils/hooks/useGetToken'
 import { useValidateCpfs } from '@utils/hooks/useValidateCpf'
-import '../../../index.scss'
 import { RegisterLawyer } from '../../interfaces'
 
 export const LawyerRegister = () => {
@@ -55,7 +54,7 @@ export const LawyerRegister = () => {
                 id={field.name}
                 name={field.name}
                 value={field.value}
-                className={classNames('form-text-responsiveness', {
+                className={classNames('', {
                   'p-invalid': fieldState.error,
                 })}
                 onChange={(e) => {
@@ -133,7 +132,7 @@ export const LawyerRegister = () => {
         {getFormErrorMessage(errors.specialization)}
       </div>
       <div className="padding-responsiveness mb-3">
-        <Button className="w-full form-text-responsiveness" label={registerI18n.create_account} />
+        <Button className="w-full " label={registerI18n.create_account} />
       </div>
     </form>
   )

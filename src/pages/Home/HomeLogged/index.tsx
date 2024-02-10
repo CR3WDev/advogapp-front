@@ -6,7 +6,6 @@ import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useNavigate } from 'react-router-dom'
-import '../index.scss'
 
 export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   const navigate = useNavigate()
@@ -17,7 +16,9 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   }
 
   const left = () => {
-    return <div className="hide-on-cell-phone ml-3">{homeI18n.find_lawyers}</div>
+    return <div className="ml-3">
+      <span className="hidden md:flex">{homeI18n.find_lawyers}</span>
+     </div>
   }
   const right = () => {
     return (
@@ -44,7 +45,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
     <div>
       <LogoTopbar leftContent={left} rightContent={right} />
       <main className="flex flex-column">
-        <section className="flex01" style={{ height: 'calc(100vh - 5rem)' }}>
+        <section className="flex flex-wrap-reverse justify-content-center align-items-center" style={{ height: 'calc(100vh - 5rem)' }}>
           <div className="p-4">
             <h1 className="md:text-2xl lg:text-4xl">
               {homeI18n.your_tool_for_searching_for_lawyers}
@@ -57,7 +58,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
             </div>
           </div>
           <div className="p-4 md:p-0">
-            <img src={img_men} />
+            <img src={img_men} alt="advogado" />
           </div>
         </section>
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>

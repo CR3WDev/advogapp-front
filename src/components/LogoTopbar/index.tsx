@@ -18,7 +18,7 @@ export const LogoTopbar = ({ rightContent, leftContent }: LogoTopbarProps) => {
       >
         <img
           src={img}
-          alt=""
+          alt="logo"
           style={{ borderRadius: 5, overflow: 'hidden', height: '53px', width: '53px' }}
         />
       </div>

@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom'
 import { Register } from '../../interfaces'
 import { postRegister } from '../../services'
 
-import '../../../index.scss'
-
 export const UserRegister = () => {
   const registerI18n = getI18n('register')
   const { mutateAsync: userRegister } = postRegister()
@@ -40,7 +38,7 @@ export const UserRegister = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames('form-text-responsiveness', {
+          className={classNames('', {
             'p-invalid': errors.fullName,
           })}
           placeholder={registerI18n.full_name + ' *'}
@@ -53,7 +51,7 @@ export const UserRegister = () => {
       </div>
       <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames('form-text-responsiveness', {
+          className={classNames('', {
             'p-invalid': errors.email,
           })}
           placeholder={registerI18n.email + ' *'}
@@ -113,7 +111,7 @@ export const UserRegister = () => {
         />
       </div>
       <div className="padding-responsiveness mb-3">
-        <Button className="w-full form-text-responsiveness" label={registerI18n.create_account} />
+        <Button className="w-full " label={registerI18n.create_account} />
       </div>
     </form>
   )

@@ -11,9 +11,8 @@ import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { postLogin } from './Services'
 import { Login } from './interfaces'
-
 import { showToastSuccess } from '@components/GlobalToast'
-import '../index.scss'
+import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 
 export const LoginPage = () => {
   const loginI18n = getI18n('login')
@@ -46,14 +45,14 @@ export const LoginPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <LogoTopbar />
-      <div className="content-space auth-format">
+      <div style={{height:useGetHeightLessTopbar()}} className="flex align-items-center justify-content-center">
         <div className="w-16rem">
-          <div className="text-center mb-4">
-            <span className="title">{loginI18n.title}</span>
+          <div className="text-center">
+            <h1>{loginI18n.title}</h1>
           </div>
-          <div className="padding-responsiveness mb-2">
+          <div className="mb-2">
             <InputText
-              className={classNames('form-text-responsiveness', {
+              className={classNames('w-full', {
                 'p-invalid': errors.login,
               })}
               placeholder={loginI18n.login}
@@ -64,13 +63,13 @@ export const LoginPage = () => {
             />
             {getFormErrorMessage(errors.login)}
           </div>
-          <div className="padding-responsiveness mb-3">
+          <div className="mb-3">
             <Controller
               name="password"
               control={control}
               rules={{ required: true }}
               render={({ field, fieldState }) => (
-                <div className="custom-password">
+                <div>
                   <Password
                     onChange={(e) => field.onChange(e)}
                     placeholder={loginI18n.password}
@@ -86,8 +85,8 @@ export const LoginPage = () => {
               )}
             />
           </div>
-          <div className="padding-responsiveness mb-3">
-            <Button className="w-full form-text-responsiveness" label={loginI18n.login} />
+          <div className="mb-3">
+            <Button className="w-full" label={loginI18n.login} />
           </div>
           <div className="text-center">
             <div className="mb-1">
@@ -95,12 +94,12 @@ export const LoginPage = () => {
                 onClick={() => {
                   navigate('/changepassword')
                 }}
-                className="no-underline hover:underline text-primary cursor-pointer form-text-responsiveness"
+                className="no-underline hover:underline text-primary cursor-pointer"
               >
                 {loginI18n.reset_password}
               </span>
             </div>
-            <div className="flex flex-wrap align-items-center justify-content-center p-2 form-text-responsiveness">
+            <div className="flex flex-wrap align-items-center justify-content-center p-2">
               <span>{loginI18n.no_account}</span>
               <span
                 onClick={() => {

@@ -102,7 +102,7 @@ export default function LawyerPagination() {
       <div className="card card__advogado card__two grid m-2">
         <div className="card__img flex flex-row align-items-center">
           <div>
-            <img src={imgUserDefault} />
+            <img src={imgUserDefault} alt="user_image"/>
           </div>
           <div className="flex flex-column ml-2">
             <span className="text-3xl font-bold">{lawyer.fullName} </span>

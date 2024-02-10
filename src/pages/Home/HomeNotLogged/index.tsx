@@ -5,7 +5,6 @@ import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useNavigate } from 'react-router-dom'
-import '../index.scss'
 
 const HomeNotLogged = () => {
   const navigate = useNavigate()
@@ -43,7 +42,7 @@ const HomeNotLogged = () => {
             </div>
           </div>
           <div className="p-4 md:p-0">
-            <img src={img_men} />
+            <img src={img_men} alt="advogado" />
           </div>
         </section>
 

@@ -30,8 +30,8 @@ const HomeNotLogged = () => {
 
   useEffect(() => {
     lawyerList({
-      pagina: 0,
-      tamanhoPagina: 20,
+      page: 0,
+      totalRecords: 20,
     })
 
     // .then((data: any) => {

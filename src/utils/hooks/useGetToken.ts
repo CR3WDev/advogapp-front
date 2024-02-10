@@ -1,17 +1,10 @@
 import { enc } from 'crypto-js'
 
-export const useGetUserRole = () => {
+export const useGetUserInfo = (info:string) => {
   const token: string = sessionStorage.getItem('token') || ''
   const decodedToken = enc.Utf8.stringify(enc.Base64.parse(token.split('.')[1]))
   if (!decodedToken) return ''
   const jsonToken = JSON.parse(decodedToken)
-  return jsonToken?.role || ''
+  return jsonToken[info] || ''
 }
 
-export const useGetUserEmail = () => {
-  const token: string = sessionStorage.getItem('token') || ''
-  const decodedToken = enc.Utf8.stringify(enc.Base64.parse(token.split('.')[1]))
-  if (!decodedToken) return ''
-  const jsonToken = JSON.parse(decodedToken)
-  return jsonToken?.email || ''
-}

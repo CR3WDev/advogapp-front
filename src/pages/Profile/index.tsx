@@ -8,6 +8,7 @@ import { InputTextarea } from 'primereact/inputtextarea'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { getLawyerInfo } from '@pages/Profile/service.ts'
 
 export const ProfilePage = () => {
   const navigate = useNavigate()
@@ -16,6 +17,7 @@ export const ProfilePage = () => {
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
 
+  const {} = getLawyerInfo()
   const handleToggleMenuLogoutWasClicked = (_data: boolean) => {
     // setLogoutIsClicked(data)
   }

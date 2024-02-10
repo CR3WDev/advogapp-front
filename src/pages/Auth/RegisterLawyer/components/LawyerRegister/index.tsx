@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom'
 import { postRegister } from '../../services'
 
 import { showToastSuccess } from '@components/GlobalToast'
-import { useGetUserRole } from '@utils/hooks/useGetToken'
 import { useValidateCpfs } from '@utils/hooks/useValidateCpf'
 import { RegisterLawyer } from '../../interfaces'
 
@@ -18,7 +17,6 @@ export const LawyerRegister = () => {
   const registerI18n = getI18n('register_lawyer')
   const { mutateAsync: userRegister } = postRegister()
   const navigate = useNavigate()
-  console.log(useGetUserRole())
   const {
     control,
     formState: { errors },

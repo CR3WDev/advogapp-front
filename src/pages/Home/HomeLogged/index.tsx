@@ -47,7 +47,10 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   }
 
   useEffect(() => {
-    lawyerList({}).then((data: any) => {
+    lawyerList({
+      pagina: 0,
+      tamanhoPagina: 20,
+    }).then((data: any) => {
       console.log(data)
     })
   }, [])

@@ -1,5 +1,5 @@
 import img_men from '@assets/home_imj.jpg'
-import LawyerPagination from '@components/LawyerList/LawyerPagination'
+import { LawyerList } from '@components/LawyerList'
 import { LogoTopbar } from '@components/LogoTopbar'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
@@ -49,7 +49,7 @@ const HomeNotLogged = () => {
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
           <Divider />
         </div>
-        <LawyerPagination />
+        <LawyerList data={[]} />
       </main>
     </div>
   )

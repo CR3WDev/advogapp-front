@@ -5,18 +5,10 @@ import { InputText } from 'primereact/inputtext'
 import { Rating } from 'primereact/rating'
 import { useState } from 'react'
 import './index.scss'
+import { Lawyer } from './types'
+type LawyerListProps = { data: Lawyer[] }
 
-interface Lawyer {
-  id: string
-  name: string
-  specialization: string
-  rating: number
-  numReviews: number
-  about: string
-}
-
-export default function LawyerPagination() {
-  const [lawyers, _setLawyers] = useState<Lawyer[]>([])
+export const LawyerList = ({ data }: LawyerListProps) => {
   const [sortField, _setSortField] = useState('')
   const [sortOrder, _setSortOrder] = useState<0 | 1 | -1 | null>(0)
   const [_sortKey, _setSortKey] = useState('')
@@ -102,7 +94,7 @@ export default function LawyerPagination() {
       <div className="card card__advogado card__two grid m-2">
         <div className="card__img flex flex-row align-items-center">
           <div>
-            <img src={imgUserDefault} alt="user_image"/>
+            <img src={imgUserDefault} alt="user_image" />
           </div>
           <div className="flex flex-column ml-2">
             <span className="text-3xl font-bold">{lawyer.fullName} </span>
@@ -133,7 +125,7 @@ export default function LawyerPagination() {
   return (
     <div className="card mt-8">
       <DataView
-        value={lawyers}
+        value={data}
         itemTemplate={itemTemplate}
         paginator
         rows={2}

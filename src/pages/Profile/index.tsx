@@ -1,13 +1,13 @@
 import { LogoTopbar } from '@components/LogoTopbar'
 import ToggleMenu from '@components/ToggleMenu'
+import { EditProfile } from '@pages/Profile/EditProfile'
+import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
-import { EditProfile } from '@pages/Profile/EditProfile'
 
 export const ProfilePage = () => {
   const navigate = useNavigate()
@@ -48,29 +48,32 @@ export const ProfilePage = () => {
     )
   }
 
-  const onSubmit = (_data: any) => {
-  }
+  const onSubmit = (_data: any) => {}
 
   return (
     <>
       <EditProfile isVisible={showEditDialog} setIsVisible={setShowEditDialog} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
-        <div style={{ height: useGetHeightLessTopbar() }}
-             className="flex align-items-center justify-content-center">
+        <div
+          style={{ height: useGetHeightLessTopbar() }}
+          className="flex align-items-center justify-content-center"
+        >
           <div className="w-30rem">
             <div className="text-center">
               <h1>{profileI18n.title}</h1>
               <div className="flex flex-column justify-content-center">
                 <div className="flex flex-column mb-3">
-                  <label className="flex text-left ">{profileI18n.user_name}:</label>
+                  <label className="flex text-left font-semibold text-lg mb-2">
+                    {profileI18n.user_name}:
+                  </label>
                   <div className="flex flex-row align-content-around">
-                  <span
-                    id="textProfileUsername"
-                    className="flex w-10 text-left align-items-center "
-                  >
-                    Nome do mano
-                  </span>
+                    <span
+                      id="textProfileUsername"
+                      className="flex w-10 text-left align-items-center "
+                    >
+                      Nome do mano
+                    </span>
                   </div>
                 </div>
 
@@ -92,44 +95,54 @@ export const ProfilePage = () => {
               </div> */}
 
                 <div className="flex flex-column mb-3">
-                  <label className="flex text-left ">{profileI18n.email}:</label>
+                  <label className="flex text-left font-semibold text-lg mb-2">
+                    {profileI18n.email}:
+                  </label>
                   <div className="flex flex-row align-content-around">
-                  <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                    emailDoMano@gmail.com
-                  </span>
+                    <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
+                      emailDoMano@gmail.com
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex flex-column mb-3">
-                  <label className="text-left ">{profileI18n.oab}:</label>
-                  <span id="textProfileOAB"
-                        className="flex mt-2 w-10 text-left align-items-center ">
-                  aa999999
-                </span>
-                </div>
-
-                <div className="flex flex-column mb-3">
-                  <label className="text-left ">{profileI18n.cpf}:</label>
-                  <span id="textProfileCPF"
-                        className="flex mt-2 w-10 text-left align-items-center ">
-                  999.999.999-99
-                </span>
-                </div>
-
-                <div className="flex flex-column mb-3">
-                  <label className="flex text-left ">{profileI18n.specialization}:</label>
-                  <div className="flex flex-row align-content-around">
+                  <label className="text-left font-semibold text-lg mb-2">{profileI18n.oab}:</label>
                   <span
-                    id="textProfileUsername"
-                    className="flex w-10 text-left align-items-center "
+                    id="textProfileOAB"
+                    className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    Especialização do mano
+                    aa999999
                   </span>
+                </div>
+
+                <div className="flex flex-column mb-3">
+                  <label className="text-left font-semibold text-lg mb-2">{profileI18n.cpf}:</label>
+                  <span
+                    id="textProfileCPF"
+                    className="flex mt-2 w-10 text-left align-items-center "
+                  >
+                    999.999.999-99
+                  </span>
+                </div>
+
+                <div className="flex flex-column mb-3">
+                  <label className="flex text-left font-semibold text-lg mb-2">
+                    {profileI18n.specialization}:
+                  </label>
+                  <div className="flex flex-row align-content-around">
+                    <span
+                      id="textProfileUsername"
+                      className="flex w-10 text-left align-items-center "
+                    >
+                      Especialização do mano
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex flex-column mb-3">
-                  <label className="text-left ml-1">{profileI18n.about}:</label>
+                  <label className="text-left font-semibold text-lg mb-2">
+                    {profileI18n.about}:
+                  </label>
                   <div className="p-float-label">
                     <InputTextarea
                       value={aboutValue}

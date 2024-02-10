@@ -89,9 +89,7 @@
     "save_changes": "Salvar alterações",
     "edit": "Editar",
     "email": "Email",
-    "edit_user_name": "Editar nome de usuário",
-    "edit_user_specialization":"Editar especialização",
-    "edit_user_about":"Editar o sobre do usuário",
+    "edit_user_info": "Editar informações do usuário",
     "save": "Salvar"
 
   }

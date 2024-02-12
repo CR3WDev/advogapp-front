@@ -6,7 +6,9 @@
     "password": "Senha",
     "reset_password": "Redefinir Senha",
     "no_account": "Não possui conta?",
-    "register": "cadastre-se"
+    "register": "cadastre-se",
+    "return_to": "Voltar a",
+    "home": "home"
   },
 
   "register": {
@@ -20,7 +22,9 @@
     "lawyer": "Advogado",
     "email": "Email",
     "confirm_password": "Confirmar Senha",
-    "full_name": "Nome Completo"
+    "full_name": "Nome Completo",
+    "return_to": "Voltar a",
+    "home": "home"
   },
   "register_lawyer": {
     "title": "Torne-se um de nossos Advogados!",
@@ -91,7 +95,6 @@
     "email": "Email",
     "edit_user_info": "Editar informações do usuário",
     "save": "Salvar"
-
   }
 
 

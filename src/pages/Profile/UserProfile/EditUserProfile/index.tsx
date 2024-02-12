@@ -2,8 +2,7 @@ import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import { InputText } from 'primereact/inputtext'
-import { Dispatch, SetStateAction, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Dispatch, SetStateAction } from 'react'
 
 type EditUserProfileProps = {
   isVisible: boolean
@@ -11,10 +10,6 @@ type EditUserProfileProps = {
 }
 export const EditUserProfile = ({ isVisible, setIsVisible }: EditUserProfileProps) => {
   const profilei18n = getI18n('user_profile')
-  const [aboutValue, setAboutValue] = useState('')
-  const {
-    formState: { errors },
-  } = useForm()
 
   return (
     <Dialog

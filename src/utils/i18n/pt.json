@@ -80,14 +80,26 @@
     "menu": "Menu"
   },
 
-  "profile":{
+  "lawyer_profile":{
     "title": "Perfil",
-    "find_lawyers": "Encontrar Advogados",
-    "become_one_of_lawyers": "Seja um de nossos advogados!",
     "user_name": "Nome de usuário",
     "password": "Senha",
     "cpf": "CPF",
     "oab": "OAB",
+    "specialization": "Especialização",
+    "about": "Sobre",
+    "save_changes": "Salvar alterações",
+    "edit": "Editar",
+    "email": "Email",
+    "edit_user_info": "Editar informações do usuário",
+    "save": "Salvar"
+  },
+
+  "user_profile":{
+    "title": "Perfil",
+    "become_one_of_lawyers": "Seja um de nossos advogados!",
+    "user_name": "Nome de usuário",
+    "password": "Senha",
     "specialization": "Especialização",
     "about": "Sobre",
     "save_changes": "Salvar alterações",

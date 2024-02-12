@@ -10,12 +10,12 @@ import { classNames } from 'primereact/utils'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
-type EditProfileProps = {
+type EditLawyerProfileProps = {
   isVisible: boolean
   setIsVisible: Dispatch<SetStateAction<boolean>>
 }
-export const EditProfile = ({ isVisible, setIsVisible }: EditProfileProps) => {
-  const profilei18n = getI18n('profile')
+export const EditLawyerProfile = ({ isVisible, setIsVisible }: EditLawyerProfileProps) => {
+  const lawyerprofilei18n = getI18n('lawyer_profile')
   const [aboutValue, setAboutValue] = useState('')
   const {
     control,
@@ -24,7 +24,7 @@ export const EditProfile = ({ isVisible, setIsVisible }: EditProfileProps) => {
 
   return (
     <Dialog
-      header={profilei18n.edit_user_info}
+      header={lawyerprofilei18n.edit_user_info}
       visible={isVisible}
       draggable={false}
       onHide={() => setIsVisible(false)}
@@ -33,14 +33,14 @@ export const EditProfile = ({ isVisible, setIsVisible }: EditProfileProps) => {
     >
       <div className="flex flex-column w-full mb-1">
         <label htmlFor="username" className="m-1">
-          {profilei18n.user_name}:
+          {lawyerprofilei18n.user_name}:
         </label>
         <InputText id="username" aria-describedby="username-help" />
       </div>
 
       <div className="padding-responsiveness mb-1 flex flex-column">
         <label htmlFor="username" className="m-1">
-          {profilei18n.specialization}:
+          {lawyerprofilei18n.specialization}:
         </label>
         <Controller
           name="specialization"
@@ -58,7 +58,7 @@ export const EditProfile = ({ isVisible, setIsVisible }: EditProfileProps) => {
                 options={lawTypes}
                 optionLabel="type"
                 optionValue="code"
-                placeholder={profilei18n.specialization}
+                placeholder={lawyerprofilei18n.specialization}
                 className={classNames({ 'p-invalid': fieldState.error })}
               />
             </>
@@ -67,7 +67,7 @@ export const EditProfile = ({ isVisible, setIsVisible }: EditProfileProps) => {
         {getFormErrorMessage(errors.specialization)}
       </div>
       <div className="flex flex-column mb-3">
-        <label className="text-left m-1">{profilei18n.about}:</label>
+        <label className="text-left m-1">{lawyerprofilei18n.about}:</label>
         <div className="p-float-label">
           <InputTextarea
             value={aboutValue}
@@ -80,7 +80,7 @@ export const EditProfile = ({ isVisible, setIsVisible }: EditProfileProps) => {
           <div>
             <Button
               className="w-full mt-2"
-              label={profilei18n.save}
+              label={lawyerprofilei18n.save}
               onClick={() => setIsVisible(false)}
             />
           </div>

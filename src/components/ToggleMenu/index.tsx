@@ -40,7 +40,7 @@ export default function ToggleMenu({
       label: toggleMenuI18n.profile,
       icon: 'pi pi-user',
       command: () => {
-        navigate('/profilepage')
+        navigate('/lawyerprofilepage')
       },
     },
     {

@@ -38,7 +38,7 @@ export const UserRegister = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames('', {
+          className={classNames('w-full', {
             'p-invalid': errors.fullName,
           })}
           placeholder={registerI18n.full_name + ' *'}
@@ -51,7 +51,7 @@ export const UserRegister = () => {
       </div>
       <div className="padding-responsiveness mb-2">
         <InputText
-          className={classNames('', {
+          className={classNames('w-full', {
             'p-invalid': errors.email,
           })}
           placeholder={registerI18n.email + ' *'}

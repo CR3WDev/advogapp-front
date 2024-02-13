@@ -59,7 +59,7 @@ export const LawyerProfilePage = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
         <div
-          style={{ height: useGetHeightLessTopbar() }}
+          style={{ minHeight: useGetHeightLessTopbar(), marginRight: '20px', marginLeft: '20px' }}
           className="flex align-items-center justify-content-center"
         >
           <div className="w-30rem">

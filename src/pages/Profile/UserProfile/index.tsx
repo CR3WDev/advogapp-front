@@ -14,8 +14,6 @@ export const UserProfilePage = () => {
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
 
-  //const { data } = getUserInfo()
-
   const handleToggleMenuLogoutWasClicked = (_data: boolean) => {
     // setLogoutIsClicked(data)
   }
@@ -58,7 +56,7 @@ export const UserProfilePage = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
         <div
-          style={{ height: useGetHeightLessTopbar() }}
+          style={{ minHeight: useGetHeightLessTopbar() }}
           className="flex align-items-center justify-content-center"
         >
           <div className="w-30rem">

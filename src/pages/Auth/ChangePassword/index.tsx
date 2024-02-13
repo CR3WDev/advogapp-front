@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom'
 
 import { LogoTopbar } from '@components/LogoTopbar'
 import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage'
+import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { useEffect } from 'react'
-import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 
-export const ChangePassowrdPage = () => {
+export const ChangePasswordPage = () => {
   const changePasswordI18n = getI18n('change_password')
   const navigate = useNavigate()
   const {
@@ -31,7 +31,10 @@ export const ChangePassowrdPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <LogoTopbar />
-      <div style={{height:useGetHeightLessTopbar()}} className="flex align-items-center justify-content-center">
+      <div
+        style={{ height: useGetHeightLessTopbar() }}
+        className="flex align-items-center justify-content-center"
+      >
         <div className="w-16rem">
           <div className="text-center mb-3">
             <h1>{changePasswordI18n.title}</h1>

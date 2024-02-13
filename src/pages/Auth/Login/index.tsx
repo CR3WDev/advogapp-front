@@ -6,10 +6,9 @@ import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
-import { showToastSuccess } from '@components/GlobalToast'
 import { LogoTopbar } from '@components/LogoTopbar'
 import { getFormErrorMessage } from '@utils/hooks/useGetFormErrorMessage'
-import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
+import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { postLogin } from './Services'
 import { Login } from './interfaces'
@@ -36,8 +35,7 @@ export const LoginPage = () => {
       password: data.password,
     }
     login(request).then((data: any) => {
-      navigate('/')
-      showToastSuccess('success')
+      navigate('/home')
       sessionStorage.setItem('token', data?.data?.token)
     })
   }
@@ -46,7 +44,7 @@ export const LoginPage = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <LogoTopbar />
       <div
-        style={{ height: useGetHeightLessTopbar() }}
+        style={{ minHeight: useGetHeightLessTopbar(), marginRight: '20px', marginLeft: '20px' }}
         className="flex align-items-center justify-content-center"
       >
         <div className="w-16rem">
@@ -111,17 +109,6 @@ export const LoginPage = () => {
                 className="no-underline hover:underline text-primary cursor-pointer ml-1"
               >
                 {loginI18n.register}
-              </span>
-            </div>
-            <div className="mt-1">
-              <span>{loginI18n.return_to}</span>
-              <span
-                onClick={() => {
-                  navigate('/')
-                }}
-                className="no-underline hover:underline text-primary cursor-pointer ml-1"
-              >
-                {loginI18n.home}
               </span>
             </div>
           </div>

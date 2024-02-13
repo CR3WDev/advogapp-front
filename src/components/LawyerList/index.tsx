@@ -4,6 +4,7 @@ import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
 import { Rating } from 'primereact/rating'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 type LawyerListProps = { data: any }
 
@@ -11,6 +12,7 @@ export const LawyerList = ({ data }: LawyerListProps) => {
   const [sortField, _setSortField] = useState('')
   const [sortOrder, _setSortOrder] = useState<0 | 1 | -1 | null>(0)
   const [_sortKey, _setSortKey] = useState('')
+  const navigate = useNavigate()
 
   // const onSortChange = (event: any) => {
   //   const value = event.value
@@ -46,6 +48,10 @@ export const LawyerList = ({ data }: LawyerListProps) => {
     { type: 'Direito Internacional' },
   ]
 
+  const handleOnClick = (lawyer: any) => {
+    console.log(lawyer)
+    navigate(`/lawyer/${lawyer.id}`)
+  }
   const selectedAdvTemplate = (option: any, props: any) => {
     if (option) {
       return (
@@ -90,7 +96,12 @@ export const LawyerList = ({ data }: LawyerListProps) => {
 
   const itemTemplate = (lawyer: any) => {
     return (
-      <div className="card card__advogado card__two grid m-2">
+      <div
+        className="card card__advogado card__two grid m-2"
+        onClick={() => {
+          handleOnClick(lawyer)
+        }}
+      >
         <div className="card__img flex flex-row align-items-center">
           <div>
             <img src={imgUserDefault} alt="user_image" />

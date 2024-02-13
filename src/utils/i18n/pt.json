@@ -7,7 +7,7 @@
     "reset_password": "Redefinir Senha",
     "no_account": "Não possui conta?",
     "register": "cadastre-se",
-    "return_to": "Voltar a",
+    "return": "Voltar",
     "home": "home"
   },
 
@@ -72,7 +72,7 @@
     "return_to_home_page": "Voltar a pagina incial"
   },
 
-  "toggle_menu":{
+  "toggle_menu": {
     "home": "Início",
     "profile": "Perfil",
     "messages": "Mensagens",
@@ -80,7 +80,7 @@
     "menu": "Menu"
   },
 
-  "lawyer_profile":{
+  "lawyer_profile": {
     "title": "Perfil",
     "user_name": "Nome de usuário",
     "password": "Senha",
@@ -95,7 +95,7 @@
     "save": "Salvar"
   },
 
-  "user_profile":{
+  "user_profile": {
     "title": "Perfil",
     "become_one_of_lawyers": "Seja um de nossos advogados!",
     "user_name": "Nome de usuário",
@@ -108,7 +108,4 @@
     "edit_user_info": "Editar informações do usuário",
     "save": "Salvar"
   }
-
-
-
 }

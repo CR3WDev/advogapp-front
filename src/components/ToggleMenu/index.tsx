@@ -1,4 +1,5 @@
 import { getI18n } from '@utils/hooks/useGetI18n'
+import { useGetUserInfo } from '@utils/hooks/useGetToken'
 import 'primeicons/primeicons.css'
 import { Button } from 'primereact/button'
 import { TieredMenu } from 'primereact/tieredmenu'
@@ -13,7 +14,7 @@ export default function ToggleMenu({
   const navigate = useNavigate()
   const toggleMenuI18n = getI18n('toggle_menu')
   const menu = useRef<any>(null)
-
+  const isLawyer = useGetUserInfo('role') ? useGetUserInfo('role') === 'lawyer' : false
   useEffect(() => {
     if (menu.current) {
       menu.current.toggle = (e: any) => {
@@ -24,8 +25,7 @@ export default function ToggleMenu({
 
   const handleLogoutClick = () => {
     sessionStorage.clear()
-    logoutWasClicked(true)
-    navigate('/')
+    navigate('/login')
   }
 
   const items = [
@@ -40,12 +40,9 @@ export default function ToggleMenu({
       label: toggleMenuI18n.profile,
       icon: 'pi pi-user',
       command: () => {
-        navigate('/lawyerprofilepage')
+        if (isLawyer) navigate('/lawyer/profile')
+        else navigate('/user/profile')
       },
-    },
-    {
-      label: toggleMenuI18n.messages,
-      icon: 'pi pi-envelope',
     },
     {
       separator: true,

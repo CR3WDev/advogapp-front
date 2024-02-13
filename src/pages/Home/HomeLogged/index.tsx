@@ -33,7 +33,7 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
             outlined
             text
             onClick={() => {
-              navigate('/registerlawyer')
+              navigate('/register/lawyer')
             }}
             label={homeI18n.become_one_of_lawyers}
             className="mr-2"
@@ -51,10 +51,6 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
       page: 0,
       totalRecords: 20,
     })
-
-    // .then((data: any) => {
-    //   console.log(data)
-    // })
   }, [])
 
   //console.log(responseList)

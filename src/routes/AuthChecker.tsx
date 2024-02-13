@@ -1,6 +1,10 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { ReactElement } from 'react'
+import { Navigate } from 'react-router-dom'
 
-export const AuthChecker = () => {
-	const token = sessionStorage.getItem('token');
-	return token ? <Outlet /> : <Navigate to="/login" replace />;
-};
+type AuthCheckerProps = {
+  children: ReactElement
+}
+export const AuthChecker = ({ children }: AuthCheckerProps) => {
+  const token = sessionStorage.getItem('token')
+  return token ? children : <Navigate to="/login" replace />
+}

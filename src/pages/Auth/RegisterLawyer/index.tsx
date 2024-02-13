@@ -10,7 +10,7 @@ export const RegisterLawyer = () => {
     <>
       <LogoTopbar />
       <div
-        style={{ height: useGetHeightLessTopbar() }}
+        style={{ minHeight: useGetHeightLessTopbar(), marginRight: '20px', marginLeft: '20px' }}
         className="flex align-items-center justify-content-center"
       >
         <div className="w-25rem">

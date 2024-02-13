@@ -1,17 +1,22 @@
 import img_men from '@assets/home_imj.jpg'
 import { LawyerList } from '@components/LawyerList'
-import { postLawyerList } from '@components/LawyerList/service'
+import { getLawyerListPublic } from '@components/LawyerList/service'
 import { LogoTopbar } from '@components/LogoTopbar'
 import { getI18n } from '@utils/hooks/useGetI18n'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const HomeNotLogged = () => {
+  const token = sessionStorage.getItem('token')
+  if (token) {
+    return <Navigate to="/home" />
+  }
+
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
-  const { mutateAsync: lawyerList, data: responseList } = postLawyerList()
+  const { data } = getLawyerListPublic()
 
   const handleButtonLoginLogoutClick = () => {
     navigate('/login')
@@ -29,11 +34,6 @@ const HomeNotLogged = () => {
   }
 
   useEffect(() => {
-    lawyerList({
-      page: 0,
-      totalRecords: 20,
-    })
-
     // .then((data: any) => {
     //   console.log(data)
     // })
@@ -65,7 +65,7 @@ const HomeNotLogged = () => {
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
           <Divider />
         </div>
-        <LawyerList data={responseList?.data?.list} />
+        <LawyerList data={data?.data?.list} />
       </main>
     </div>
   )

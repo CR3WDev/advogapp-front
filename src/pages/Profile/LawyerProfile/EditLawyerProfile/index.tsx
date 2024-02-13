@@ -28,61 +28,62 @@ export const EditLawyerProfile = ({ isVisible, setIsVisible }: EditLawyerProfile
       visible={isVisible}
       draggable={false}
       onHide={() => setIsVisible(false)}
-      style={{ width: '30vw' }}
-      breakpoints={{ '960px': '75vw', '641px': '100vw' }}
+      // style={{ width: '30vw' }}
+      // breakpoints={{ '960px': '75vw', '641px': '100vw' }}
     >
-      <div className="flex flex-column w-full mb-1">
-        <label htmlFor="username" className="m-1">
-          {lawyerprofilei18n.user_name}:
-        </label>
-        <InputText id="username" aria-describedby="username-help" />
-      </div>
-
-      <div className="padding-responsiveness mb-1 flex flex-column">
-        <label htmlFor="username" className="m-1">
-          {lawyerprofilei18n.specialization}:
-        </label>
-        <Controller
-          name="specialization"
-          control={control}
-          rules={{ required: true }}
-          render={({ field, fieldState }) => (
-            <>
-              <Dropdown
-                id={field.name}
-                name={field.name}
-                value={field.value}
-                onChange={(e) => {
-                  field.onChange(e.value)
-                }}
-                options={lawTypes}
-                optionLabel="type"
-                optionValue="code"
-                placeholder={lawyerprofilei18n.specialization}
-                className={classNames({ 'p-invalid': fieldState.error })}
-              />
-            </>
-          )}
-        />
-        {getFormErrorMessage(errors.specialization)}
-      </div>
-      <div className="flex flex-column mb-3">
-        <label className="text-left m-1">{lawyerprofilei18n.about}:</label>
-        <div className="p-float-label">
-          <InputTextarea
-            value={aboutValue}
-            onChange={(e) => setAboutValue(e.target.value)}
-            rows={5}
-            cols={30}
-            maxLength={225}
-            style={{ resize: 'none', height: '100%', width: '100%' }}
+      <div className="bg-primary h-full">
+        <div className="flex flex-column w-full mb-1">
+          <label htmlFor="username" className="m-1">
+            {lawyerprofilei18n.user_name}:
+          </label>
+          <InputText id="username" aria-describedby="username-help" />
+        </div>
+        <div className="padding-responsiveness mb-1 flex flex-column">
+          <label htmlFor="username" className="m-1">
+            {lawyerprofilei18n.specialization}:
+          </label>
+          <Controller
+            name="specialization"
+            control={control}
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
+              <>
+                <Dropdown
+                  id={field.name}
+                  name={field.name}
+                  value={field.value}
+                  onChange={(e) => {
+                    field.onChange(e.value)
+                  }}
+                  options={lawTypes}
+                  optionLabel="type"
+                  optionValue="code"
+                  placeholder={lawyerprofilei18n.specialization}
+                  className={classNames({ 'p-invalid': fieldState.error })}
+                />
+              </>
+            )}
           />
-          <div>
-            <Button
-              className="w-full mt-2"
-              label={lawyerprofilei18n.save}
-              onClick={() => setIsVisible(false)}
+          {getFormErrorMessage(errors.specialization)}
+        </div>
+        <div className="flex flex-column mb-3">
+          <label className="text-left m-1">{lawyerprofilei18n.about}:</label>
+          <div className="p-float-label">
+            <InputTextarea
+              value={aboutValue}
+              onChange={(e) => setAboutValue(e.target.value)}
+              rows={5}
+              cols={30}
+              maxLength={225}
+              style={{ resize: 'none', height: '100%', width: '100%' }}
             />
+            <div>
+              <Button
+                className="w-full mt-2"
+                label={lawyerprofilei18n.save}
+                onClick={() => setIsVisible(false)}
+              />
+            </div>
           </div>
         </div>
       </div>

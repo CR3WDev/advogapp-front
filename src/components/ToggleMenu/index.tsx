@@ -6,11 +6,7 @@ import { TieredMenu } from 'primereact/tieredmenu'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function ToggleMenu({
-  logoutWasClicked,
-}: {
-  logoutWasClicked: (arg: boolean) => void
-}) {
+export default function ToggleMenu() {
   const navigate = useNavigate()
   const toggleMenuI18n = getI18n('toggle_menu')
   const menu = useRef<any>(null)
@@ -51,7 +47,8 @@ export default function ToggleMenu({
       label: toggleMenuI18n.logout,
       icon: 'pi pi-sign-out',
       command: () => {
-        handleLogoutClick()
+        sessionStorage.clear()
+        navigate('/')
       },
     },
   ]

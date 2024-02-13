@@ -7,17 +7,14 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { EditUserProfile } from './EditUserProfile'
+import { getUserInfo } from './service'
 
 export const UserProfilePage = () => {
   const navigate = useNavigate()
   const userprofileI18n = getI18n('user_profile')
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
-
-  const handleToggleMenuLogoutWasClicked = (_data: boolean) => {
-    // setLogoutIsClicked(data)
-  }
-
+  const { data: userResponse } = getUserInfo()
   const left = () => {
     return (
       <div className=" ml-3">
@@ -33,26 +30,36 @@ export const UserProfilePage = () => {
             outlined
             text
             onClick={() => {
-              navigate('/registerlawyer')
+              navigate('/register/lawyer')
             }}
             label={userprofileI18n.become_one_of_lawyers}
             className="mr-2"
           ></Button>
         </div>
         <div className="flex">
-          <ToggleMenu logoutWasClicked={handleToggleMenuLogoutWasClicked} />
+          <ToggleMenu />
         </div>
       </div>
     )
   }
 
-  const onSubmit = (_data: any) => {}
-
-  //console.log(data)
+  const onSubmit = (data: any) => {
+    console.log(data)
+    // updateUser({
+    //   id: userResponse?.data?.id,
+    //   fullName: data?.fullName,
+    // }).then(() => {
+    //   showToastSuccess('Usuário Atualizado com sucesso!')
+    // })
+  }
 
   return (
     <>
-      <EditUserProfile isVisible={showEditDialog} setIsVisible={setShowEditDialog} />
+      <EditUserProfile
+        isVisible={showEditDialog}
+        setIsVisible={setShowEditDialog}
+        formData={userResponse?.data}
+      />
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
         <div
@@ -72,27 +79,10 @@ export const UserProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      {/* {data?.data.fullName || ' '} */} Nome do mano
+                      {userResponse?.data.fullName || ' '}
                     </span>
                   </div>
                 </div>
-
-                {/* <div className="flex flex-column mb-3">
-                <label className="flex text-left ml-1">{userprofileI18n.password}</label>
-                <div className="flex flex-row align-content-around">
-                  <InputText
-                    id="username"
-                    aria-describedby="username-help"
-                    placeholder="campo provisório"
-                    className="w-10"
-                    disabled
-                  />
-                  <Button
-                    className="max-w-6rem  ml-2"
-                    label={userprofileI18n.edit}
-                  />
-                </div>
-              </div> */}
 
                 <div className="flex flex-column mb-3">
                   <label className="flex text-left font-semibold text-lg mb-2">
@@ -100,7 +90,7 @@ export const UserProfilePage = () => {
                   </label>
                   <div className="flex flex-row align-content-around">
                     <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                      {/* {data?.data.email || ' '} */} Email do mano
+                      {userResponse?.data.email || ' '}
                     </span>
                   </div>
                 </div>

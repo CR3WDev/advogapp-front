@@ -4,20 +4,17 @@ import { postLawyerList } from '@components/LawyerList/service'
 import { LogoTopbar } from '@components/LogoTopbar'
 import ToggleMenu from '@components/ToggleMenu'
 import { getI18n } from '@utils/hooks/useGetI18n'
+import { useGetUserInfo } from '@utils/hooks/useGetToken'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const HomeLogged = ({ setLogoutIsClicked }: any) => {
+export const HomeLogged = () => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
   const { mutateAsync: lawyerList, data: responseList } = postLawyerList()
-
-  const handleToggleMenuLogoutWasClicked = (data: boolean) => {
-    setLogoutIsClicked(data)
-  }
-
+  const isLawyer = useGetUserInfo('role') ? useGetUserInfo('role') === 'lawyer' : false
   const left = () => {
     return (
       <div className="ml-3">
@@ -28,19 +25,21 @@ export const HomeLogged = ({ setLogoutIsClicked }: any) => {
   const right = () => {
     return (
       <div className="flex align-items-center">
-        <div>
-          <Button
-            outlined
-            text
-            onClick={() => {
-              navigate('/register/lawyer')
-            }}
-            label={homeI18n.become_one_of_lawyers}
-            className="mr-2"
-          ></Button>
-        </div>
+        {!isLawyer && (
+          <div>
+            <Button
+              outlined
+              text
+              onClick={() => {
+                navigate('/register/lawyer')
+              }}
+              label={homeI18n.become_one_of_lawyers}
+              className="mr-2"
+            ></Button>
+          </div>
+        )}
         <div className="flex">
-          <ToggleMenu logoutWasClicked={handleToggleMenuLogoutWasClicked} />
+          <ToggleMenu />
         </div>
       </div>
     )

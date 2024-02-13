@@ -7,38 +7,43 @@ import { Dropdown } from 'primereact/dropdown'
 import { InputText } from 'primereact/inputtext'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { classNames } from 'primereact/utils'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 type EditLawyerProfileProps = {
   isVisible: boolean
   setIsVisible: Dispatch<SetStateAction<boolean>>
+  data: any
 }
-export const EditLawyerProfile = ({ isVisible, setIsVisible }: EditLawyerProfileProps) => {
+export const EditLawyerProfile = ({ isVisible, setIsVisible, data }: EditLawyerProfileProps) => {
   const lawyerprofilei18n = getI18n('lawyer_profile')
-  const [aboutValue, setAboutValue] = useState('')
+
   const {
     control,
+    register,
     formState: { errors },
-  } = useForm()
-
+  } = useForm({ defaultValues: data })
   return (
     <Dialog
       header={lawyerprofilei18n.edit_user_info}
       visible={isVisible}
       draggable={false}
+      style={{ maxWidth: '90vw', width: '500px' }}
       onHide={() => setIsVisible(false)}
-      // style={{ width: '30vw' }}
-      // breakpoints={{ '960px': '75vw', '641px': '100vw' }}
     >
-      <div className="bg-primary h-full">
+      <form>
         <div className="flex flex-column w-full mb-1">
           <label htmlFor="username" className="m-1">
             {lawyerprofilei18n.user_name}:
           </label>
-          <InputText id="username" aria-describedby="username-help" />
+          <InputText
+            id="fullName"
+            {...register('fullName', {
+              required: true,
+            })}
+          />
         </div>
-        <div className="padding-responsiveness mb-1 flex flex-column">
+        <div className="mb-1 flex flex-column">
           <label htmlFor="username" className="m-1">
             {lawyerprofilei18n.specialization}:
           </label>
@@ -69,24 +74,31 @@ export const EditLawyerProfile = ({ isVisible, setIsVisible }: EditLawyerProfile
         <div className="flex flex-column mb-3">
           <label className="text-left m-1">{lawyerprofilei18n.about}:</label>
           <div className="p-float-label">
-            <InputTextarea
-              value={aboutValue}
-              onChange={(e) => setAboutValue(e.target.value)}
-              rows={5}
-              cols={30}
-              maxLength={225}
-              style={{ resize: 'none', height: '100%', width: '100%' }}
+            <Controller
+              name="description"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <InputTextarea
+                  name={field.name}
+                  id={field.name}
+                  rows={5}
+                  cols={30}
+                  maxLength={225}
+                  style={{ resize: 'none', height: '100%', width: '100%' }}
+                />
+              )}
             />
-            <div>
-              <Button
-                className="w-full mt-2"
-                label={lawyerprofilei18n.save}
-                onClick={() => setIsVisible(false)}
-              />
-            </div>
           </div>
         </div>
-      </div>
+        <div>
+          <Button
+            className="w-full mt-2"
+            label={lawyerprofilei18n.save}
+            onClick={() => setIsVisible(false)}
+          />
+        </div>
+      </form>
     </Dialog>
   )
 }

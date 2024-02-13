@@ -17,9 +17,6 @@ export const LawyerProfilePage = () => {
   const { handleSubmit } = useForm()
 
   const { data } = getLawyerInfo()
-  const handleToggleMenuLogoutWasClicked = (_data: boolean) => {
-    // setLogoutIsClicked(data)
-  }
 
   const left = () => {
     return (
@@ -43,19 +40,23 @@ export const LawyerProfilePage = () => {
           ></Button>
         </div>
         <div className="flex">
-          <ToggleMenu logoutWasClicked={handleToggleMenuLogoutWasClicked} />
+          <ToggleMenu />
         </div>
       </div>
     )
   }
 
-  const onSubmit = (_data: any) => {}
-
-  //console.log(data)
+  const onSubmit = (data: any) => {
+    // setFormData(data)
+  }
 
   return (
     <>
-      <EditLawyerProfile isVisible={showEditDialog} setIsVisible={setShowEditDialog} />
+      <EditLawyerProfile
+        isVisible={showEditDialog}
+        setIsVisible={setShowEditDialog}
+        data={data?.data}
+      />
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
         <div
@@ -79,24 +80,6 @@ export const LawyerProfilePage = () => {
                     </span>
                   </div>
                 </div>
-
-                {/* <div className="flex flex-column mb-3">
-                <label className="flex text-left ml-1">{lawyerprofilei18n.password}</label>
-                <div className="flex flex-row align-content-around">
-                  <InputText
-                    id="username"
-                    aria-describedby="username-help"
-                    placeholder="campo provisório"
-                    className="w-10"
-                    disabled
-                  />
-                  <Button
-                    className="max-w-6rem  ml-2"
-                    label={lawyerprofilei18n.edit}
-                  />
-                </div>
-              </div> */}
-
                 <div className="flex flex-column mb-3">
                   <label className="flex text-left font-semibold text-lg mb-2">
                     {lawyerprofilei18n.email}:
@@ -107,7 +90,6 @@ export const LawyerProfilePage = () => {
                     </span>
                   </div>
                 </div>
-
                 <div className="flex flex-column mb-3">
                   <label className="text-left font-semibold text-lg mb-2">
                     {lawyerprofilei18n.oab}:
@@ -119,7 +101,6 @@ export const LawyerProfilePage = () => {
                     {data?.data.oab || ' '}
                   </span>
                 </div>
-
                 <div className="flex flex-column mb-3">
                   <label className="text-left font-semibold text-lg mb-2">
                     {lawyerprofilei18n.cpf}:
@@ -131,7 +112,6 @@ export const LawyerProfilePage = () => {
                     {data?.data.cpf || ' '}
                   </span>
                 </div>
-
                 <div className="flex flex-column mb-3">
                   <label className="flex text-left font-semibold text-lg mb-2">
                     {lawyerprofilei18n.specialization}:

@@ -24,7 +24,16 @@
     "confirm_password": "Confirmar Senha",
     "full_name": "Nome Completo",
     "return_to": "Voltar a",
-    "home": "home"
+    "home": "home",
+    "pick_a_password": "Defina uma senha",
+    "at_least_one_uppercase":"Uma letra  maiúscula",
+    "at_least_one_numeric":"Um número",
+    "at_least_one_special_characters":"Um caractere especial",
+    "at_least_eight_characters": "8 caracteres",
+    "choose_a_password":"Coloque uma senha",
+    "too_weak":"Senha fraca",
+    "average": "Senha mediana",
+    "strong_password":"Senha forte"
   },
   "register_lawyer": {
     "title": "Torne-se um de nossos Advogados!",

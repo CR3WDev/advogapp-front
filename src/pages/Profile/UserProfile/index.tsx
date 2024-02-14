@@ -15,6 +15,7 @@ export const UserProfilePage = () => {
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
   const { data: userResponse } = getUserInfo()
+
   const left = () => {
     return (
       <div className=" ml-3">

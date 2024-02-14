@@ -1,4 +1,5 @@
 import img from '@assets/icon.svg'
+import { useGetLoginResponseDTO } from '@utils/hooks/useGetLoginResponseDTO'
 import { useNavigate } from 'react-router-dom'
 
 type LogoTopbarProps = {
@@ -7,13 +8,15 @@ type LogoTopbarProps = {
 }
 export const LogoTopbar = ({ rightContent, leftContent }: LogoTopbarProps) => {
   const navigate = useNavigate()
+  const loginResponseDTO = useGetLoginResponseDTO()
+
   return (
     <div>
       <div
         className="absolute cursor-pointer"
         style={{ top: 20, left: 20 }}
         onClick={() => {
-          navigate('/')
+          !loginResponseDTO ? navigate('/') : navigate('/home')
         }}
       >
         <img

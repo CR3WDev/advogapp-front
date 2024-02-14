@@ -1,3 +1,4 @@
+import { useGetLoginResponseDTO } from '@utils/hooks/useGetLoginResponseDTO'
 import { showToastError } from '../components/GlobalToast'
 import { api } from './axios'
 import { ErrorTypes } from './enum'
@@ -6,9 +7,9 @@ import { ErrorResponse } from './types'
 export const Interceptor = ({ children }: any) => {
   api.interceptors.request.use(
     (config) => {
-      const token = sessionStorage.getItem('token')
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+      const LoginResponseDTO = useGetLoginResponseDTO()
+      if (LoginResponseDTO?.token) {
+        config.headers.Authorization = `Bearer ${LoginResponseDTO?.token}`
       }
       return config
     },

@@ -4,6 +4,8 @@ import { EditLawyerProfile } from '@pages/Profile/LawyerProfile/EditLawyerProfil
 import { getLawyerInfo } from '@pages/Profile/LawyerProfile/service'
 import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 import { getI18n } from '@utils/hooks/useGetI18n'
+import { useGetIdByURL } from '@utils/hooks/useGetIdByURL'
+import { useGetUserInfo } from '@utils/hooks/useGetUserInfo'
 import { Button } from 'primereact/button'
 import { Fieldset } from 'primereact/fieldset'
 import { useState } from 'react'
@@ -15,8 +17,16 @@ export const LawyerProfilePage = () => {
   const lawyerprofilei18n = getI18n('lawyer_profile')
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
+  const lawyerId = useGetIdByURL('lawyer/')
+  const tokenUserId = useGetUserInfo('userId')
+  const { data: lawyerInfo } = getLawyerInfo(lawyerId || '')
 
-  const { data } = getLawyerInfo()
+  const isViewMode = (): boolean => {
+    if (!tokenUserId) return true
+    if (!lawyerInfo?.data) return true
+    if (tokenUserId !== lawyerInfo.data.userId) return true
+    return false
+  }
 
   const left = () => {
     return (
@@ -33,7 +43,7 @@ export const LawyerProfilePage = () => {
             outlined
             text
             onClick={() => {
-              navigate('/registerlawyer')
+              navigate('/register/lawyer')
             }}
             label={lawyerprofilei18n.become_one_of_lawyers}
             className="mr-2"
@@ -55,7 +65,7 @@ export const LawyerProfilePage = () => {
       <EditLawyerProfile
         isVisible={showEditDialog}
         setIsVisible={setShowEditDialog}
-        data={data?.data}
+        data={lawyerInfo?.data}
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
@@ -76,7 +86,7 @@ export const LawyerProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      {data?.data.fullName || ' '}
+                      {lawyerInfo?.data.fullName || ' '}
                     </span>
                   </div>
                 </div>
@@ -86,7 +96,7 @@ export const LawyerProfilePage = () => {
                   </label>
                   <div className="flex flex-row align-content-around">
                     <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                      {data?.data.email || ' '}
+                      {lawyerInfo?.data.email || ' '}
                     </span>
                   </div>
                 </div>
@@ -98,7 +108,7 @@ export const LawyerProfilePage = () => {
                     id="textProfileOAB"
                     className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    {data?.data.oab || ' '}
+                    {lawyerInfo?.data.oab || ' '}
                   </span>
                 </div>
                 <div className="flex flex-column mb-3">
@@ -109,7 +119,7 @@ export const LawyerProfilePage = () => {
                     id="textProfileCPF"
                     className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    {data?.data.cpf || ' '}
+                    {lawyerInfo?.data.cpf || ' '}
                   </span>
                 </div>
                 <div className="flex flex-column mb-3">
@@ -121,7 +131,7 @@ export const LawyerProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      {data?.data.specialization || ' '}
+                      {lawyerInfo?.data.specialization || ' '}
                     </span>
                   </div>
                 </div>
@@ -131,10 +141,15 @@ export const LawyerProfilePage = () => {
                     {lawyerprofilei18n.about}:
                   </label>
                   <div className="p-float-label">
-                    <Fieldset className="text-left m-0">{data?.data.description || ' '}</Fieldset>
                     <div>
+                      <Fieldset className="text-left m-0">
+                        {lawyerInfo?.data.description || ' '}
+                      </Fieldset>
+                    </div>
+                    <div className={`mt-3 ${isViewMode() ? 'hidden' : 'block'}`}>
                       <Button
-                        className="w-full mt-2"
+                        disabled={isViewMode()}
+                        className="w-full"
                         label={lawyerprofilei18n.edit}
                         onClick={() => setShowEditDialog(true)}
                       />

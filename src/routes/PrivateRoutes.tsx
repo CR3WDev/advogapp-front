@@ -9,7 +9,7 @@ export const PrivateRoutes = () => {
   return (
     <Routes>
       <Route path="/register/lawyer" element={<RegisterLawyer />}></Route>
-      <Route path="/lawyer/profile" element={<LawyerProfilePage />}></Route>
+      <Route path="/lawyer/*" element={<LawyerProfilePage />}></Route>
       <Route path="/user/profile" element={<UserProfilePage />}></Route>
       <Route path="/home" element={<HomeLogged />}></Route>
       <Route path="*" element={<NotFoundPage />}></Route>

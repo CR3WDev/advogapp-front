@@ -1,13 +1,13 @@
 import { LogoTopbar } from '@components/LogoTopbar'
 import { getI18n } from '@utils/hooks/useGetI18n'
-import { useGetUserInfo } from '@utils/hooks/useGetToken'
+import { useGetLoginResponseDTO } from '@utils/hooks/useGetLoginResponseDTO'
 import { Button } from 'primereact/button'
 import { useNavigate } from 'react-router-dom'
 
 export const NotFoundPage = () => {
   const navigate = useNavigate()
   const notFoundPageI18n = getI18n('not_found')
-  const isLogged = !!useGetUserInfo('email')
+  const isLogged = !!useGetLoginResponseDTO()
 
   return (
     <div className="h-screen w-screen flex justify-content-center align-items-center">

@@ -4,7 +4,7 @@ import { postLawyerList } from '@components/LawyerList/service'
 import { LogoTopbar } from '@components/LogoTopbar'
 import ToggleMenu from '@components/ToggleMenu'
 import { getI18n } from '@utils/hooks/useGetI18n'
-import { useGetUserInfo } from '@utils/hooks/useGetToken'
+import { useGetLoginResponseDTO } from '@utils/hooks/useGetLoginResponseDTO'
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
 import { useEffect } from 'react'
@@ -14,7 +14,8 @@ export const HomeLogged = () => {
   const navigate = useNavigate()
   const homeI18n = getI18n('home')
   const { mutateAsync: lawyerList, data: responseList } = postLawyerList()
-  const isLawyer = useGetUserInfo('role') ? useGetUserInfo('role') === 'lawyer' : false
+  const loginResponseDTO = useGetLoginResponseDTO()
+  const isLawyer = loginResponseDTO?.role ? loginResponseDTO.role === 'lawyer' : false
   const left = () => {
     return (
       <div className="ml-3">

@@ -2,6 +2,7 @@ import { LogoTopbar } from '@components/LogoTopbar'
 import ToggleMenu from '@components/ToggleMenu'
 import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 import { getI18n } from '@utils/hooks/useGetI18n'
+import { useGetLoginResponseDTO } from '@utils/hooks/useGetLoginResponseDTO'
 import { Button } from 'primereact/button'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -14,7 +15,8 @@ export const UserProfilePage = () => {
   const userprofileI18n = getI18n('user_profile')
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
-  const { data: userResponse } = getUserInfo()
+  const userId = useGetLoginResponseDTO()?.userId
+  const { data: userResponse } = getUserInfo(userId)
 
   const left = () => {
     return (

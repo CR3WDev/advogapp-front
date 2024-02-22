@@ -32,7 +32,7 @@ export const LawyerRegister = () => {
       specialization: data.specialization,
     }
     userRegister(request).then(() => {
-      navigate('/')
+      navigate('/home')
       showToastSuccess('success')
     })
   }

@@ -27,7 +27,7 @@ export default function ToggleMenu() {
       label: toggleMenuI18n.home,
       icon: 'pi pi-home',
       command: () => {
-        navigate('/')
+        navigate('/home')
       },
     },
     {

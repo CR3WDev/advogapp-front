@@ -127,7 +127,7 @@ export const LawyerList = ({ data }: LawyerListProps) => {
 
         <div className="p-2 sm: p-0">
           <Rating value={lawyer.rating} readOnly cancel={false} className="mb-3" />
-          <span className="ml-1">{lawyer.numReviews} avaliações</span>
+          <span className="ml-1">{lawyer.numReviews} 0 avaliações</span>
         </div>
         <div className="about text-justify p-1">
           {lawyer.about}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

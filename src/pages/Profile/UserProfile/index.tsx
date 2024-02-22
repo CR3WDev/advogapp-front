@@ -61,7 +61,7 @@ export const UserProfilePage = () => {
       <EditUserProfile
         isVisible={showEditDialog}
         setIsVisible={setShowEditDialog}
-        formData={userResponse?.data}
+        formData={userResponse?.data?.UserResponseDTO}
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />

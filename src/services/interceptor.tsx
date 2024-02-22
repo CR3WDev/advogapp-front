@@ -23,7 +23,7 @@ export const Interceptor = ({ children }: any) => {
       return response
     },
     (error) => {
-      const errorResponse: ErrorResponse = error?.response?.data
+      const errorResponse: ErrorResponse = error?.response?.data?.ApiException
       if (!errorResponse) return Promise.reject(error)
 
       if (errorResponse.httpStatus === ErrorTypes.BadRequest) {

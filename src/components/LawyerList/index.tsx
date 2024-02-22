@@ -48,10 +48,24 @@ export const LawyerList = ({ data }: LawyerListProps) => {
     { type: 'Direito Internacional' },
   ]
 
-  const handleOnClick = (lawyer: any) => {
-    console.log(lawyer)
+  const handleCardOnClick = (lawyer: any) => {
     navigate(`/lawyer/${lawyer.id}`)
   }
+
+  // const handleReadMoreClick = (event: any, lawyerId: any) => {
+  //   const button = event.target
+  //   const targetCard = document.getElementById(lawyerId)
+  //   if (targetCard) {
+  //     if (targetCard.classList.contains('active')) {
+  //       targetCard.classList.remove('active')
+  //       button.textContent = 'Ler mais'
+  //     } else {
+  //       targetCard.classList.add('active')
+  //       button.textContent = 'Ler menos'
+  //     }
+  //   }
+  // }
+
   const selectedAdvTemplate = (option: any, props: any) => {
     if (option) {
       return (
@@ -93,13 +107,12 @@ export const LawyerList = ({ data }: LawyerListProps) => {
       </div>
     )
   }
-
   const itemTemplate = (lawyer: any) => {
     return (
       <div
         className="card card__advogado card__two grid m-2"
         onClick={() => {
-          handleOnClick(lawyer)
+          handleCardOnClick(lawyer)
         }}
       >
         <div className="card__img flex flex-row align-items-center">
@@ -116,8 +129,21 @@ export const LawyerList = ({ data }: LawyerListProps) => {
           <Rating value={lawyer.rating} readOnly cancel={false} className="mb-3" />
           <span className="ml-1">{lawyer.numReviews} avaliações</span>
         </div>
-        <div className="about text-justify p-1">{lawyer.about}</div>
-        <button id="read_button">Ler mais</button>
+        <div className="about text-justify p-1">
+          {lawyer.about}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum.
+        </div>
+
+        <button
+          id="read_button"
+          // onClick={(event) => handleReadMoreClick(event, lawyer.id)}
+        >
+          Ler mais
+        </button>
       </div>
     )
   }
@@ -138,7 +164,7 @@ export const LawyerList = ({ data }: LawyerListProps) => {
         value={data}
         itemTemplate={itemTemplate}
         paginator
-        rows={2}
+        rows={10}
         header={header()}
         sortField={sortField}
         sortOrder={sortOrder}

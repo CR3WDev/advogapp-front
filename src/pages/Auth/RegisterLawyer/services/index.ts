@@ -1,6 +1,5 @@
 import { useService } from '@services/useServices'
-import { Register } from '../interfaces'
 
 export const postRegister = () => {
-  return useService().usePost<Register>('register', '/lawyer')
+  return useService().usePost<any>('register', '/lawyer')
 }

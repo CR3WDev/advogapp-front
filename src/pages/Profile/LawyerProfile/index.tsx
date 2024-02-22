@@ -56,7 +56,7 @@ export const LawyerProfilePage = () => {
     )
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     // setFormData(data)
   }
 

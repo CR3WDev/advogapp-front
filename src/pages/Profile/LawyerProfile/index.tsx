@@ -24,7 +24,7 @@ export const LawyerProfilePage = () => {
   const isViewMode = (): boolean => {
     if (!tokenUserId) return true
     if (!lawyerInfo?.data?.LawyerResponseByIdDTO) return true
-    if (tokenUserId !== lawyerInfo?.data?.LawyerResponseByIdDTO) return true
+    if (tokenUserId !== lawyerInfo?.data?.LawyerResponseByIdDTO?.userId) return true
     return false
   }
 
@@ -62,11 +62,14 @@ export const LawyerProfilePage = () => {
 
   return (
     <>
-      <EditLawyerProfile
-        isVisible={showEditDialog}
-        setIsVisible={setShowEditDialog}
-        data={lawyerInfo?.data}
-      />
+      {showEditDialog  && (
+        <EditLawyerProfile
+          isVisible={showEditDialog}
+          setIsVisible={setShowEditDialog}
+          data={lawyerInfo?.data?.LawyerResponseByIdDTO}
+        />
+      )
+      }
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
         <div

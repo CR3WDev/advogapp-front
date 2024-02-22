@@ -129,21 +129,9 @@ export const LawyerList = ({ data }: LawyerListProps) => {
           <Rating value={lawyer.rating} readOnly cancel={false} className="mb-3" />
           <span className="ml-1">{lawyer.numReviews} 0 avaliações</span>
         </div>
-        <div className="about text-justify p-1">
-          {lawyer.about}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-          anim id est laborum.
+        <div className="about text-justify p-1 w-full">
+          {lawyer.description}
         </div>
-
-        <button
-          id="read_button"
-          // onClick={(event) => handleReadMoreClick(event, lawyer.id)}
-        >
-          Ler mais
-        </button>
       </div>
     )
   }

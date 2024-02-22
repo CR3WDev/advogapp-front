@@ -36,7 +36,7 @@ export const LoginPage = () => {
     }
     login(request).then((data: any) => {
       navigate('/home')
-      const LoginResponseDTO = JSON.stringify(data?.data)
+      const LoginResponseDTO = JSON.stringify(data?.data?.LoginResponseDTO)
       sessionStorage.setItem('LoginResponseDTO', LoginResponseDTO)
     })
   }

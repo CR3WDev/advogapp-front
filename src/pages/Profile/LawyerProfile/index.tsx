@@ -23,8 +23,8 @@ export const LawyerProfilePage = () => {
 
   const isViewMode = (): boolean => {
     if (!tokenUserId) return true
-    if (!lawyerInfo?.data) return true
-    if (tokenUserId !== lawyerInfo.data.userId) return true
+    if (!lawyerInfo?.data?.LawyerResponseByIdDTO) return true
+    if (tokenUserId !== lawyerInfo?.data?.LawyerResponseByIdDTO) return true
     return false
   }
 
@@ -56,7 +56,7 @@ export const LawyerProfilePage = () => {
     )
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     // setFormData(data)
   }
 
@@ -86,7 +86,7 @@ export const LawyerProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      {lawyerInfo?.data.fullName || ' '}
+                      {lawyerInfo?.data?.LawyerResponseByIdDTO.fullName || ' '}
                     </span>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export const LawyerProfilePage = () => {
                   </label>
                   <div className="flex flex-row align-content-around">
                     <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                      {lawyerInfo?.data.email || ' '}
+                      {lawyerInfo?.data?.LawyerResponseByIdDTO.email || ' '}
                     </span>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export const LawyerProfilePage = () => {
                     id="textProfileOAB"
                     className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    {lawyerInfo?.data.oab || ' '}
+                    {lawyerInfo?.data?.LawyerResponseByIdDTO.oab || ' '}
                   </span>
                 </div>
                 <div className="flex flex-column mb-3">
@@ -119,7 +119,7 @@ export const LawyerProfilePage = () => {
                     id="textProfileCPF"
                     className="flex mt-2 w-10 text-left align-items-center "
                   >
-                    {lawyerInfo?.data.cpf || ' '}
+                    {lawyerInfo?.data?.LawyerResponseByIdDTO.cpf || ' '}
                   </span>
                 </div>
                 <div className="flex flex-column mb-3">
@@ -131,7 +131,7 @@ export const LawyerProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      {lawyerInfo?.data.specialization || ' '}
+                      {lawyerInfo?.data?.LawyerResponseByIdDTO.specialization || ' '}
                     </span>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export const LawyerProfilePage = () => {
                   <div className="p-float-label">
                     <div>
                       <Fieldset className="text-left m-0">
-                        {lawyerInfo?.data.description || ' '}
+                        {lawyerInfo?.data?.LawyerResponseByIdDTO.description || ' '}
                       </Fieldset>
                     </div>
                     <div className={`mt-3 ${isViewMode() ? 'hidden' : 'block'}`}>

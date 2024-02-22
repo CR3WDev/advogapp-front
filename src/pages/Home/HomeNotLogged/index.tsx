@@ -65,7 +65,7 @@ const HomeNotLogged = () => {
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
           <Divider />
         </div>
-        <LawyerList data={data?.data?.list} />
+        <LawyerList data={data?.data?.ResponseListDTO?.list} />
       </main>
     </div>
   )

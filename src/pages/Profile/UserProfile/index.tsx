@@ -61,7 +61,7 @@ export const UserProfilePage = () => {
       <EditUserProfile
         isVisible={showEditDialog}
         setIsVisible={setShowEditDialog}
-        formData={userResponse?.data}
+        formData={userResponse?.data?.UserResponseDTO}
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <LogoTopbar leftContent={left} rightContent={right} />
@@ -82,7 +82,7 @@ export const UserProfilePage = () => {
                       id="textProfileUsername"
                       className="flex w-10 text-left align-items-center "
                     >
-                      {userResponse?.data.fullName || ' '}
+                      {userResponse?.data?.UserResponseDTO.fullName || ' '}
                     </span>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ export const UserProfilePage = () => {
                   </label>
                   <div className="flex flex-row align-content-around">
                     <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                      {userResponse?.data.email || ' '}
+                      {userResponse?.data?.UserResponseDTO.email || ' '}
                     </span>
                   </div>
                 </div>

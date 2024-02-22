@@ -81,7 +81,7 @@ export const HomeLogged = () => {
         <div style={{ paddingLeft: '1.25rem', paddingRight: '1.25rem' }}>
           <Divider />
         </div>
-        <LawyerList data={responseList?.data?.list} />
+        <LawyerList data={responseList?.data?.ResponseListDTO.list} />
       </main>
     </div>
   )

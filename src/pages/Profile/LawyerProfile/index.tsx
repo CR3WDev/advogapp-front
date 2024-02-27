@@ -38,6 +38,9 @@ export const LawyerProfilePage = () => {
       console.log('ccc')
       return true
     }
+    if (!tokenUserId) return true
+    if (!lawyerInfo?.data?.LawyerResponseByIdDTO) return true
+    if (tokenUserId !== lawyerInfo?.data?.LawyerResponseByIdDTO?.userId) return true
     return false
   }
 

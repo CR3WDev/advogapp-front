@@ -80,11 +80,13 @@ export const LawyerProfilePage = () => {
 
   return (
     <div className="surface-100">
-      <EditLawyerProfile
-        isVisible={showEditDialog}
-        setIsVisible={setShowEditDialog}
-        data={lawyerInfo?.data}
-      />
+      {showEditDialog && (
+        <EditLawyerProfile
+          isVisible={showEditDialog}
+          setIsVisible={setShowEditDialog}
+          data={lawyerInfo?.data?.LawyerResponseByIdDTO}
+        />
+      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="bg-white pb-3">
           <LogoTopbar leftContent={left} rightContent={right} />

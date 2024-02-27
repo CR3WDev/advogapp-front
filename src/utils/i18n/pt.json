@@ -95,13 +95,16 @@
     "password": "Senha",
     "cpf": "CPF",
     "oab": "OAB",
-    "specialization": "Especialização",
+    "specialization": "Especialidade",
     "about": "Sobre",
     "save_changes": "Salvar alterações",
     "edit": "Editar",
     "email": "Email",
     "edit_user_info": "Editar informações do usuário",
-    "save": "Salvar"
+    "save": "Salvar",
+    "chat": "Chat",
+    "contacts": "Contatos",
+    "services": "Serviços"
   },
 
   "user_profile": {

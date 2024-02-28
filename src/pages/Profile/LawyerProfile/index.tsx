@@ -27,15 +27,12 @@ export const LawyerProfilePage = () => {
 
   const isViewMode = (): boolean => {
     if (!tokenUserId) {
-      console.log(tokenUserId)
       return true
     }
-    if (!lawyerInfo?.data?.LawyerResponseByIdDTO) {
-      console.log('bbb')
+    if (!lawyerInfo?.data?.LawyerResponseByIdDTO.userId) {
       return true
     }
-    if (tokenUserId !== lawyerInfo?.data?.LawyerResponseByIdDTO) {
-      console.log('ccc')
+    if (tokenUserId !== lawyerInfo?.data?.LawyerResponseByIdDTO.userId) {
       return true
     }
     if (!tokenUserId) return true
@@ -99,7 +96,12 @@ export const LawyerProfilePage = () => {
             <div className="flex justify-content-between">
               <div className="flex">
                 <div className="mr-4">
-                  <Avatar icon="pi pi-user" size="xlarge" className="w-16 h-16 text-2xl" />
+                  <Avatar
+                    icon="pi pi-user"
+                    size="xlarge"
+                    className="text-2xl"
+                    style={{ width: '9rem', height: '9rem' }}
+                  />
                 </div>
                 <div className="flex flex-column">
                   <span className="text-4xl font-semibold">
@@ -122,9 +124,9 @@ export const LawyerProfilePage = () => {
                 </div>
               </div>
               <div>
-                {/* <div className={`${isViewMode() ? 'block' : 'hidden'}`}>
+                <div className={`${isViewMode() ? 'block' : 'hidden'}`}>
                   <Button label={lawyerprofilei18n.chat} icon="pi pi-comments" />
-                </div> */}
+                </div>
                 <div className={`${isViewMode() ? 'hidden' : 'block'}`}>
                   <Button
                     disabled={isViewMode()}

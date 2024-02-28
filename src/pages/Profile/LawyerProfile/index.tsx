@@ -79,8 +79,8 @@ export const LawyerProfilePage = () => {
 
   const userLawyerServicesTemplate = (services: any) => {
     return (
-      <div className="flex flex-column surface-100 card border-round-lg mx-0 my-1">
-        <div className="font-bold mb-2">{services.title}</div>
+      <div className="flex flex-column text-lg surface-100 card border-round-lg mx-0 my-1">
+        <div className="font-bold mb-2 text-lg">{services.title}</div>
         <div>{services.info}</div>
       </div>
     )
@@ -104,7 +104,7 @@ export const LawyerProfilePage = () => {
           className="flex justify-content-center mt-7"
         >
           <div className="w-8 bg-white border-round-lg p-6">
-            <div className="flex justify-content-between">
+            <div className="flex justify-content-between mb-5">
               <div className="flex">
                 <div className="mr-4">
                   <Avatar
@@ -139,16 +139,15 @@ export const LawyerProfilePage = () => {
                   <Button label={lawyerprofilei18n.chat} icon="pi pi-comments" />
                 </div>
                 <div className={`${isViewMode() ? 'hidden' : 'block'}`}>
-                  <Button
-                    disabled={isViewMode()}
-                    className="w-full"
-                    label={lawyerprofilei18n.edit}
-                    onClick={() => setShowEditDialog(true)}
+                  <span
+                    className="text-xl pi pi-pencil mr-1"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => !isViewMode() && setShowEditDialog(true)}
                   />
                 </div>
               </div>
             </div>
-            <Divider className="my-5" />
+            {/* <Divider className="my-5" /> */}
             <div className="flex justify-content-between">
               <div className="flex flex-column w-8">
                 <span className="text-xl font-bold mb-2">{lawyerprofilei18n.about}</span>
@@ -165,8 +164,11 @@ export const LawyerProfilePage = () => {
             </div>
             <Divider className="my-5" />
             <>
-              <div className="mb-2">
+              <div className="mb-2 flex justify-content-between">
                 <span className="text-xl font-bold">{lawyerprofilei18n.services}</span>
+                <div className={`${isViewMode() ? 'hidden' : 'block'}`}>
+                  <span className="text-xl pi pi-pencil mr-1" />
+                </div>
               </div>
               <DataView value={userLawyerServices} itemTemplate={userLawyerServicesTemplate} />
             </>

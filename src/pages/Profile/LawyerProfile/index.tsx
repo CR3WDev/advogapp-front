@@ -7,8 +7,10 @@ import { getI18n } from '@utils/hooks/useGetI18n'
 import { useGetIdByURL } from '@utils/hooks/useGetIdByURL'
 import { useGetLoginResponseDTO } from '@utils/hooks/useGetLoginResponseDTO'
 import { useGetUserInfo } from '@utils/hooks/useGetUserInfo'
+import { userLawyerServices } from '@utils/mock/index'
 import { Avatar } from 'primereact/avatar'
 import { Button } from 'primereact/button'
+import { DataView } from 'primereact/dataview'
 import { Divider } from 'primereact/divider'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -73,6 +75,15 @@ export const LawyerProfilePage = () => {
 
   const onSubmit = () => {
     // setFormData(data)
+  }
+
+  const userLawyerServicesTemplate = (services: any) => {
+    return (
+      <div className="flex flex-column surface-100 card border-round-lg mx-0 my-1">
+        <div className="font-bold mb-2">{services.title}</div>
+        <div>{services.info}</div>
+      </div>
+    )
   }
 
   return (
@@ -154,95 +165,11 @@ export const LawyerProfilePage = () => {
             </div>
             <Divider className="my-5" />
             <>
-              <span className="text-xl font-bold mb-2">{lawyerprofilei18n.services}</span>
-            </>
-
-            {/* ----------------------------------------------------- */}
-            {/* <div className="text-center">
-              <h1>{lawyerprofilei18n.title}</h1>
-              <div className="flex flex-column justify-content-center">
-                <div className="flex flex-column mb-3">
-                  <label className="flex text-left font-semibold text-lg mb-2">
-                    {lawyerprofilei18n.user_name}:
-                  </label>
-                  <div className="flex flex-row align-content-around">
-                    <span
-                      id="textProfileUsername"
-                      className="flex w-10 text-left align-items-center "
-                    >
-                      {lawyerInfo?.data?.LawyerResponseByIdDTO.fullName || ' '}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-column mb-3">
-                  <label className="flex text-left font-semibold text-lg mb-2">
-                    {lawyerprofilei18n.email}:
-                  </label>
-                  <div className="flex flex-row align-content-around">
-                    <span id="textProfileEmail" className="flex w-10 text-left align-items-center ">
-                      {lawyerInfo?.data?.LawyerResponseByIdDTO.email || ' '}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-column mb-3">
-                  <label className="text-left font-semibold text-lg mb-2">
-                    {lawyerprofilei18n.oab}:
-                  </label>
-                  <span
-                    id="textProfileOAB"
-                    className="flex mt-2 w-10 text-left align-items-center "
-                  >
-                    {lawyerInfo?.data?.LawyerResponseByIdDTO.oab || ' '}
-                  </span>
-                </div>
-                <div className="flex flex-column mb-3">
-                  <label className="text-left font-semibold text-lg mb-2">
-                    {lawyerprofilei18n.cpf}:
-                  </label>
-                  <span
-                    id="textProfileCPF"
-                    className="flex mt-2 w-10 text-left align-items-center "
-                  >
-                    {lawyerInfo?.data?.LawyerResponseByIdDTO.cpf || ' '}
-                  </span>
-                </div>
-                <div className="flex flex-column mb-3">
-                  <label className="flex text-left font-semibold text-lg mb-2">
-                    {lawyerprofilei18n.specialization}:
-                  </label>
-                  <div className="flex flex-row align-content-around">
-                    <span
-                      id="textProfileUsername"
-                      className="flex w-10 text-left align-items-center "
-                    >
-                      {lawyerInfo?.data?.LawyerResponseByIdDTO.specialization || ' '}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-column mb-3">
-                  <label className="text-left font-semibold text-lg mb-2">
-                    {lawyerprofilei18n.about}:
-                  </label>
-                  <div className="p-float-label">
-                    <div>
-                      <Fieldset className="text-left m-0">
-                        {lawyerInfo?.data?.LawyerResponseByIdDTO.description || ' '}
-                      </Fieldset>
-                    </div>
-
-                    <div className={`mt-3 ${isViewMode() ? 'hidden' : 'block'}`}>
-                      <Button
-                        disabled={isViewMode()}
-                        className="w-full"
-                        label={lawyerprofilei18n.edit}
-                        onClick={() => setShowEditDialog(true)}
-                      />
-                    </div>
-                  </div>
-                </div>
+              <div className="mb-2">
+                <span className="text-xl font-bold">{lawyerprofilei18n.services}</span>
               </div>
-            </div> */}
+              <DataView value={userLawyerServices} itemTemplate={userLawyerServicesTemplate} />
+            </>
           </div>
         </div>
       </form>

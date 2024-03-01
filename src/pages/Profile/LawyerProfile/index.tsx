@@ -1,6 +1,5 @@
 import { LogoTopbar } from '@components/LogoTopbar'
 import ToggleMenu from '@components/ToggleMenu'
-import { EditLawyerProfile } from '@pages/Profile/LawyerProfile/EditLawyerProfile'
 import { getLawyerInfo } from '@pages/Profile/LawyerProfile/service'
 import { useGetHeightLessTopbar } from '@utils/hooks/useGetHeightLessTopbar.ts'
 import { getI18n } from '@utils/hooks/useGetI18n'
@@ -15,11 +14,14 @@ import { Divider } from 'primereact/divider'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { EditLawyerProfileInfo } from './EditLawyerProfile/EditLawyerProfileInfo'
+import { EditLawyerProfileServices } from './EditLawyerProfileServices'
 
 export const LawyerProfilePage = () => {
   const navigate = useNavigate()
   const lawyerprofilei18n = getI18n('lawyer_profile')
-  const [showEditDialog, setShowEditDialog] = useState(false)
+  const [showEditLawyerInfoDialog, setShowEditLawyerInfoDialog] = useState(false)
+  const [showEditLawyerServicesDialog, setShowEditLawyerServicesDialog] = useState(false)
   const { handleSubmit } = useForm()
   const lawyerId = useGetIdByURL('lawyer/')
   const tokenUserId = useGetUserInfo('userId')
@@ -88,15 +90,22 @@ export const LawyerProfilePage = () => {
 
   return (
     <div className="surface-100">
-      {showEditDialog && (
-        <EditLawyerProfile
-          isVisible={showEditDialog}
-          setIsVisible={setShowEditDialog}
+      {showEditLawyerInfoDialog && (
+        <EditLawyerProfileInfo
+          isVisible={showEditLawyerInfoDialog}
+          setIsVisible={setShowEditLawyerInfoDialog}
+          data={lawyerInfo?.data?.LawyerResponseByIdDTO}
+        />
+      )}
+      {showEditLawyerServicesDialog && (
+        <EditLawyerProfileServices
+          isVisible={showEditLawyerServicesDialog}
+          setIsVisible={setShowEditLawyerServicesDialog}
           data={lawyerInfo?.data?.LawyerResponseByIdDTO}
         />
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="bg-white pb-3">
+        <div className="bg-white">
           <LogoTopbar leftContent={left} rightContent={right} />
         </div>
         <div
@@ -132,6 +141,10 @@ export const LawyerProfilePage = () => {
                       {lawyerInfo?.data?.LawyerResponseByIdDTO.oab || ' '}
                     </span>
                   </div>
+                  <div className="flex mt-1">
+                    <span className="text-lg text-400 mr-2">{lawyerprofilei18n.email}:</span>
+                    <span className="text-lg">emailDoMano@gmail.com</span>
+                  </div>
                 </div>
               </div>
               <div>
@@ -142,24 +155,18 @@ export const LawyerProfilePage = () => {
                   <span
                     className="text-xl pi pi-pencil mr-1"
                     style={{ cursor: 'pointer' }}
-                    onClick={() => !isViewMode() && setShowEditDialog(true)}
+                    onClick={() => !isViewMode() && setShowEditLawyerInfoDialog(true)}
                   />
                 </div>
               </div>
             </div>
             {/* <Divider className="my-5" /> */}
-            <div className="flex justify-content-between">
+            <div className="flex">
               <div className="flex flex-column w-8">
                 <span className="text-xl font-bold mb-2">{lawyerprofilei18n.about}</span>
                 <span className="text-xl mr-3">
                   {lawyerInfo?.data?.LawyerResponseByIdDTO.description || ' '}
                 </span>
-              </div>
-              <div className="flex flex-column w-4">
-                <span className="text-xl font-bold mb-2">{lawyerprofilei18n.contacts}</span>
-                <div className="text-xl pi pi-envelope mb-1"> emailDoMano@gmail.com</div>
-                <span className="text-xl pi pi-instagram mb-1"> @instaDoMano</span>
-                <span className="text-xl pi pi-whatsapp"> (99)99999-9999</span>
               </div>
             </div>
             <Divider className="my-5" />
@@ -167,7 +174,11 @@ export const LawyerProfilePage = () => {
               <div className="mb-2 flex justify-content-between">
                 <span className="text-xl font-bold">{lawyerprofilei18n.services}</span>
                 <div className={`${isViewMode() ? 'hidden' : 'block'}`}>
-                  <span className="text-xl pi pi-pencil mr-1" />
+                  <span
+                    className="text-xl pi pi-pencil mr-1"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => !isViewMode() && setShowEditLawyerServicesDialog(true)}
+                  />
                 </div>
               </div>
               <DataView value={userLawyerServices} itemTemplate={userLawyerServicesTemplate} />

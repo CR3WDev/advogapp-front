@@ -34,8 +34,6 @@ export const EditLawyerProfileServices = ({
     })
   }
   const {
-    control,
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm({

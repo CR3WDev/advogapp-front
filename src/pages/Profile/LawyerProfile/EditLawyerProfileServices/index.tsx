@@ -16,7 +16,6 @@ type EditLawyerProfileProps = {
   setIsVisible: Dispatch<SetStateAction<boolean>>
   data: any
 }
-
 export const EditLawyerProfileServices = ({
   isVisible,
   setIsVisible,

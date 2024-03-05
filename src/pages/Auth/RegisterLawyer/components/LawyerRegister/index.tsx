@@ -12,6 +12,10 @@ import { postRegister } from '../../services'
 import { showToastSuccess } from '@components/GlobalToast'
 import { useValidateCpfs } from '@utils/hooks/useValidateCpf'
 import { RegisterLawyer } from '../../interfaces'
+import {
+  useGetLoginResponseDTO,
+  useSetLoginResponseDTO,
+} from '@utils/hooks/useGetLoginResponseDTO.ts'
 
 export const LawyerRegister = () => {
   const registerI18n = getI18n('register_lawyer')
@@ -31,7 +35,13 @@ export const LawyerRegister = () => {
       oab: data.oab,
       specialization: data.specialization,
     }
-    userRegister(request).then(() => {
+    userRegister(request).then((data) => {
+      const lawyerResponseDTO = data?.data?.LawyerResponseDTO
+      let loginResponseDTO = useGetLoginResponseDTO()
+      if (!lawyerResponseDTO || !loginResponseDTO) return
+      loginResponseDTO!.lawyerId = lawyerResponseDTO.id
+      loginResponseDTO!.role = 'lawyer'
+      useSetLoginResponseDTO(loginResponseDTO)
       navigate('/home')
       showToastSuccess('success')
     })
@@ -58,7 +68,7 @@ export const LawyerRegister = () => {
                 onChange={(e) => {
                   field.onChange(e?.value)
                 }}
-                mask="aa999999"
+                mask="aa9999?99"
                 placeholder={registerI18n.oab + ' *'}
               />
               {getFormErrorMessage(errors.oab)}

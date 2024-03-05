@@ -18,7 +18,6 @@ type EditLawyerProfileProps = {
   data: any
 }
 export const EditLawyerProfile = ({ isVisible, setIsVisible, data }: EditLawyerProfileProps) => {
-  console.log("entrou")
   const lawyerprofilei18n = getI18n('lawyer_profile')
   const loginResponseDTO = useGetLoginResponseDTO();
 

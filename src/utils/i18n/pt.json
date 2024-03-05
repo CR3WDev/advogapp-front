@@ -99,12 +99,17 @@
     "about": "Sobre",
     "save_changes": "Salvar alterações",
     "edit": "Editar",
+    "delete": "Apagar",
     "email": "Email",
     "edit_user_info": "Editar informações do usuário",
+    "edit_user_services": "Editar serviços do usuário",
     "save": "Salvar",
     "chat": "Chat",
     "contacts": "Contatos",
-    "services": "Serviços"
+    "services": "Serviços",
+    "add_a_service": "Adicione um serviço",
+    "concatc_email": "Emeil para contato"
+
   },
 
   "user_profile": {

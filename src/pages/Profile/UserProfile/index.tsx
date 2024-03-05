@@ -16,7 +16,7 @@ export const UserProfilePage = () => {
   const [showEditDialog, setShowEditDialog] = useState(false)
   const { handleSubmit } = useForm()
   const userId = useGetLoginResponseDTO()?.userId
-  const { data: userResponse } = getUserInfo(userId)
+  const { data: userResponse } = getUserInfo(userId!)
 
   const left = () => {
     return (

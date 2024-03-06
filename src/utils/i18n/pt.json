@@ -55,13 +55,30 @@
     "invalid_cpf": "CPF inválido"
   },
 
-  "change_password": {
+  "forgot_password": {
     "title": "Redefinir senha",
     "description": "Digite seu email para enviarmos sua nova senha!",
     "email": "Email",
     "cancel": "Cancelar",
     "back": "Voltar",
     "send": "Enviar"
+  },
+  "change_password": {
+    "title": "Redefinir senha",
+    "send": "Enviar",
+    "return_to": "Voltar a",
+    "home": "home",
+    "password": "Senha",
+    "confirm_password": "Confirmar Senha",
+    "pick_a_password": "Defina uma senha",
+    "at_least_one_uppercase":"Uma letra  maiúscula",
+    "at_least_one_numeric":"Um número",
+    "at_least_one_special_characters":"Um caractere especial",
+    "at_least_eight_characters": "8 caracteres",
+    "choose_a_password":"Coloque uma senha",
+    "too_weak":"Senha fraca",
+    "average": "Senha mediana",
+    "strong_password":"Senha forte"
   },
 
   "home": {

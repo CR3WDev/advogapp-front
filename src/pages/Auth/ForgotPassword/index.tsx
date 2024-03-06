@@ -11,7 +11,7 @@ import { getI18n } from '@utils/hooks/useGetI18n'
 import { useEffect } from 'react'
 
 export const ForgotPasswordPage = () => {
-  const forgotPasswordI18n = getI18n('change_password')
+  const forgotPasswordI18n = getI18n('forgot_password')
   const navigate = useNavigate()
   const {
     formState: { errors },

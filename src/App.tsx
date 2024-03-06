@@ -1,12 +1,13 @@
 import { GlobalToast } from '@components/GlobalToast'
 import pt from '@utils/i18n/pt.json'
-import { PrimeReactProvider, addLocale } from 'primereact/api'
+import { addLocale, PrimeReactProvider } from 'primereact/api'
 import { QueryClientProvider } from 'react-query'
 import { RouterProvider } from 'react-router-dom'
 import { router } from 'routes/PublicRoutes'
-import { GlobalLoalding } from './components/GlobalLoading'
-import { Interceptor } from './services/interceptor'
+
 import { queryClient } from './services/queryClient'
+import { GlobalLoaldingComponent } from '@components/GlobalLoading'
+import { InterceptorComponent } from '@services/components/Interceptor'
 
 const App = () => {
   //@ts-ignore
@@ -16,10 +17,10 @@ const App = () => {
     <>
       <PrimeReactProvider>
         <QueryClientProvider client={queryClient}>
-          <GlobalLoalding />
-          <Interceptor>
+          <GlobalLoaldingComponent />
+          <InterceptorComponent>
             <RouterProvider router={router} />
-          </Interceptor>
+          </InterceptorComponent>
         </QueryClientProvider>
       </PrimeReactProvider>
       <GlobalToast />

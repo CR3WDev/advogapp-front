@@ -1,4 +1,5 @@
 import { ChangePasswordPage } from '@pages/Auth/ChangePassword'
+import { ForgotPasswordPage } from '@pages/Auth/ForgotPassword'
 import { LoginPage } from '@pages/Auth/Login'
 import { RegisterPage } from '@pages/Auth/Register'
 import HomeNotLogged from '@pages/Home/HomeNotLogged'
@@ -10,6 +11,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/forgotpassword" element={<ForgotPasswordPage />}></Route>
       <Route path="/changepassword" element={<ChangePasswordPage />}></Route>
       <Route path="/register" element={<RegisterPage />}></Route>
       <Route path="/" element={<HomeNotLogged />}></Route>

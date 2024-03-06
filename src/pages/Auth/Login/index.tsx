@@ -94,7 +94,7 @@ export const LoginPage = () => {
             <div className="mb-1">
               <span
                 onClick={() => {
-                  navigate('/changepassword')
+                  navigate('/forgotpassword')
                 }}
                 className="no-underline hover:underline text-primary cursor-pointer"
               >

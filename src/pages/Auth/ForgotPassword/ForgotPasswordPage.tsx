@@ -9,9 +9,12 @@ import { getI18n } from '@utils/hooks/useGetI18n'
 import { useEffect } from 'react'
 import { LogoTopbarComponent } from '@components/LogoTopbar'
 import { ErrorMessageComponent } from '@components/ErrorMessage'
+import { UseValidateEmail } from '@utils/hooks/useValidateEmail.ts'
+import { postRecoverPassword } from '@pages/Auth/ForgotPassword/ForgotPasswordService.ts'
+import { showToastSuccess } from '@components/GlobalToast'
 
 export const ForgotPasswordPage = () => {
-  const forgotPasswordI18n = getI18n('change_password')
+  const forgotPasswordI18n = getI18n('forgot_password')
   const navigate = useNavigate()
   const {
     formState: { errors },
@@ -24,8 +27,13 @@ export const ForgotPasswordPage = () => {
     watch('value')
   }, [watch('value')])
 
+  const { mutateAsync: recoverPassword } = postRecoverPassword()
   const onSubmit = (data: any) => {
-    console.log(data)
+    recoverPassword({
+      email: data?.email,
+    }).then(() => {
+      showToastSuccess(forgotPasswordI18n?.send_email)
+    })
   }
 
   return (
@@ -52,6 +60,9 @@ export const ForgotPasswordPage = () => {
               id="login"
               {...register('email', {
                 required: true,
+                validate: (value) => {
+                  return UseValidateEmail(value) || forgotPasswordI18n.invalid_email
+                },
               })}
             />
             <ErrorMessageComponent errors={errors.email} />

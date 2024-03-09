@@ -10,7 +10,6 @@
     "return": "Voltar",
     "home": "home"
   },
-
   "register": {
     "title": "Criar conta",
     "login": "Login",
@@ -26,14 +25,14 @@
     "return_to": "Voltar a",
     "home": "home",
     "pick_a_password": "Defina uma senha",
-    "at_least_one_uppercase":"Uma letra  maiúscula",
-    "at_least_one_numeric":"Um número",
-    "at_least_one_special_characters":"Um caractere especial",
+    "at_least_one_uppercase": "Uma letra  maiúscula",
+    "at_least_one_numeric": "Um número",
+    "at_least_one_special_characters": "Um caractere especial",
     "at_least_eight_characters": "8 caracteres",
-    "choose_a_password":"Coloque uma senha",
-    "too_weak":"Senha fraca",
+    "choose_a_password": "Coloque uma senha",
+    "too_weak": "Senha fraca",
     "average": "Senha mediana",
-    "strong_password":"Senha forte"
+    "strong_password": "Senha forte"
   },
   "register_lawyer": {
     "title": "Torne-se um de nossos Advogados!",
@@ -54,10 +53,11 @@
     "full_name": "Nome Completo",
     "invalid_cpf": "CPF inválido"
   },
-
   "forgot_password": {
     "title": "Redefinir senha",
     "description": "Digite seu email para enviarmos sua nova senha!",
+    "invalid_email": "Email inválido",
+    "send_email": "Email enviado com sucesso!",
     "email": "Email",
     "cancel": "Cancelar",
     "back": "Voltar",
@@ -68,19 +68,19 @@
     "send": "Enviar",
     "return_to": "Voltar a",
     "home": "home",
+    "changed_password": "Senha alterada com sucesso!",
     "password": "Senha",
     "confirm_password": "Confirmar Senha",
     "pick_a_password": "Defina uma senha",
-    "at_least_one_uppercase":"Uma letra  maiúscula",
-    "at_least_one_numeric":"Um número",
-    "at_least_one_special_characters":"Um caractere especial",
+    "at_least_one_uppercase": "Uma letra  maiúscula",
+    "at_least_one_numeric": "Um número",
+    "at_least_one_special_characters": "Um caractere especial",
     "at_least_eight_characters": "8 caracteres",
-    "choose_a_password":"Coloque uma senha",
-    "too_weak":"Senha fraca",
+    "choose_a_password": "Coloque uma senha",
+    "too_weak": "Senha fraca",
     "average": "Senha mediana",
-    "strong_password":"Senha forte"
+    "strong_password": "Senha forte"
   },
-
   "home": {
     "login": "login",
     "logout": "Encerrar sessão",
@@ -90,14 +90,12 @@
     "looking_for_a_lawyer": "Procurando um Advogado?",
     "advogapp_helps_you_find_the_lawyer_for_your_case": "O Advogapp te ajuda a encontrar o advogado para o seu caso!"
   },
-
   "not_found": {
     "oops": "Oops...",
     "erro404": "404",
     "page_not_found": "Pagina não encontrada",
     "return_to_home_page": "Voltar a pagina incial"
   },
-
   "toggle_menu": {
     "home": "Início",
     "profile": "Perfil",
@@ -105,7 +103,6 @@
     "logout": "Sair",
     "menu": "Menu"
   },
-
   "lawyer_profile": {
     "title": "Perfil",
     "user_name": "Nome de usuário",
@@ -126,9 +123,7 @@
     "services": "Serviços",
     "add_a_service": "Adicione um serviço",
     "concatc_email": "Email para contato"
-
   },
-
   "user_profile": {
     "title": "Perfil",
     "become_one_of_lawyers": "Seja um de nossos advogados!",

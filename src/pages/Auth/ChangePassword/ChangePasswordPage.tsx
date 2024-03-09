@@ -8,12 +8,18 @@ import { Divider } from 'primereact/divider'
 import { Password } from 'primereact/password'
 import { classNames } from 'primereact/utils'
 import { Controller, useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { useGetParams } from '@utils/hooks/useGetParams.ts'
+import { postResetPassword } from '@pages/Auth/ChangePassword/ChangePasswordService.ts'
+import { showToastSuccess } from '@components/GlobalToast'
 
 export const ChangePasswordPage = () => {
   const changePasswordI18n = getI18n('change_password')
   const navigate = useNavigate()
+  const params = useGetParams()
+  if (!params) return <Navigate to="/login" />
 
+  const { mutateAsync: resetPassword } = postResetPassword()
   const passwordHeader = <div className="font-bold mb-3">{changePasswordI18n.pick_a_password}</div>
   const passwordFooter = (
     <>
@@ -36,6 +42,12 @@ export const ChangePasswordPage = () => {
   } = useForm()
 
   const onSubmit = (data: any) => {
+    resetPassword({
+      token: atob(params),
+      password: data?.password,
+    }).then(() => {
+      showToastSuccess(changePasswordI18n?.changed_password)
+    })
     // colocar a nova requisição aqui
     //   const request: Register = {
     //     email: data?.email,

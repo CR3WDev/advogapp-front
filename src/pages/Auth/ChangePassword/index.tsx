@@ -42,6 +42,7 @@ export const ChangePasswordPage = () => {
           <div className=" mb-3 text-center">
             <span>{changePasswordI18n.description}</span>
           </div>
+
           <div className=" mb-3">
             <InputText
               className={classNames('', {
